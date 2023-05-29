@@ -62,19 +62,14 @@ const getAverageInfo = (key) => {
   });
   return total === 0 ? '-' : Math.floor(total / comments.value.length);
 };
-if (useCommentStore()) {
-  onMounted(async () => {
-    try {
-      const route = useRoute();
-      await getComments(route.params.id);
-      averageStoreInfo.value.averageDays = getAverageInfo('workDays');
-      averageStoreInfo.value.averageHours = getAverageInfo('workHours');
-      averageStoreInfo.value.averageScore = getAverageInfo('score');
-      console.log('商店', store, '評論', comments);
-    } catch (error) {
-      console.log(error);
-    }
-  });
-}
+
+onMounted(async () => {
+  const route = useRoute();
+  await getComments(route.params.id);
+  averageStoreInfo.value.averageDays = getAverageInfo('workDays');
+  averageStoreInfo.value.averageHours = getAverageInfo('workHours');
+  averageStoreInfo.value.averageScore = getAverageInfo('score');
+  console.log('商店', store, '評論', comments);
+});
 
 </script>
