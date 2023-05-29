@@ -1,0 +1,177 @@
+$theme-color: (
+  primary: #088f6a,
+  accent: #f48c2b,
+  grey: #626c6d,
+  dark: #111212
+);
+
+$text-align: center, left, right;
+@each $side in $text-align {
+  .text-#{$side} {
+    text-align: $side;
+  }
+}
+
+@each $key, $value in $theme-color {
+  .text-#{'#{$key}'} {
+    color: $value;
+  }
+}
+
+%reset-space {
+  margin: 0;
+  padding: 0;
+}
+
+$font-size: (
+  h1: 40px,
+  h2: 32px,
+  h3: 24px,
+  h4: 20px,
+  h5: 16px,
+  p: 16px
+);
+
+@each $key, $value in $font-size {
+  @if ($key==p) {
+    #{$key} {
+      font-size: $value;
+      @extend %reset-space;
+    }
+  } @else {
+    #{$key} {
+      font-size: $value;
+      font-weight: bold;
+      @extend %reset-space;
+    }
+  }
+}
+
+$breakpoint: (
+  xs: 0px,
+  sm: 576px,
+  md: 768px,
+  xl: 1200px
+);
+$side: (t, b, s, e, x, y, '');
+$base-size: 16px;
+$size: (
+  0: $base-size * 0,
+  1: $base-size * 0.5,
+  2: $base-size * 1,
+  3: $base-size * 1.25,
+  4: $base-size * 2.5,
+  5: $base-size * 4,
+  6: $base-size * 5,
+  7: $base-size * 7.5
+);
+$property: (
+  p: padding,
+  m: margin
+);
+
+@mixin generate($pro, $side, $sizeKey) {
+  $innerpro: map-get($property, $pro);
+  @if ($side== '') {
+    #{$innerpro}: map-get($size, $sizeKey);
+  } @else if($side== t) {
+    #{$innerpro}-top: map-get($size, $sizeKey);
+  } @else if($side== b) {
+    #{$innerpro}-bottom: map-get($size, $sizeKey);
+  } @else if($side== s) {
+    #{$innerpro}-left: map-get($size, $sizeKey);
+  } @else if($side== e) {
+    #{$innerpro}-right: map-get($size, $sizeKey);
+  } @else if($side== x) {
+    #{$innerpro}-left: map-get($size, $sizeKey);
+    #{$innerpro}-right: map-get($size, $sizeKey);
+  } @else if($side== y) {
+    #{$innerpro}-top: map-get($size, $sizeKey);
+    #{$innerpro}-bottom: map-get($size, $sizeKey);
+  }
+}
+
+@each $pointKey, $pointValue in $breakpoint {
+  @if ($pointValue==0px) {
+    @each $proKey, $proValue in $property {
+      @each $side in $side {
+        @each $sizeKey, $sizeValue in $size {
+          .#{$proKey}#{$side}-#{$sizeKey} {
+            @include generate($proKey, $side, $sizeKey);
+          }
+        }
+      }
+    }
+  } @else {
+    @media screen and (min-width: $pointValue) {
+      @each $proKey, $proValue in $property {
+        @each $side in $side {
+          @each $sizeKey, $sizeValue in $size {
+            .#{$proKey}#{$side}-#{$pointKey}-#{$sizeKey} {
+              @include generate($proKey, $side, $sizeKey);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-style {
+  background-color: #f8f8f8;
+  height: 100vh;
+}
+.rounded {
+  border-radius: 8px;
+}
+
+.router-link {
+  text-decoration: none;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin-bottom: 8px;
+}
+
+.card-tag {
+  border-radius: 50px;
+  padding: 8px 16px;
+  text-align: center;
+  color: white;
+  background: #f48c2b;
+  display: inline-block;
+  h5,
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.card-light-tag {
+  border-radius: 50px;
+  padding: 8px 16px;
+  text-align: center;
+  color: #f48c2b;
+  background: #fcf3e1;
+  display: inline-block;
+  h5,
+  p {
+    margin-bottom: 0;
+  }
+}

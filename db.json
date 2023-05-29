@@ -1,0 +1,390 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Hedy",
+      "imgUrl": "https://images.unsplash.com/photo-1491616569293-e27f7f4cd41a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80",
+      "email": "hedy@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Johnny",
+      "imgUrl": "https://images.unsplash.com/photo-1601482918584-4b194a7f2200?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "email": "hedy@gmail.com"
+    }
+  ],
+  "stores": [
+    {
+      "id": 1,
+      "name": "台北行旅01",
+      "imgUrl": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "address": "116 台北市文山區景中街30巷6號",
+      "tel": "02-2688-4528"
+    },
+    {
+      "id": 2,
+      "name": "台北行旅02",
+      "imgUrl": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "address": "116 台北市文山區景中街30巷6號",
+      "tel": "02-2688-4528"
+    },
+    {
+      "id": 3,
+      "name": "台北行旅03",
+      "imgUrl": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "address": "116 台北市文山區景中街30巷6號",
+      "tel": "02-2688-4528"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "storeId": 1,
+      "userId": 1,
+      "anonymous": false,
+      "createDate": 1684831753,
+      "workHours": 3,
+      "workDays": 14,
+      "otherworkDays": 0,
+      "advantages": [
+        "店家環境佳",
+        "居住環境佳"
+      ],
+      "disadvantages": [
+        "換宿制度不完整"
+      ],
+      "score": 1,
+      "description": "在換宿旅行中，我認識了許多來自世界各地的旅人，和他們分享了不同文化和故事。透過換宿，我體驗到當地人的生活方式，也探索了當地的美食和景點。換宿旅行讓我擁有了一個獨特的旅行經驗，讓我感受到旅行的魅力與樂趣。",
+      "like": [],
+      "dislike": [],
+      "replies": []
+    },
+    {
+      "id": "2",
+      "storeId": 1,
+      "userId": 1,
+      "anonymous": false,
+      "createDate": 1684831753,
+      "workHours": 3,
+      "workDays": 14,
+      "advantages": [
+        "店家環境佳",
+        "居住環境佳"
+      ],
+      "disadvantages": [
+        "換宿制度不完整"
+      ],
+      "score": 1,
+      "description": "在換宿旅行中，我認識了許多來自世界各地的旅人，和他們分享了不同文化和故事。透過換宿，我體驗到當地人的生活方式，也探索了當地的美食和景點。換宿旅行讓我擁有了一個獨特的旅行經驗，讓我感受到旅行的魅力與樂趣。",
+      "like": [],
+      "dislike": [],
+      "replies": []
+    },
+    {
+      "id": "3",
+      "storeId": 1,
+      "userId": 1,
+      "anonymous": false,
+      "createDate": 1684831753,
+      "workHours": 1,
+      "workDays": 10,
+      "advantages": [
+        "店家環境佳",
+        "居住環境佳"
+      ],
+      "disadvantages": [
+        "換宿制度不完整"
+      ],
+      "score": 4,
+      "description": "在換宿旅行中，我認識了許多來自世界各地的旅人，和他們分享了不同文化和故事。透過換宿，我體驗到當地人的生活方式，也探索了當地的美食和景點。換宿旅行讓我擁有了一個獨特的旅行經驗，讓我感受到旅行的魅力與樂趣。",
+      "like": [
+        1,
+        2
+      ],
+      "dislike": [],
+      "replies": []
+    },
+    {
+      "id": "4",
+      "storeId": 1,
+      "userId": 2,
+      "anonymous": false,
+      "createDate": 1684831753,
+      "workHours": 9,
+      "workDays": 2,
+      "advantages": [
+        "店家環境佳",
+        "居住環境佳"
+      ],
+      "disadvantages": [
+        "換宿制度不完整"
+      ],
+      "score": 1,
+      "description": "在換宿旅行中，我認識了許多來自世界各地的旅人，和他們分享了不同文化和故事。透過換宿，我體驗到當地人的生活方式，也探索了當地的美食和景點。換宿旅行讓我擁有了一個獨特的旅行經驗，讓我感受到旅行的魅力與樂趣。",
+      "like": [],
+      "dislike": [
+        1,
+        2
+      ],
+      "replies": []
+    },
+    {
+      "id": "5",
+      "storeId": 1,
+      "userId": 2,
+      "anonymous": false,
+      "createDate": 1684831753,
+      "workHours": 9,
+      "workDays": 2,
+      "advantages": [
+        "店家環境佳",
+        "居住環境佳"
+      ],
+      "disadvantages": [
+        "換宿制度不完整"
+      ],
+      "score": 1,
+      "description": "在換宿旅行中，我認識了許多來自世界各地的旅人，和他們分享了不同文化和故事。透過換宿，我體驗到當地人的生活方式，也探索了當地的美食和景點。換宿旅行讓我擁有了一個獨特的旅行經驗，讓我感受到旅行的魅力與樂趣。",
+      "like": [],
+      "dislike": [
+        1,
+        2
+      ],
+      "replies": []
+    },
+    {
+      "id": "6",
+      "storeId": 1,
+      "userId": 2,
+      "anonymous": false,
+      "createDate": 1684831753,
+      "workHours": 9,
+      "workDays": 2,
+      "advantages": [
+        "店家環境佳",
+        "居住環境佳"
+      ],
+      "disadvantages": [
+        "換宿制度不完整"
+      ],
+      "score": 1,
+      "description": "在換宿旅行中，我認識了許多來自世界各地的旅人，和他們分享了不同文化和故事。透過換宿，我體驗到當地人的生活方式，也探索了當地的美食和景點。換宿旅行讓我擁有了一個獨特的旅行經驗，讓我感受到旅行的魅力與樂趣。",
+      "like": [],
+      "dislike": [
+        1,
+        2
+      ],
+      "replies": []
+    },
+    {
+      "id": "7",
+      "storeId": 1,
+      "userId": 2,
+      "anonymous": false,
+      "createDate": 1684831753,
+      "workHours": 9,
+      "workDays": 2,
+      "advantages": [
+        "店家環境佳",
+        "居住環境佳"
+      ],
+      "disadvantages": [
+        "換宿制度不完整"
+      ],
+      "score": 1,
+      "description": "在換宿旅行中，我認識了許多來自世界各地的旅人，和他們分享了不同文化和故事。透過換宿，我體驗到當地人的生活方式，也探索了當地的美食和景點。換宿旅行讓我擁有了一個獨特的旅行經驗，讓我感受到旅行的魅力與樂趣。",
+      "like": [],
+      "dislike": [
+        1,
+        2
+      ],
+      "replies": []
+    },
+    {
+      "id": "8",
+      "storeId": 1,
+      "userId": 2,
+      "anonymous": false,
+      "createDate": 1684831753,
+      "workHours": 9,
+      "workDays": 2,
+      "advantages": [
+        "店家環境佳",
+        "居住環境佳"
+      ],
+      "disadvantages": [
+        "換宿制度不完整"
+      ],
+      "score": 1,
+      "description": "在換宿旅行中，我認識了許多來自世界各地的旅人，和他們分享了不同文化和故事。透過換宿，我體驗到當地人的生活方式，也探索了當地的美食和景點。換宿旅行讓我擁有了一個獨特的旅行經驗，讓我感受到旅行的魅力與樂趣。",
+      "like": [],
+      "dislike": [
+        1,
+        2
+      ],
+      "replies": []
+    },
+    {
+      "storeId": 1,
+      "userId": null,
+      "anonymous": true,
+      "createDate": 1685107178664,
+      "workHours": 1,
+      "workDays": "二週",
+      "otherworkDays": 0,
+      "advantages": [
+        "店家環境佳",
+        "交通位置佳"
+      ],
+      "disadvantages": [],
+      "score": 5,
+      "description": "",
+      "like": [],
+      "dislike": [],
+      "replies": [],
+      "hoildayYear": 2023,
+      "id": "0Q2vyjy"
+    },
+    {
+      "storeId": 1,
+      "userId": null,
+      "anonymous": true,
+      "createDate": 1685107184914,
+      "workHours": 1,
+      "workDays": "二週",
+      "otherworkDays": 0,
+      "advantages": [
+        "店家環境佳",
+        "交通位置佳"
+      ],
+      "disadvantages": [],
+      "score": 5,
+      "description": "",
+      "like": [],
+      "dislike": [],
+      "replies": [],
+      "hoildayYear": 2023,
+      "id": "OY0u2cm"
+    },
+    {
+      "storeId": 1,
+      "userId": null,
+      "anonymous": true,
+      "createDate": 1685107189774,
+      "workHours": 1,
+      "workDays": "二週",
+      "otherworkDays": 0,
+      "advantages": [
+        "店家環境佳",
+        "交通位置佳"
+      ],
+      "disadvantages": [],
+      "score": 5,
+      "description": "cwedew",
+      "like": [],
+      "dislike": [],
+      "replies": [],
+      "hoildayYear": 2023,
+      "id": "XnbucJf"
+    },
+    {
+      "storeId": 1,
+      "userId": null,
+      "anonymous": true,
+      "createDate": 1685107246744,
+      "workHours": 3,
+      "workDays": "一個月",
+      "otherworkDays": 0,
+      "advantages": [
+        "店家環境佳",
+        "交通位置佳"
+      ],
+      "disadvantages": [],
+      "score": 4,
+      "description": "測試測試",
+      "like": [],
+      "dislike": [],
+      "replies": [],
+      "hoildayYear": 2021,
+      "id": "3YLVR8X"
+    },
+    {
+      "storeId": 1,
+      "userId": null,
+      "anonymous": true,
+      "createDate": 1685282921658,
+      "workHours": 1,
+      "workDays": "一週",
+      "otherworkDays": 0,
+      "advantages": [
+        "補助餐費 / 零用金"
+      ],
+      "disadvantages": [],
+      "score": 5,
+      "description": "",
+      "like": [],
+      "dislike": [],
+      "replies": [],
+      "hoildayYear": 2023,
+      "disAdvantages": [
+        "換宿狀況與描述不符"
+      ],
+      "id": "e6G6MBp"
+    },
+    {
+      "storeId": 1,
+      "userId": null,
+      "anonymous": true,
+      "createDate": 1685282926903,
+      "workHours": 1,
+      "workDays": "一週",
+      "otherworkDays": 0,
+      "advantages": [
+        "補助餐費 / 零用金"
+      ],
+      "disadvantages": [],
+      "score": 5,
+      "description": "",
+      "like": [],
+      "dislike": [],
+      "replies": [],
+      "hoildayYear": 2023,
+      "disAdvantages": [
+        "換宿狀況與描述不符"
+      ],
+      "id": "9MpxxCo"
+    },
+    {
+      "storeId": 1,
+      "userId": null,
+      "anonymous": true,
+      "createDate": 1685282932485,
+      "workHours": 1,
+      "workDays": "一週",
+      "otherworkDays": 0,
+      "advantages": [
+        "補助餐費 / 零用金"
+      ],
+      "disadvantages": [],
+      "score": 5,
+      "description": "",
+      "like": [],
+      "dislike": [],
+      "replies": [],
+      "hoildayYear": 2023,
+      "disAdvantages": [
+        "換宿狀況與描述不符"
+      ],
+      "id": "c0JvwtV"
+    }
+  ],
+  "replies": [
+    {
+      "id": 1,
+      "userId": 1,
+      "anonymous": false,
+      "commentId": 1,
+      "content": "感謝分享"
+    }
+  ]
+}
