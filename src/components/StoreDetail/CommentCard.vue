@@ -61,6 +61,21 @@
           comment.replies.length > 0 ? comment.dislike.length : ' '
         }}</span
       >
+
+      <el-dropdown>
+        <span >
+          <div style="height: 22px ;width: 29px;" class="d-flex align-center">
+            <font-awesome-icon :icon="['fas', 'ellipsis-vertical']" />
+          </div>
+        </span>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item @click="editModal">編輯</el-dropdown-item>
+            <el-dropdown-item @click="deleteModal">刪除</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+
     </div>
   </el-card>
 </template>
@@ -79,6 +94,14 @@ const getUser = () => {
   axios.get('http://localhost:3000/users').then((res) => {
     users.value = res.data;
   });
+};
+
+const emits = defineEmits(['editModal', 'deleteModal']);
+const editModal = () => {
+  emits('editModal', 'edit');
+};
+const deleteModal = () => {
+  emits('deleteModal', 'delete');
 };
 
 // user name

@@ -1,8 +1,5 @@
 <template style="width: 100%">
-{{ props }}
-{{ store }}
-  <!-- 外層{{ modalVisible }}
-  <CommentModal :modalVisible="modalVisible" @closeModal="changeModal"></CommentModal>
+
   <el-card>
     <div class="d-flex align-center mb-2">
       <div class="me-2">
@@ -43,17 +40,16 @@
       type="primary"
       style="display: block; margin: auto"
       size="large"
-      @click="modalVisible = true"
+      @click="openModal"
       >撰寫貼文</el-button
     >
-  </el-card> -->
+  </el-card>
 </template>
 
 <script setup>
-// import { ref } from 'vue';
-// import AverageRate from './AverageRate.vue';
-// import CommentModal from './CommentModal.vue';
+import AverageRate from './AverageRate.vue';
 
+const emits = defineEmits(['openModal']);
 const props = defineProps({
   store: {
     type: Object,
@@ -62,9 +58,8 @@ const props = defineProps({
     type: Object,
   },
 });
+const openModal = () => {
+  emits('openModal', true);
+};
 
-// const modalVisible = ref(false);
-// const changeModal = (status) => {
-//   modalVisible.value = status;
-// };
 </script>

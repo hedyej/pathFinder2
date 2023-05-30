@@ -1,12 +1,11 @@
 <template>
-    {{ dialogVisible }}
-    <el-dialog v-model="dialogVisible" width="60%" :before-close="closeModal">
+    <el-dialog v-model="modalVisible" width="30%" :before-close="handleClose">
       <h2 class="text-dark">
         評論撰寫 <span class="text-grey">({{ nowPage }}/2)</span>
       </h2>
       <div v-if="nowPage === 1">
         <h5 class="mb-4">填寫基本資訊</h5>
-        <el-form label-position="top" label-width="100px" :model="form">
+        <el-form label-position="top" label-width="100px" :model="form" ref="formRef">
           <el-form-item label="評論身份">
             <el-radio-group v-model="anonymous">
               <el-radio-button label="匿名" />
@@ -87,7 +86,7 @@
         </div>
         <div v-else>
           <el-button @click="nowPage = 1"> 上一頁 </el-button>
-          <el-button type="primary" @click="submitComment"> 送出</el-button>
+          <el-button type="primary" @click="submitComment" > 送出</el-button>
         </div>
       </template>
     </el-dialog>
@@ -97,22 +96,7 @@
 import { watch, reactive, ref } from 'vue';
 import axios from 'axios';
 
-// "comments": [
-//     {
-//       "storeId": 1,
-//       "userId": 1,
-//       "anonymous": false,
-//       "createDate": 1684831753,
-//       "workHours": 3,
-//       "workDays": 14,
-//       "advantages": ["店家環境佳", "居住環境佳"],
-//       "disadvantages": ["換宿制度不完整"],
-//       "score": 1,
-//       "description": "在換宿旅行中，我認識了許多來自世界各地的旅人，和他們分享了不同文化。",
-//       "like": [],
-//       "dislike": [],
-//       "replies": []
-//     },
+import { ElMessageBox } from 'element-plus';
 
 // form
 const form = reactive({
@@ -248,6 +232,12 @@ watch(disAdvantageArr, () => {
   }
 });
 
+// reset modal
+// const resetForm = (formEl) => {
+//   if (!formEl) return;
+//   formEl.resetFields();
+// };
+
 // modal page
 const nowPage = ref(1);
 
@@ -256,18 +246,29 @@ const props = defineProps({
   modalVisible: Boolean,
 });
 const emits = defineEmits(['closeModal']);
-const dialogVisible = ref(false);
+const modalVisible = ref(false);
 watch(props, (prop) => {
-  dialogVisible.value = prop.modalVisible;
+  modalVisible.value = prop.modalVisible;
 });
 const closeModal = () => {
-  dialogVisible.value = false;
+  modalVisible.value = false;
   emits('closeModal', false);
 };
 
 // submitComment
-const submitComment = () => {
+const submitComment = async () => {
   form.createDate = new Date().getTime();
-  axios.post('http://localhost:3000/comments', JSON.parse(JSON.stringify(form))).then((res) => res.data);
+  await axios.post('/comments', form).then((res) => res.data);
+  await emits('closeModal', false);
+  closeModal();
+};
+
+const handleClose = (done) => {
+  ElMessageBox.confirm('資料將不會保留，確定離開嗎？')
+    .then(() => {
+      done();
+      closeModal();
+      nowPage.value = 1;
+    });
 };
 </script>
