@@ -1,5 +1,5 @@
 <template>
-    <CommentModal :modalVisible="modalVisible" @closeModal="showModal"></CommentModal>
+    <CommentModal ></CommentModal>
   <WrapContainer>
     <router-link :to="{ name: 'searchStore' }" class="text-primary bold router-link mb-1"
       ><font-awesome-icon :icon="['fas', 'arrow-left']" class="me-1" />返回</router-link
@@ -8,7 +8,7 @@
     <el-row :gutter="20" class="mt-2">
       <el-col :xs="24" :md="8">
         <StoreCard :averageStoreInfo="averageStoreInfo" :store="store"
-        @openModal="showModal"></StoreCard
+        ></StoreCard
       ></el-col>
 
       <el-col :xs="24" :md="16">
@@ -17,8 +17,7 @@
           <FilterSelection @selectVal="getNowComments"></FilterSelection>
         </div>
 
-        <CommentCard :comments="comments" @deleteModal="showModal"
-         @editModal="showModal"> </CommentCard>
+        <CommentCard :comments="comments"> </CommentCard>
 
         <el-pagination background layout="prev, pager, next"
         :total="allComments.length"  v-model:current-page="nowPage"
@@ -35,15 +34,16 @@ import {
   ref, reactive, onMounted, watch,
 } from 'vue';
 import { useRoute } from 'vue-router';
-import StoreCard from '@/components/StoreDetail/StoreCard.vue';
+// import { useCommentModalStore } from '@/stores/useCommentModalStore';
 
 import axios from 'axios';
+import StoreCard from '@/components/StoreDetail/StoreCard.vue';
 import WrapContainer from '../../global/WrapContainer.vue';
 import CommentCard from '../../StoreDetail/CommentCard.vue';
 import FilterSelection from '../../StoreDetail/FilterSelection.vue';
 import CommentModal from '../../StoreDetail/CommentModal.vue';
 
-// common data
+// route
 const route = useRoute();
 const storeId = route.params.id;
 
@@ -54,12 +54,19 @@ const nowSorter = ref('createDate');
 const nowType = ref('desc');
 
 watch(nowPage, (newPage) => {
-  axios.get(`stores/${storeId}/comments?_start=${newPage}&_end=${newPage + 10}&_sort=${nowType.value}&_order=${nowSorter.value.vlaue}`).then(
-    (res) => {
-      comments.value = res.data;
-      console.log(newPage);
-    },
-  );
+  if (newPage === 1) {
+    axios.get(`stores/${storeId}/comments?_start=${newPage}&_end=${newPage + 10}&_sort=${nowType.value}&_order=${nowSorter.value}`).then(
+      (res) => {
+        comments.value = res.data;
+      },
+    );
+  } else {
+    axios.get(`stores/${storeId}/comments?_start=${(newPage - 1) * 10}&_end=${newPage * 10 + 1}&_sort=${nowType.value}&_order=${nowSorter.value}`).then(
+      (res) => {
+        comments.value = res.data;
+      },
+    );
+  }
 });
 
 const pageSorter = (type, page, sorter) => {
@@ -88,7 +95,7 @@ const getNowComments = (sorter) => {
 // store info
 const store = ref({});
 const getStore = () => {
-  axios.get(`/stores/${route.params.id}`).then((res) => { store.value = res.data; });
+  axios.get(`/stores/${storeId}`).then((res) => { store.value = res.data; });
 };
 
 // store average info
@@ -105,29 +112,30 @@ const getAverageInfo = (key) => {
 
 const getAllComments = () => {
   axios.get(`stores/${storeId}/comments`).then((res) => {
-    allComments.value = res.data; averageStoreInfo.averageDays = getAverageInfo('workDays');
+    allComments.value = res.data;
+    averageStoreInfo.averageDays = getAverageInfo('workDays');
     averageStoreInfo.averageHours = getAverageInfo('workHours');
     averageStoreInfo.averageScore = getAverageInfo('score');
   });
 };
 
+// init
+
 const init = async () => {
   await getStore();
   await getAllComments();
   await getNowComments('DateOrderAsc');
-  // averageStoreInfo.averageDays = getAverageInfo('workDays');
+  //   averageStoreInfo.averageDays = getAverageInfo('workDays');
   //   averageStoreInfo.averageHours = getAverageInfo('workHours');
   //   averageStoreInfo.averageScore = getAverageInfo('score');
 };
 
 onMounted(() => { init(); });
 
-// modal
-const modalVisible = ref(false);
-const showModal = (status) => {
-  modalVisible.value = status;
-};
-watch(modalVisible, () => {
-  init();
-});
+// const commentModalStore = useCommentModalStore();
+// const isOpenComputed = computed(() => commentModalStore.isOpen);
+// watch(isOpenComputed, () => {
+//   init();
+// });
+
 </script>

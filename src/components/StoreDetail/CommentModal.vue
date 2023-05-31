@@ -1,7 +1,7 @@
 <template>
-    <el-dialog v-model="modalVisible" width="30%" :before-close="handleClose">
+    <el-dialog v-model="isOpen" width="30%" :before-close="handleClose">
       <h2 class="text-dark">
-        評論撰寫 <span class="text-grey">({{ nowPage }}/2)</span>
+        評論撰寫 <span class="text-grey">({{ nowPage}}/2)</span>
       </h2>
       <div v-if="nowPage === 1">
         <h5 class="mb-4">填寫基本資訊</h5>
@@ -81,40 +81,31 @@
         </el-form>
       </div>
       <template #footer>
-        <div v-if="nowPage === 1">
+        <div v-if="nowPage=== 1">
           <el-button type="primary" @click="nowPage = 2"> 下一頁 </el-button>
         </div>
         <div v-else>
-          <el-button @click="nowPage = 1"> 上一頁 </el-button>
-          <el-button type="primary" @click="submitComment" > 送出</el-button>
+          <el-button @click="changePage(1)"> 上一頁 </el-button>
+          <el-button type="primary" @click="submit" > 送出</el-button>
         </div>
       </template>
     </el-dialog>
   </template>
 
 <script setup>
-import { watch, reactive, ref } from 'vue';
-import axios from 'axios';
-
+import {
+  watch, reactive, ref,
+} from 'vue';
 import { ElMessageBox } from 'element-plus';
+import { useCommentModalStore } from '@/stores/useCommentModalStore';
+import { storeToRefs } from 'pinia';
 
 // form
-const form = reactive({
-  storeId: 1,
-  userId: null,
-  anonymous: true,
-  createDate: 0,
-  workHours: 0,
-  workDays: '',
-  otherworkDays: 0,
-  advantages: [],
-  disadvantages: [],
-  score: 0,
-  description: '',
-  like: [],
-  dislike: [],
-  replies: [],
-});
+const commentModalStore = useCommentModalStore();
+const {
+  nowPage, form, isOpen,
+} = storeToRefs(commentModalStore);
+const { submitComment } = commentModalStore;
 
 //
 const anonymous = ref('匿名');
@@ -232,35 +223,16 @@ watch(disAdvantageArr, () => {
   }
 });
 
-// reset modal
-// const resetForm = (formEl) => {
-//   if (!formEl) return;
-//   formEl.resetFields();
-// };
-
-// modal page
-const nowPage = ref(1);
-
 // close modal
-const props = defineProps({
-  modalVisible: Boolean,
-});
-const emits = defineEmits(['closeModal']);
-const modalVisible = ref(false);
-watch(props, (prop) => {
-  modalVisible.value = prop.modalVisible;
-});
 const closeModal = () => {
-  modalVisible.value = false;
-  emits('closeModal', false);
+  commentModalStore.$reset();
 };
 
 // submitComment
-const submitComment = async () => {
+const submit = async () => {
   form.createDate = new Date().getTime();
-  await axios.post('/comments', form).then((res) => res.data);
-  await emits('closeModal', false);
-  closeModal();
+  await submitComment(form.value, form.value.id);
+  await closeModal();
 };
 
 const handleClose = (done) => {
@@ -268,7 +240,6 @@ const handleClose = (done) => {
     .then(() => {
       done();
       closeModal();
-      nowPage.value = 1;
     });
 };
 </script>

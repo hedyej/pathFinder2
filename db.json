@@ -38,7 +38,7 @@
   ],
   "comments": [
     {
-      "id": "1",
+      "id": 1,
       "storeId": 1,
       "userId": 1,
       "anonymous": false,
@@ -60,34 +60,13 @@
       "replies": []
     },
     {
-      "id": "2",
+      "id": 3,
       "storeId": 1,
       "userId": 1,
       "anonymous": false,
       "createDate": 1684831753,
-      "workHours": 3,
-      "workDays": 14,
-      "advantages": [
-        "店家環境佳",
-        "居住環境佳"
-      ],
-      "disadvantages": [
-        "換宿制度不完整"
-      ],
-      "score": 1,
-      "description": "在換宿旅行中，我認識了許多來自世界各地的旅人，和他們分享了不同文化和故事。透過換宿，我體驗到當地人的生活方式，也探索了當地的美食和景點。換宿旅行讓我擁有了一個獨特的旅行經驗，讓我感受到旅行的魅力與樂趣。",
-      "like": [],
-      "dislike": [],
-      "replies": []
-    },
-    {
-      "id": "3",
-      "storeId": 1,
-      "userId": 1,
-      "anonymous": false,
-      "createDate": 1684831753,
-      "workHours": 1,
-      "workDays": 10,
+      "workHours": 5,
+      "workDays": "三個月",
       "advantages": [
         "店家環境佳",
         "居住環境佳"
@@ -96,7 +75,7 @@
         "換宿制度不完整"
       ],
       "score": 4,
-      "description": "在換宿旅行中，我認識了許多來自世界各地的旅人，和他們分享了不同文化和故事。透過換宿，我體驗到當地人的生活方式，也探索了當地的美食和景點。換宿旅行讓我擁有了一個獨特的旅行經驗，讓我感受到旅行的魅力與樂趣。",
+      "description": "???~~~~~",
       "like": [
         1,
         2
@@ -105,7 +84,31 @@
       "replies": []
     },
     {
-      "id": "4",
+      "id": 4,
+      "storeId": 1,
+      "userId": 2,
+      "anonymous": false,
+      "createDate": 1684831753,
+      "workHours": 9,
+      "workDays": 2,
+      "advantages": [
+        "店家環境佳",
+        "居住環境佳"
+      ],
+      "disadvantages": [
+        "換宿制度不完整"
+      ],
+      "score": 1,
+      "description": "etstestete!!!",
+      "like": [],
+      "dislike": [
+        1,
+        2
+      ],
+      "replies": []
+    },
+    {
+      "id": 6,
       "storeId": 1,
       "userId": 2,
       "anonymous": false,
@@ -129,7 +132,7 @@
       "replies": []
     },
     {
-      "id": "5",
+      "id": 7,
       "storeId": 1,
       "userId": 2,
       "anonymous": false,
@@ -153,383 +156,106 @@
       "replies": []
     },
     {
-      "id": "6",
-      "storeId": 1,
-      "userId": 2,
-      "anonymous": false,
-      "createDate": 1684831753,
-      "workHours": 9,
-      "workDays": 2,
-      "advantages": [
-        "店家環境佳",
-        "居住環境佳"
-      ],
-      "disadvantages": [
-        "換宿制度不完整"
-      ],
-      "score": 1,
-      "description": "在換宿旅行中，我認識了許多來自世界各地的旅人，和他們分享了不同文化和故事。透過換宿，我體驗到當地人的生活方式，也探索了當地的美食和景點。換宿旅行讓我擁有了一個獨特的旅行經驗，讓我感受到旅行的魅力與樂趣。",
-      "like": [],
-      "dislike": [
-        1,
-        2
-      ],
-      "replies": []
-    },
-    {
-      "id": "7",
-      "storeId": 1,
-      "userId": 2,
-      "anonymous": false,
-      "createDate": 1684831753,
-      "workHours": 9,
-      "workDays": 2,
-      "advantages": [
-        "店家環境佳",
-        "居住環境佳"
-      ],
-      "disadvantages": [
-        "換宿制度不完整"
-      ],
-      "score": 1,
-      "description": "在換宿旅行中，我認識了許多來自世界各地的旅人，和他們分享了不同文化和故事。透過換宿，我體驗到當地人的生活方式，也探索了當地的美食和景點。換宿旅行讓我擁有了一個獨特的旅行經驗，讓我感受到旅行的魅力與樂趣。",
-      "like": [],
-      "dislike": [
-        1,
-        2
-      ],
-      "replies": []
-    },
-    {
-      "id": "8",
-      "storeId": 1,
-      "userId": 2,
-      "anonymous": false,
-      "createDate": 1684831753,
-      "workHours": 9,
-      "workDays": 2,
-      "advantages": [
-        "店家環境佳",
-        "居住環境佳"
-      ],
-      "disadvantages": [
-        "換宿制度不完整"
-      ],
-      "score": 1,
-      "description": "在換宿旅行中，我認識了許多來自世界各地的旅人，和他們分享了不同文化和故事。透過換宿，我體驗到當地人的生活方式，也探索了當地的美食和景點。換宿旅行讓我擁有了一個獨特的旅行經驗，讓我感受到旅行的魅力與樂趣。",
-      "like": [],
-      "dislike": [
-        1,
-        2
-      ],
-      "replies": []
-    },
-    {
-      "storeId": 1,
+      "storeId": "1",
       "userId": null,
       "anonymous": true,
-      "createDate": 1685107178664,
-      "workHours": 1,
-      "workDays": "二週",
+      "createDate": 0,
+      "workHours": 0,
+      "workDays": "",
       "otherworkDays": 0,
-      "advantages": [
-        "店家環境佳",
-        "交通位置佳"
-      ],
+      "advantages": [],
+      "disadvantages": [],
+      "score": 5,
+      "description": "11",
+      "like": [],
+      "dislike": [],
+      "replies": [],
+      "id": "c3Igsik"
+    },
+    {
+      "storeId": "1",
+      "userId": null,
+      "anonymous": true,
+      "createDate": 0,
+      "workHours": 0,
+      "workDays": "",
+      "otherworkDays": 0,
+      "advantages": [],
       "disadvantages": [],
       "score": 5,
       "description": "",
       "like": [],
       "dislike": [],
       "replies": [],
-      "hoildayYear": 2023,
-      "id": "0Q2vyjy"
+      "id": 8
     },
     {
-      "storeId": 1,
+      "storeId": "1",
       "userId": null,
       "anonymous": true,
-      "createDate": 1685107184914,
-      "workHours": 1,
-      "workDays": "二週",
-      "otherworkDays": 0,
-      "advantages": [
-        "店家環境佳",
-        "交通位置佳"
-      ],
-      "disadvantages": [],
-      "score": 5,
-      "description": "",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "hoildayYear": 2023,
-      "id": "OY0u2cm"
-    },
-    {
-      "storeId": 1,
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685107189774,
-      "workHours": 1,
-      "workDays": "二週",
-      "otherworkDays": 0,
-      "advantages": [
-        "店家環境佳",
-        "交通位置佳"
-      ],
-      "disadvantages": [],
-      "score": 5,
-      "description": "cwedew",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "hoildayYear": 2023,
-      "id": "XnbucJf"
-    },
-    {
-      "storeId": 1,
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685107246744,
-      "workHours": 3,
-      "workDays": "一個月",
-      "otherworkDays": 0,
-      "advantages": [
-        "店家環境佳",
-        "交通位置佳"
-      ],
-      "disadvantages": [],
-      "score": 4,
-      "description": "測試測試",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "hoildayYear": 2021,
-      "id": "3YLVR8X"
-    },
-    {
-      "storeId": 1,
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685282921658,
-      "workHours": 1,
-      "workDays": "一週",
-      "otherworkDays": 0,
-      "advantages": [
-        "補助餐費 / 零用金"
-      ],
-      "disadvantages": [],
-      "score": 5,
-      "description": "",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "hoildayYear": 2023,
-      "disAdvantages": [
-        "換宿狀況與描述不符"
-      ],
-      "id": "e6G6MBp"
-    },
-    {
-      "storeId": 1,
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685282926903,
-      "workHours": 1,
-      "workDays": "一週",
-      "otherworkDays": 0,
-      "advantages": [
-        "補助餐費 / 零用金"
-      ],
-      "disadvantages": [],
-      "score": 5,
-      "description": "",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "hoildayYear": 2023,
-      "disAdvantages": [
-        "換宿狀況與描述不符"
-      ],
-      "id": "9MpxxCo"
-    },
-    {
-      "storeId": 1,
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685282932485,
-      "workHours": 1,
-      "workDays": "一週",
-      "otherworkDays": 0,
-      "advantages": [
-        "補助餐費 / 零用金"
-      ],
-      "disadvantages": [],
-      "score": 5,
-      "description": "",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "hoildayYear": 2023,
-      "disAdvantages": [
-        "換宿狀況與描述不符"
-      ],
-      "id": "c0JvwtV"
-    },
-    {
-      "storeId": 1,
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685372890661,
+      "createDate": 0,
       "workHours": 0,
       "workDays": "",
       "otherworkDays": 0,
       "advantages": [],
       "disadvantages": [],
       "score": 0,
-      "description": "",
+      "description": "whyyyy",
       "like": [],
       "dislike": [],
       "replies": [],
-      "id": "q91kkBR"
+      "id": 9
     },
     {
-      "storeId": 1,
+      "storeId": "1",
       "userId": null,
       "anonymous": true,
-      "createDate": 1685377734715,
+      "createDate": 0,
       "workHours": 0,
       "workDays": "",
-      "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
-      "score": 5,
-      "description": "",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "id": "R5g3uOX"
-    },
-    {
-      "storeId": 1,
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685377736917,
-      "workHours": 0,
-      "workDays": "",
-      "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
-      "score": 5,
-      "description": "",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "id": "dunyIUd"
-    },
-    {
-      "storeId": 1,
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685377739747,
-      "workHours": 0,
-      "workDays": "",
-      "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
-      "score": 5,
-      "description": "",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "id": "Ic-Q7O3"
-    },
-    {
-      "storeId": 1,
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685417102521,
-      "workHours": 0,
-      "workDays": "二週",
       "otherworkDays": 0,
       "advantages": [],
       "disadvantages": [],
       "score": 0,
-      "description": "",
+      "description": "testttt1111",
       "like": [],
       "dislike": [],
       "replies": [],
-      "hoildayYear": 2022,
-      "id": "zvCOMft"
+      "id": 10
     },
     {
-      "storeId": 1,
+      "storeId": "1",
       "userId": null,
       "anonymous": true,
-      "createDate": 1685417437721,
-      "workHours": 1,
-      "workDays": "二週",
-      "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
-      "score": 5,
-      "description": "",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "hoildayYear": 2020,
-      "id": "DPtQQD3"
-    },
-    {
-      "storeId": 1,
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685417468097,
+      "createDate": 0,
       "workHours": 0,
-      "workDays": "一週",
+      "workDays": "",
       "otherworkDays": 0,
       "advantages": [],
       "disadvantages": [],
-      "score": 5,
-      "description": "",
+      "score": 0,
+      "description": "~~~",
       "like": [],
       "dislike": [],
       "replies": [],
-      "hoildayYear": 2023,
-      "id": "OQbx58j"
+      "id": 11
     },
     {
-      "storeId": 1,
+      "storeId": "1",
       "userId": null,
       "anonymous": true,
-      "createDate": 1685418528686,
-      "workHours": 2,
-      "workDays": "一週",
+      "createDate": 0,
+      "workHours": 0,
+      "workDays": "",
       "otherworkDays": 0,
-      "advantages": [
-        "職員友善"
-      ],
+      "advantages": [],
       "disadvantages": [],
-      "score": 5,
-      "description": "",
+      "score": 0,
+      "description": "2",
       "like": [],
       "dislike": [],
       "replies": [],
-      "hoildayYear": 2022,
-      "disAdvantages": [
-        "交通位置不便"
-      ],
-      "id": "3Wyg_sg"
-    }
-  ],
-  "replies": [
-    {
-      "id": 1,
-      "userId": 1,
-      "anonymous": false,
-      "commentId": 1,
-      "content": "感謝分享"
+      "id": 12
     }
   ]
 }

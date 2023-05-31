@@ -40,16 +40,20 @@
       type="primary"
       style="display: block; margin: auto"
       size="large"
-      @click="openModal"
+      @click="createComment"
       >撰寫貼文</el-button
     >
   </el-card>
 </template>
 
 <script setup>
+import { useCommentModalStore } from '@/stores/useCommentModalStore';
+import { storeToRefs } from 'pinia';
 import AverageRate from './AverageRate.vue';
 
-const emits = defineEmits(['openModal']);
+const CommentModalStore = useCommentModalStore();
+const { form, type, isOpen } = storeToRefs(CommentModalStore);
+
 const props = defineProps({
   store: {
     type: Object,
@@ -58,8 +62,11 @@ const props = defineProps({
     type: Object,
   },
 });
-const openModal = () => {
-  emits('openModal', true);
+
+const createComment = () => {
+  isOpen.value = true;
+  type.value = 'create';
+  form.value.storeId = props.store.id;
 };
 
 </script>

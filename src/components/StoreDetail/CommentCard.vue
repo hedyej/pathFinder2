@@ -70,8 +70,8 @@
         </span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item @click="editModal">編輯</el-dropdown-item>
-            <el-dropdown-item @click="deleteModal">刪除</el-dropdown-item>
+            <el-dropdown-item @click="editComment(comment)">編輯</el-dropdown-item>
+            <el-dropdown-item @click="deleteAction(comment.id)">刪除</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -83,10 +83,38 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue';
 import axios from 'axios';
+import { storeToRefs } from 'pinia';
+import { ElMessage, ElMessageBox } from 'element-plus';
+import { useCommentModalStore } from '../../stores/useCommentModalStore';
 
 const props = defineProps({
   comments: { type: Object },
 });
+
+// edit modal
+const CommentModalStore = useCommentModalStore();
+const { form, type, isOpen } = storeToRefs(CommentModalStore);
+const { deleteComment } = CommentModalStore;
+const editComment = (pastForm) => {
+  isOpen.value = true;
+  type.value = 'edit';
+  form.value = pastForm;
+};
+
+// delete modal
+const deleteAction = async (commentId) => {
+  console.log(commentId);
+  ElMessageBox.alert('確定要刪除評論嗎', '刪除評論', {
+    confirmButtonText: '刪除',
+    callback: () => {
+      deleteComment(commentId);
+      ElMessage({
+        type: 'danger',
+        message: '刪除成功',
+      });
+    },
+  });
+};
 
 // user info
 const users = ref([]);
@@ -94,14 +122,6 @@ const getUser = () => {
   axios.get('http://localhost:3000/users').then((res) => {
     users.value = res.data;
   });
-};
-
-const emits = defineEmits(['editModal', 'deleteModal']);
-const editModal = () => {
-  emits('editModal', 'edit');
-};
-const deleteModal = () => {
-  emits('deleteModal', 'delete');
 };
 
 // user name

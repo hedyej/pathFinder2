@@ -3,13 +3,12 @@ import { defineStore } from 'pinia';
 
 export const useCommentModalStore = defineStore('commentModal', {
   state: () => ({
-    // storeId: '',
-    // commentId: '',
-    isOpen: 'false',
-    type: 'create',
-    nowPage: 0,
+    isOpen: false,
+    nowPage: 1,
+    storeId: '',
+    type: '',
     form: {
-      storeId: null,
+      storeId: 0,
       userId: null,
       anonymous: true,
       createDate: 0,
@@ -27,33 +26,22 @@ export const useCommentModalStore = defineStore('commentModal', {
   }),
 
   actions: {
-    openCommentModal() {
-      this.isOpen = true;
+    postComment(form) {
+      axios.post(`/stores/${this.form.storeId}/comments`, form);
     },
-    closeCommentModal() {
-      this.isOpen = false;
+    putComment(form, commentId) {
+      axios.put(`/comments/${commentId}`, form);
     },
-    postComment() {
-      axios.post(`/stores/${this.storeId}/comments`).then(() => {
-        this.closeCommentModal();
-        this.form = {
-          storeId: null,
-          userId: null,
-          anonymous: true,
-          createDate: 0,
-          workHours: 0,
-          workDays: '',
-          otherworkDays: 0,
-          advantages: [],
-          disadvantages: [],
-          score: 0,
-          description: '',
-          like: [],
-          dislike: [],
-          replies: [],
-        };
-      });
+    submitComment(form, commentId) {
+      if (this.type === 'edit') {
+        this.putComment(form, commentId);
+      } else {
+        this.postComment(form);
+      }
     },
-
+    deleteComment(commentId) {
+      axios.delete(`/comments/${commentId}`);
+    },
   },
+
 });
