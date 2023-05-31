@@ -1,9 +1,9 @@
 <template>
     <el-dialog v-model="isOpen" width="30%" :before-close="handleClose">
       <h2 class="text-dark">
-        評論撰寫 <span class="text-grey">({{ nowPage}}/2)</span>
+        評論撰寫 <span class="text-grey">({{ modalPage}}/2)</span>
       </h2>
-      <div v-if="nowPage === 1">
+      <div v-if="modalPage === 1">
         <h5 class="mb-4">填寫基本資訊</h5>
         <el-form label-position="top" label-width="100px" :model="form" ref="formRef">
           <el-form-item label="評論身份">
@@ -81,11 +81,11 @@
         </el-form>
       </div>
       <template #footer>
-        <div v-if="nowPage=== 1">
-          <el-button type="primary" @click="nowPage = 2"> 下一頁 </el-button>
+        <div v-if="modalPage=== 1">
+          <el-button type="primary" @click="modalPage = 2"> 下一頁 </el-button>
         </div>
         <div v-else>
-          <el-button @click="changePage(1)"> 上一頁 </el-button>
+          <el-button @click="modalPage = 1"> 上一頁 </el-button>
           <el-button type="primary" @click="submit" > 送出</el-button>
         </div>
       </template>
@@ -100,14 +100,14 @@ import { ElMessageBox } from 'element-plus';
 import { useCommentModalStore } from '@/stores/useCommentModalStore';
 import { storeToRefs } from 'pinia';
 
-// form
+// commentModalStore
 const commentModalStore = useCommentModalStore();
 const {
-  nowPage, form, isOpen,
+  modalPage, form, isOpen, storeId,
 } = storeToRefs(commentModalStore);
 const { submitComment } = commentModalStore;
 
-//
+// anonymous
 const anonymous = ref('匿名');
 watch(anonymous, () => { form.anonymous = anonymous.value === '匿名'; });
 
@@ -224,15 +224,35 @@ watch(disAdvantageArr, () => {
 });
 
 // close modal
-const closeModal = () => {
-  commentModalStore.$reset();
+const closeModal = (theStoreId) => {
+  // commentModalStore.$reset();
+  // form.value.storeId = storeId;
+  storeId.value = theStoreId;
+  modalPage.value = 1;
+  form.value = {
+    storeId: 0,
+    userId: null,
+    anonymous: true,
+    createDate: 0,
+    workHours: 0,
+    workDays: '',
+    otherworkDays: 0,
+    advantages: [],
+    disadvantages: [],
+    score: 0,
+    description: '',
+    like: [],
+    dislike: [],
+    replies: [],
+  };
+  isOpen.value = false;
 };
 
 // submitComment
 const submit = async () => {
-  form.createDate = new Date().getTime();
+  form.value.createDate = new Date().getTime();
   await submitComment(form.value, form.value.id);
-  await closeModal();
+  closeModal(storeId.value);
 };
 
 const handleClose = (done) => {

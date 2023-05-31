@@ -1,10 +1,11 @@
 <template>
   <el-select
-    v-model="value"
+    v-model="selectValue"
     class="m-2"
     placeholder="由新到舊"
     style="margin-right: -1px"
     @change="filterComment"
+
   >
     <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
   </el-select>
@@ -12,11 +13,14 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useCommentModalStore } from '@/stores/useCommentModalStore';
 
-const value = ref('');
-const emits = defineEmits(['selectVal']);
+// CommentModalStore
+const commentModalStore = useCommentModalStore();
+const { getComments } = commentModalStore;
+const selectValue = ref('');
 const filterComment = () => {
-  emits('selectVal', value.value);
+  getComments(selectValue.value);
 };
 
 const options = [
@@ -37,4 +41,5 @@ const options = [
     label: '由舊到新',
   },
 ];
+
 </script>

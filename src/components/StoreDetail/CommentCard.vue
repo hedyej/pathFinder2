@@ -1,5 +1,5 @@
 <template>
-  <el-card v-for="comment in props.comments" :key="comment.id" class="mb-2">
+  <el-card v-for="comment in comments" :key="comment.id" class="mb-2">
     <div class="d-flex mb-2" style="justify-content: space-between">
       <div class="d-flex">
         <img
@@ -87,13 +87,11 @@ import { storeToRefs } from 'pinia';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import { useCommentModalStore } from '../../stores/useCommentModalStore';
 
-const props = defineProps({
-  comments: { type: Object },
-});
-
-// edit modal
+// CommentModalStore
 const CommentModalStore = useCommentModalStore();
-const { form, type, isOpen } = storeToRefs(CommentModalStore);
+const {
+  form, type, isOpen, comments,
+} = storeToRefs(CommentModalStore);
 const { deleteComment } = CommentModalStore;
 const editComment = (pastForm) => {
   isOpen.value = true;
@@ -103,7 +101,6 @@ const editComment = (pastForm) => {
 
 // delete modal
 const deleteAction = async (commentId) => {
-  console.log(commentId);
   ElMessageBox.alert('確定要刪除評論嗎', '刪除評論', {
     confirmButtonText: '刪除',
     callback: () => {

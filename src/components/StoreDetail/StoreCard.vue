@@ -16,7 +16,7 @@
 
       <div>
         <h3>{{ props.store.name }}</h3>
-        <AverageRate :averageScore="props.averageStoreInfo.averageScore"></AverageRate>
+        <AverageRate :averageScore="averageStoreInfo.averageScore"></AverageRate>
       </div>
     </div>
 
@@ -29,11 +29,11 @@
       </p>
       <p class="mb-1">
         <font-awesome-icon :icon="['fas', 'clock']" class="me-1" />平均工時：
-        {{ props.averageStoreInfo.averageHours }}
+        {{ averageStoreInfo.averageHours }}
       </p>
       <p class="mb-1">
         <font-awesome-icon :icon="['fas', 'calendar-days']" class="me-1" />平均換宿日：
-        {{ props.averageStoreInfo.averageDays }}
+        {{ averageStoreInfo.averageDays }}
       </p>
     </div>
     <el-button
@@ -52,13 +52,12 @@ import { storeToRefs } from 'pinia';
 import AverageRate from './AverageRate.vue';
 
 const CommentModalStore = useCommentModalStore();
-const { form, type, isOpen } = storeToRefs(CommentModalStore);
+const {
+  form, type, isOpen, averageStoreInfo,
+} = storeToRefs(CommentModalStore);
 
 const props = defineProps({
   store: {
-    type: Object,
-  },
-  averageStoreInfo: {
     type: Object,
   },
 });
@@ -68,5 +67,4 @@ const createComment = () => {
   type.value = 'create';
   form.value.storeId = props.store.id;
 };
-
 </script>
