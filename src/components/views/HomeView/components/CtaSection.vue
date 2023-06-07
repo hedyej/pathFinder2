@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import WrapContainer from '../global/WrapContainer.vue';
+import WrapContainer from '@/components/global/WrapContainer.vue';
 
 const backSearch = () => {
   window.scrollTo({

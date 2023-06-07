@@ -8,7 +8,12 @@
 
         <el-form :inline="true" size="large" style="margin-bottom: -24px">
           <el-form-item style="width: 100%; max-width: 400px">
-            <el-input v-model="keyword" type="round" placeholder="搜尋換宿店家" />
+            <el-input
+              v-model="keyword"
+              type="round"
+              placeholder="搜尋換宿店家"
+              @keyup.enter="searchWord(keyword)"
+            />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" tabindex="0" @click="searchWord(keyword)">搜尋</el-button>

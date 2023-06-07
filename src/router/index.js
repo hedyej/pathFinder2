@@ -6,18 +6,18 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('../components/views/frontview/HomeView.vue'),
+      component: () => import('../components/views/HomeView/HomeView.vue'),
     },
     {
       path: '/searchStore/:keyWord?',
       name: 'searchStore',
-      component: () => import('../components/views/frontview/SearchStore.vue'),
+      component: () => import('../components/views/SearchStore/SearchStore.vue'),
     },
 
     {
       path: '/storeDetail/:id',
       name: 'storeDetail',
-      component: () => import('../components/views/frontview/StoreDetail.vue'),
+      component: () => import('../components/views/StoreDetail/StoreDetail.vue'),
     },
 
     {

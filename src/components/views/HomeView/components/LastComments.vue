@@ -19,7 +19,7 @@
 
               <el-col :span="14">
                 <h4 class="mb-1">{{ comment.store.name }}</h4>
-                <p>Hedy • 2021-12-02</p>
+                <p>{{ comment.user.name }} • 2021-12-02</p>
               </el-col>
 
               <el-col :span="6" class="text-right">
@@ -43,13 +43,15 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import axios from 'axios';
-import WrapContainer from '../global/WrapContainer.vue';
+import WrapContainer from '@/components/global/WrapContainer.vue';
 
 const lastComments = ref([]);
 const getComments = () => {
-  axios.get('http://localhost:3000/comments?_expand=store').then((res) => {
+  axios.get('http://localhost:3000/comments?_expand=store&_expand=user').then((res) => {
     lastComments.value = res.data.splice(-4);
   });
 };
-onMounted(() => getComments());
+onMounted(() => {
+  getComments();
+});
 </script>

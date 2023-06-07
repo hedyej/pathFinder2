@@ -38,288 +38,309 @@
   ],
   "comments": [
     {
-      "id": 1,
-      "storeId": 1,
+      "id": 4,
+      "storeId": 2,
       "userId": 1,
       "anonymous": false,
-      "createDate": 1684831753,
+      "createDate": 1686059674562,
       "workHours": 3,
-      "workDays": 14,
+      "workDays": 45,
       "otherworkDays": 0,
       "advantages": [
-        "店家環境佳",
-        "居住環境佳"
+        {
+          "value": "店家環境佳",
+          "status": true
+        },
+        {
+          "value": "交通位置佳",
+          "status": true
+        },
+        {
+          "value": "職員友善",
+          "status": true
+        },
+        {
+          "value": "換宿制度完整",
+          "status": true
+        },
+        {
+          "value": "居住環境佳",
+          "status": true
+        },
+        {
+          "value": "免費供餐",
+          "status": false
+        },
+        {
+          "value": "補助餐費 / 零用金",
+          "status": false
+        },
+        {
+          "value": "考取證照",
+          "status": false
+        },
+        {
+          "value": "體驗課程",
+          "status": false
+        }
       ],
-      "disadvantages": [
-        "換宿制度不完整"
+      "disAdvantages": [
+        {
+          "value": "店家環境差",
+          "status": true
+        },
+        {
+          "value": "交通位置不便",
+          "status": true
+        },
+        {
+          "value": "職員不友善",
+          "status": true
+        },
+        {
+          "value": "換宿制度不完整",
+          "status": false
+        },
+        {
+          "value": "居住環境差",
+          "status": false
+        },
+        {
+          "value": "換宿狀況與描述不符",
+          "status": false
+        },
+        {
+          "value": "工時過長",
+          "status": false
+        },
+        {
+          "value": "性騷擾",
+          "status": false
+        }
       ],
-      "score": 1,
-      "description": "在換宿旅行中，我認識了許多來自世界各地的旅人，和他們分享了不同文化和故事。透過換宿，我體驗到當地人的生活方式，也探索了當地的美食和景點。換宿旅行讓我擁有了一個獨特的旅行經驗，讓我感受到旅行的魅力與樂趣。",
+      "score": 5,
+      "description": "QQQQQQQ",
       "like": [],
       "dislike": [],
-      "replies": []
+      "replies": [],
+      "advantageTotal": 2,
+      "user": {
+        "id": 1,
+        "name": "Hedy",
+        "imgUrl": "https://images.unsplash.com/photo-1491616569293-e27f7f4cd41a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80",
+        "email": "hedy@gmail.com"
+      },
+      "store": {
+        "id": 2,
+        "name": "台北行旅02",
+        "imgUrl": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        "address": "116 台北市文山區景中街30巷6號",
+        "tel": "02-2688-4528"
+      },
+      "hoildayYear": 2022
     },
     {
       "id": 3,
-      "storeId": 1,
+      "storeId": 2,
       "userId": 1,
       "anonymous": false,
-      "createDate": 1684831753,
-      "workHours": 5,
-      "workDays": "三個月",
-      "advantages": [
-        "店家環境佳",
-        "居住環境佳"
-      ],
-      "disadvantages": [
-        "換宿制度不完整"
-      ],
-      "score": 4,
-      "description": "???~~~~~",
-      "like": [
-        1,
-        2
-      ],
-      "dislike": [],
-      "replies": []
-    },
-    {
-      "storeId": "1",
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685545313774,
-      "workHours": 10,
-      "workDays": "",
-      "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
-      "score": 0,
-      "description": "",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "id": 34
-    },
-    {
-      "storeId": "1",
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685545361374,
-      "workHours": 10,
-      "workDays": "",
-      "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
-      "score": 5,
-      "description": "ttttest",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "id": 35
-    },
-    {
-      "storeId": "1",
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685554525693,
+      "createDate": 1686059172562,
       "workHours": 3,
-      "workDays": "",
+      "workDays": 45,
       "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
+      "advantages": [
+        {
+          "value": "店家環境佳",
+          "status": false
+        },
+        {
+          "value": "交通位置佳",
+          "status": false
+        },
+        {
+          "value": "職員友善",
+          "status": false
+        },
+        {
+          "value": "換宿制度完整",
+          "status": true
+        },
+        {
+          "value": "居住環境佳",
+          "status": false
+        },
+        {
+          "value": "免費供餐",
+          "status": true
+        },
+        {
+          "value": "補助餐費 / 零用金",
+          "status": false
+        },
+        {
+          "value": "考取證照",
+          "status": true
+        },
+        {
+          "value": "體驗課程",
+          "status": false
+        }
+      ],
+      "disAdvantages": [
+        {
+          "value": "店家環境差",
+          "status": false
+        },
+        {
+          "value": "交通位置不便",
+          "status": false
+        },
+        {
+          "value": "職員不友善",
+          "status": false
+        },
+        {
+          "value": "換宿制度不完整",
+          "status": false
+        },
+        {
+          "value": "居住環境差",
+          "status": true
+        },
+        {
+          "value": "換宿狀況與描述不符",
+          "status": false
+        },
+        {
+          "value": "工時過長",
+          "status": false
+        },
+        {
+          "value": "性騷擾",
+          "status": false
+        }
+      ],
       "score": 5,
-      "description": "test123!!!happy~~",
+      "description": "???～～～",
       "like": [],
       "dislike": [],
       "replies": [],
-      "id": 36
+      "advantageTotal": 2,
+      "user": {
+        "id": 1,
+        "name": "Hedy",
+        "imgUrl": "https://images.unsplash.com/photo-1491616569293-e27f7f4cd41a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80",
+        "email": "hedy@gmail.com"
+      },
+      "store": {
+        "id": 2,
+        "name": "台北行旅02",
+        "imgUrl": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        "address": "116 台北市文山區景中街30巷6號",
+        "tel": "02-2688-4528"
+      }
     },
     {
-      "storeId": "1",
-      "userId": null,
+      "id": 5,
+      "storeId": "2",
+      "userId": 1,
       "anonymous": true,
-      "createDate": 1685545443850,
-      "workHours": 10,
-      "workDays": "",
+      "createDate": 1686062357495,
+      "workHours": 0,
+      "hoildayYear": 2023,
+      "workDays": 0,
       "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
+      "advantages": [
+        {
+          "value": "店家環境佳",
+          "status": false
+        },
+        {
+          "value": "交通位置佳",
+          "status": false
+        },
+        {
+          "value": "職員友善",
+          "status": false
+        },
+        {
+          "value": "換宿制度完整",
+          "status": false
+        },
+        {
+          "value": "居住環境佳",
+          "status": false
+        },
+        {
+          "value": "免費供餐",
+          "status": false
+        },
+        {
+          "value": "補助餐費 / 零用金",
+          "status": false
+        },
+        {
+          "value": "考取證照",
+          "status": false
+        },
+        {
+          "value": "體驗課程",
+          "status": false
+        }
+      ],
+      "disAdvantages": [
+        {
+          "value": "店家環境差",
+          "status": false
+        },
+        {
+          "value": "交通位置不便",
+          "status": false
+        },
+        {
+          "value": "職員不友善",
+          "status": false
+        },
+        {
+          "value": "換宿制度不完整",
+          "status": false
+        },
+        {
+          "value": "居住環境差",
+          "status": false
+        },
+        {
+          "value": "換宿狀況與描述不符",
+          "status": false
+        },
+        {
+          "value": "工時過長",
+          "status": false
+        },
+        {
+          "value": "性騷擾",
+          "status": false
+        }
+      ],
       "score": 5,
-      "description": "",
+      "description": "!~~><",
       "like": [],
       "dislike": [],
       "replies": [],
-      "id": 37
-    },
-    {
-      "storeId": "1",
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685552301523,
-      "workHours": 10,
-      "workDays": "",
-      "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
-      "score": 5,
-      "description": "1111",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "id": 38
-    },
-    {
-      "storeId": "1",
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685554518693,
-      "workHours": 10,
-      "workDays": "",
-      "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
-      "score": 5,
-      "description": "whyyy~~~~!!!",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "id": 39
-    },
-    {
-      "storeId": "1",
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685552346662,
-      "workHours": 10,
-      "workDays": "",
-      "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
-      "score": 0,
-      "description": "",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "id": 40
-    },
-    {
-      "storeId": "1",
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685552929048,
-      "workHours": 10,
-      "workDays": "",
-      "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
-      "score": 0,
-      "description": "test6",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "id": 42
-    },
-    {
-      "storeId": "1",
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685552951482,
-      "workHours": 10,
-      "workDays": "",
-      "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
-      "score": 0,
-      "description": "",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "id": 43
-    },
-    {
-      "storeId": "1",
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685554616040,
-      "workHours": 10,
-      "workDays": "",
-      "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
-      "score": 0,
-      "description": "^^ :))",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "id": 44
-    },
-    {
-      "storeId": "1",
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685554586190,
-      "workHours": 10,
-      "workDays": "",
-      "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
-      "score": 0,
-      "description": "!!!",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "id": 45
-    },
-    {
-      "storeId": "1",
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685554627971,
-      "workHours": 10,
-      "workDays": "",
-      "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
-      "score": 0,
-      "description": "",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "id": 46
-    },
-    {
-      "storeId": "1",
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685554651784,
-      "workHours": 10,
-      "workDays": "",
-      "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
-      "score": 0,
-      "description": "QQ",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "id": 47
-    },
-    {
-      "storeId": "1",
-      "userId": null,
-      "anonymous": true,
-      "createDate": 1685555296280,
-      "workHours": 10,
-      "workDays": "",
-      "otherworkDays": 0,
-      "advantages": [],
-      "disadvantages": [],
-      "score": 0,
-      "description": "!!",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "id": 48
+      "advantageTotal": 0,
+      "user": {
+        "id": 1,
+        "name": "Hedy",
+        "imgUrl": "https://images.unsplash.com/photo-1491616569293-e27f7f4cd41a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80",
+        "email": "hedy@gmail.com"
+      },
+      "store": {
+        "id": 2,
+        "name": "台北行旅02",
+        "imgUrl": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        "address": "116 台北市文山區景中街30巷6號",
+        "tel": "02-2688-4528"
+      }
     }
   ]
 }
