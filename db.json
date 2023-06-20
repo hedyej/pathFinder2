@@ -119,12 +119,25 @@
           "status": false
         }
       ],
-      "score": 0,
+      "score": 5,
       "description": "2",
       "like": [],
       "dislike": [],
       "replies": [],
-      "advantageTotal": 0
+      "advantageTotal": 0,
+      "user": {
+        "id": 1,
+        "name": "Hedy",
+        "imgUrl": "https://images.unsplash.com/photo-1491616569293-e27f7f4cd41a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80",
+        "email": "hedy@gmail.com"
+      },
+      "store": {
+        "id": 2,
+        "name": "台北行旅02",
+        "imgUrl": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        "address": "116 台北市文山區景中街30巷6號",
+        "tel": "02-2688-4528"
+      }
     },
     {
       "storeId": "3",
@@ -227,6 +240,184 @@
         "address": "116 台北市文山區景中街30巷6號",
         "tel": "02-2688-4528"
       }
+    },
+    {
+      "id": 14,
+      "storeId": "1",
+      "userId": 1,
+      "anonymous": true,
+      "createDate": 1687282442681,
+      "workHours": 0,
+      "hoildayYear": 2023,
+      "workDays": 0,
+      "otherworkDays": 0,
+      "advantages": [
+        {
+          "value": "店家環境佳",
+          "status": false
+        },
+        {
+          "value": "交通位置佳",
+          "status": false
+        },
+        {
+          "value": "職員友善",
+          "status": false
+        },
+        {
+          "value": "換宿制度完整",
+          "status": false
+        },
+        {
+          "value": "居住環境佳",
+          "status": false
+        },
+        {
+          "value": "免費供餐",
+          "status": false
+        },
+        {
+          "value": "補助餐費 / 零用金",
+          "status": false
+        },
+        {
+          "value": "考取證照",
+          "status": false
+        },
+        {
+          "value": "體驗課程",
+          "status": false
+        }
+      ],
+      "disAdvantages": [
+        {
+          "value": "店家環境差",
+          "status": false
+        },
+        {
+          "value": "交通位置不便",
+          "status": false
+        },
+        {
+          "value": "職員不友善",
+          "status": false
+        },
+        {
+          "value": "換宿制度不完整",
+          "status": false
+        },
+        {
+          "value": "居住環境差",
+          "status": false
+        },
+        {
+          "value": "換宿狀況與描述不符",
+          "status": false
+        },
+        {
+          "value": "工時過長",
+          "status": false
+        },
+        {
+          "value": "性騷擾",
+          "status": false
+        }
+      ],
+      "score": 5,
+      "description": "",
+      "like": [],
+      "dislike": [],
+      "replies": [],
+      "advantageTotal": 0
+    },
+    {
+      "storeId": "1",
+      "userId": 1,
+      "anonymous": true,
+      "createDate": 1687282451757,
+      "workHours": 0,
+      "workDays": "一週",
+      "otherworkDays": 0,
+      "advantages": [
+        {
+          "value": "店家環境佳",
+          "status": false
+        },
+        {
+          "value": "交通位置佳",
+          "status": false
+        },
+        {
+          "value": "職員友善",
+          "status": false
+        },
+        {
+          "value": "換宿制度完整",
+          "status": false
+        },
+        {
+          "value": "居住環境佳",
+          "status": false
+        },
+        {
+          "value": "免費供餐",
+          "status": false
+        },
+        {
+          "value": "補助餐費 /零用金",
+          "status": false
+        },
+        {
+          "value": "考取證照",
+          "status": false
+        },
+        {
+          "value": "體驗課程",
+          "status": false
+        }
+      ],
+      "disAdvantages": [
+        {
+          "value": "店家環境差",
+          "status": false
+        },
+        {
+          "value": "交通位置不便",
+          "status": false
+        },
+        {
+          "value": "職員不友善",
+          "status": false
+        },
+        {
+          "value": "換宿制度不完整",
+          "status": true
+        },
+        {
+          "value": "居住環境差",
+          "status": false
+        },
+        {
+          "value": "換宿狀況與描述不符",
+          "status": false
+        },
+        {
+          "value": "工時過長",
+          "status": false
+        },
+        {
+          "value": "性騷擾",
+          "status": false
+        }
+      ],
+      "score": 4,
+      "description": "",
+      "like": [],
+      "dislike": [],
+      "replies": [],
+      "advantageTotal": 0,
+      "hoildayYear": 2022,
+      "id": 15
     }
   ]
 }

@@ -14,7 +14,6 @@ export const useCommentStore = defineStore('comment', {
 
     // comment
     comments: {},
-    allComments: {},
 
     // modal
     isOpen: false,
@@ -64,32 +63,28 @@ export const useCommentStore = defineStore('comment', {
   actions: {
     getAverageInfo(key) {
       let total = 0;
-      this.allComments.forEach((comment) => {
+      this.comments.forEach((comment) => {
         total += comment[key];
       });
-      return total === 0 ? '-' : Math.floor(total / this.allComments.length);
+      return total === 0 ? '-' : Math.floor(total / this.comments.length);
     },
 
-    async getAllComments() {
-      await axios.get(`/stores/${this.storeId}/comments`).then((res) => {
-        this.allComments = res.data;
-        this.averageStoreInfo.averageDays = this.getAverageInfo('workDays');
-        this.averageStoreInfo.averageHours = this.getAverageInfo('workHours');
-        this.averageStoreInfo.averageScore = this.getAverageInfo('score');
-      });
+    getStoreInfo() {
+      this.averageStoreInfo.averageDays = this.getAverageInfo('workDays');
+      this.averageStoreInfo.averageHours = this.getAverageInfo('workHours');
+      this.averageStoreInfo.averageScore = this.getAverageInfo('score');
     },
 
-    pageSorter(type, page, sorter) {
+    async pageSorter(type, page, sorter) {
       this.sorterInfo.nowType = type;
       this.sorterInfo.nowPage = page;
       this.sorterInfo.nowSorter = sorter;
-      axios
+      await axios
         .get(
           `/stores/${this.storeId}/comments?_page=${page}&_sort=${type}&_order=${sorter}&_expand=user&_expand=store`,
         )
         .then((res) => {
           this.comments = res.data;
-          console.log('hi', this.comments);
         });
     },
 
@@ -150,8 +145,8 @@ export const useCommentStore = defineStore('comment', {
           type: 'error',
         });
       }
-      await this.getAllComments();
       await this.pageSorter('createDate', 1, 'desc');
+      await this.getStoreInfo();
       await this.closeModal();
     },
 
@@ -168,12 +163,14 @@ export const useCommentStore = defineStore('comment', {
           type: 'error',
         });
       }
-      await this.getAllComments(this.storeId);
+
       await this.pageSorter(
         this.sorterInfo.nowType,
         this.sorterInfo.nowPage,
         this.sorterInfo.nowSorter,
       );
+      await this.getStoreInfo(this.storeId);
+
       await this.closeModal();
     },
 
@@ -185,35 +182,29 @@ export const useCommentStore = defineStore('comment', {
       }
     },
 
-    // async deleteComment(commentId) {
-    //   await axios.delete(`/comments/${commentId}`);
-    // },
-
     async deleteComment(commentId) {
       ElMessageBox.alert('確定要刪除評論嗎', '刪除評論', {
         confirmButtonText: '刪除',
         callback: async () => {
           try {
-            const test = await axios.delete(`/comments/${commentId}`);
+            await axios.delete(`/comments/${commentId}`);
             ElMessage({
               message: '刪除成功',
               type: 'success',
             });
-            console.log('成功', test);
           } catch {
-            console.log('失敗');
             ElMessage({
               message: '刪除失敗',
               type: 'error',
             });
           }
 
-          await this.getAllComments();
           await this.pageSorter(
             this.sorterInfo.nowType,
             this.sorterInfo.nowPage,
             this.sorterInfo.nowSorter,
           );
+          await this.getStoreInfo();
         },
       });
     },

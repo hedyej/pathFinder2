@@ -1,5 +1,6 @@
 <template>
   <div>
+    <CommentDetailModal></CommentDetailModal>
     <CommentModal></CommentModal>
     <WrapContainer>
       <router-link :to="{ name: 'searchStore' }" class="text-primary bold router-link mb-1"
@@ -67,11 +68,16 @@
 
         <el-col :xs="24" :md="16">
           <div class="d-flex align-center" style="justify-content: space-between">
-            <p class="text-grey bold" style="margin: 0">{{ allComments.length }} 則評論</p>
+            <p class="text-grey bold" style="margin: 0">{{ comments.length }} 則評論</p>
             <FilterSelection></FilterSelection>
           </div>
 
-          <el-card v-for="comment in comments" :key="comment.id" class="mb-2">
+          <el-card
+            v-for="comment in comments"
+            :key="comment.id"
+            class="mb-2 cursor-pointer"
+            @click="openCommentDetail(comment)"
+          >
             <div class="d-flex mb-2" style="justify-content: space-between">
               <div class="d-flex">
                 <img
@@ -156,9 +162,9 @@
           <el-pagination
             background
             layout="prev, pager, next"
-            :total="allComments.length"
+            :total="comments.length"
             @current-change="handleCurrentChange"
-            :hide-on-single-page="allComments.length === 1"
+            :hide-on-single-page="comments.length === 1"
             :current-page="sorterInfo.nowPage"
           />
         </el-col>
@@ -174,16 +180,18 @@ import axios from 'axios';
 import { storeToRefs } from 'pinia';
 
 import { useCommentStore } from '@/stores/useCommentStore';
+import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
 import WrapContainer from '../../global/WrapContainer.vue';
 import FilterSelection from './components/FilterSelection.vue';
 import CommentModal from './components/CommentModal.vue';
+import CommentDetailModal from './components/CommentDetailModal.vue';
 
 // commentStore
 const commentStore = useCommentStore();
 const {
-  allComments, comments, storeId, sorterInfo, averageStoreInfo, form, type, isOpen,
+  comments, storeId, sorterInfo, averageStoreInfo, form, type, isOpen,
 } = storeToRefs(commentStore);
-const { getAllComments, pageSorter, deleteComment } = commentStore;
+const { getStoreInfo, pageSorter, deleteComment } = commentStore;
 
 // store info
 const store = ref({});
@@ -207,6 +215,15 @@ const editComment = (pastForm) => {
   form.value = JSON.parse(JSON.stringify(pastForm));
 };
 
+// detail modal
+const commentDetailStore = useCommentDetailStore();
+const { commentDetail, isDetailOpen } = storeToRefs(commentDetailStore);
+const openCommentDetail = (comment) => {
+  console.log(comment);
+  isDetailOpen.value = true;
+  commentDetail.value = comment;
+};
+
 // route
 const route = useRoute();
 storeId.value = route.params.id;
@@ -218,7 +235,7 @@ const handleCurrentChange = async (page) => {
 // onMounted
 onMounted(async () => {
   await getStore();
-  await getAllComments();
   await pageSorter('createDate', 1, 'desc');
+  await getStoreInfo();
 });
 </script>
