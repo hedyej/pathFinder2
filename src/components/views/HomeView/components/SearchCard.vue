@@ -1,5 +1,5 @@
 <template>
-  <main style="background: #fff" class="pt-4 pb-7">
+  <main style="background: #fff; padding-top: 120px" class="pb-7">
     <WrapContainer>
       <el-card class="search-card mb-3 text-center">
         <img src="@/assets/imgs/home/display-text.png" style="margin-top: -20px" />

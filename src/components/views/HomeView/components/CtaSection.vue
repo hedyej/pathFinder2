@@ -7,7 +7,7 @@
           <img src="@/assets/imgs/home/share-bg.png" />
         </el-col>
         <el-col :span="10" class="text-center">
-          <h1 class="mb-4">一起交流分享</h1>
+          <h1 class="mb-4">搜尋換宿店家</h1>
           <el-button type="primary" size="large" @click="backSearch"
             ><font-awesome-icon
               :icon="['fas', 'magnifying-glass']"

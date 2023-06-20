@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { defineStore } from 'pinia';
+import { ElMessage, ElMessageBox } from 'element-plus';
 
 export const useCommentStore = defineStore('comment', {
   state: () => ({
@@ -88,6 +89,7 @@ export const useCommentStore = defineStore('comment', {
         )
         .then((res) => {
           this.comments = res.data;
+          console.log('hi', this.comments);
         });
     },
 
@@ -96,7 +98,7 @@ export const useCommentStore = defineStore('comment', {
       this.modalPage = 1;
       this.form = {
         storeId: 1,
-        userId: null,
+        userId: 1,
         anonymous: true,
         createDate: 0,
         workHours: 0,
@@ -135,16 +137,37 @@ export const useCommentStore = defineStore('comment', {
     },
 
     async postComment() {
-      console.log(`/stores/${this.form.storeId}/comments`, this.form);
       this.form.createDate = new Date().getTime();
-      await axios.post(`/stores/${this.form.storeId}/comments`, this.form);
+      try {
+        await axios.post(`/stores/${this.form.storeId}/comments`, this.form);
+        ElMessage({
+          message: '新增成功',
+          type: 'success',
+        });
+      } catch {
+        ElMessage({
+          message: '新增失敗',
+          type: 'error',
+        });
+      }
       await this.getAllComments();
       await this.pageSorter('createDate', 1, 'desc');
       await this.closeModal();
     },
 
     async putComment() {
-      await axios.put(`/comments/${this.form.id}`, this.form);
+      try {
+        await axios.put(`/comments/${this.form.id}`, this.form);
+        ElMessage({
+          message: '編輯成功',
+          type: 'success',
+        });
+      } catch {
+        ElMessage({
+          message: '編輯失敗',
+          type: 'error',
+        });
+      }
       await this.getAllComments(this.storeId);
       await this.pageSorter(
         this.sorterInfo.nowType,
@@ -162,8 +185,37 @@ export const useCommentStore = defineStore('comment', {
       }
     },
 
+    // async deleteComment(commentId) {
+    //   await axios.delete(`/comments/${commentId}`);
+    // },
+
     async deleteComment(commentId) {
-      await axios.delete(`/comments/${commentId}`);
+      ElMessageBox.alert('確定要刪除評論嗎', '刪除評論', {
+        confirmButtonText: '刪除',
+        callback: async () => {
+          try {
+            const test = await axios.delete(`/comments/${commentId}`);
+            ElMessage({
+              message: '刪除成功',
+              type: 'success',
+            });
+            console.log('成功', test);
+          } catch {
+            console.log('失敗');
+            ElMessage({
+              message: '刪除失敗',
+              type: 'error',
+            });
+          }
+
+          await this.getAllComments();
+          await this.pageSorter(
+            this.sorterInfo.nowType,
+            this.sorterInfo.nowPage,
+            this.sorterInfo.nowSorter,
+          );
+        },
+      });
     },
   },
 });

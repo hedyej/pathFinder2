@@ -38,214 +38,11 @@
   ],
   "comments": [
     {
-      "id": 4,
-      "storeId": 2,
-      "userId": 1,
-      "anonymous": false,
-      "createDate": 1686059674562,
-      "workHours": 3,
-      "workDays": 45,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": true
-        },
-        {
-          "value": "交通位置佳",
-          "status": true
-        },
-        {
-          "value": "職員友善",
-          "status": true
-        },
-        {
-          "value": "換宿制度完整",
-          "status": true
-        },
-        {
-          "value": "居住環境佳",
-          "status": true
-        },
-        {
-          "value": "免費供餐",
-          "status": false
-        },
-        {
-          "value": "補助餐費 / 零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": true
-        },
-        {
-          "value": "交通位置不便",
-          "status": true
-        },
-        {
-          "value": "職員不友善",
-          "status": true
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 5,
-      "description": "QQQQQQQ",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "advantageTotal": 2,
-      "user": {
-        "id": 1,
-        "name": "Hedy",
-        "imgUrl": "https://images.unsplash.com/photo-1491616569293-e27f7f4cd41a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80",
-        "email": "hedy@gmail.com"
-      },
-      "store": {
-        "id": 2,
-        "name": "台北行旅02",
-        "imgUrl": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-        "address": "116 台北市文山區景中街30巷6號",
-        "tel": "02-2688-4528"
-      },
-      "hoildayYear": 2022
-    },
-    {
-      "id": 3,
-      "storeId": 2,
-      "userId": 1,
-      "anonymous": false,
-      "createDate": 1686059172562,
-      "workHours": 3,
-      "workDays": 45,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": false
-        },
-        {
-          "value": "交通位置佳",
-          "status": false
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": true
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": true
-        },
-        {
-          "value": "補助餐費 / 零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": true
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
-          "status": false
-        },
-        {
-          "value": "職員不友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": true
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 5,
-      "description": "???～～～",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "advantageTotal": 2,
-      "user": {
-        "id": 1,
-        "name": "Hedy",
-        "imgUrl": "https://images.unsplash.com/photo-1491616569293-e27f7f4cd41a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80",
-        "email": "hedy@gmail.com"
-      },
-      "store": {
-        "id": 2,
-        "name": "台北行旅02",
-        "imgUrl": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-        "address": "116 台北市文山區景中街30巷6號",
-        "tel": "02-2688-4528"
-      }
-    },
-    {
-      "id": 5,
+      "id": 11,
       "storeId": "2",
       "userId": 1,
       "anonymous": true,
-      "createDate": 1686062357495,
+      "createDate": 1687251472384,
       "workHours": 0,
       "hoildayYear": 2023,
       "workDays": 0,
@@ -322,12 +119,101 @@
           "status": false
         }
       ],
-      "score": 5,
-      "description": "!~~><",
+      "score": 0,
+      "description": "2",
+      "like": [],
+      "dislike": [],
+      "replies": [],
+      "advantageTotal": 0
+    },
+    {
+      "storeId": "3",
+      "userId": 1,
+      "anonymous": true,
+      "createDate": 1687251589113,
+      "workHours": 3,
+      "workDays": "二週",
+      "otherworkDays": 0,
+      "advantages": [
+        {
+          "value": "店家環境佳",
+          "status": false
+        },
+        {
+          "value": "交通位置佳",
+          "status": false
+        },
+        {
+          "value": "職員友善",
+          "status": false
+        },
+        {
+          "value": "換宿制度完整",
+          "status": false
+        },
+        {
+          "value": "居住環境佳",
+          "status": false
+        },
+        {
+          "value": "免費供餐",
+          "status": false
+        },
+        {
+          "value": "補助餐費 /零用金",
+          "status": false
+        },
+        {
+          "value": "考取證照",
+          "status": false
+        },
+        {
+          "value": "體驗課程",
+          "status": false
+        }
+      ],
+      "disAdvantages": [
+        {
+          "value": "店家環境差",
+          "status": false
+        },
+        {
+          "value": "交通位置不便",
+          "status": false
+        },
+        {
+          "value": "職員不友善",
+          "status": false
+        },
+        {
+          "value": "換宿制度不完整",
+          "status": false
+        },
+        {
+          "value": "居住環境差",
+          "status": false
+        },
+        {
+          "value": "換宿狀況與描述不符",
+          "status": true
+        },
+        {
+          "value": "工時過長",
+          "status": false
+        },
+        {
+          "value": "性騷擾",
+          "status": false
+        }
+      ],
+      "score": 4,
+      "description": "不太開心 不會再去第二次",
       "like": [],
       "dislike": [],
       "replies": [],
       "advantageTotal": 0,
+      "hoildayYear": 2021,
+      "id": 13,
       "user": {
         "id": 1,
         "name": "Hedy",
@@ -335,8 +221,8 @@
         "email": "hedy@gmail.com"
       },
       "store": {
-        "id": 2,
-        "name": "台北行旅02",
+        "id": 3,
+        "name": "台北行旅03",
         "imgUrl": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
         "address": "116 台北市文山區景中街30巷6號",
         "tel": "02-2688-4528"
