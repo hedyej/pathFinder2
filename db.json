@@ -329,95 +329,71 @@
       "dislike": [],
       "replies": [],
       "advantageTotal": 0
+    }
+  ],
+  "replys": [
+    {
+      "content": "1",
+      "userId": 1,
+      "createDate": 1687798049443,
+      "commentId": 13,
+      "id": 5
     },
     {
-      "storeId": "1",
+      "content": "2",
       "userId": 1,
-      "anonymous": true,
-      "createDate": 1687282451757,
-      "workHours": 0,
-      "workDays": "一週",
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": false
-        },
-        {
-          "value": "交通位置佳",
-          "status": false
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": false
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": false
-        },
-        {
-          "value": "補助餐費 /零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
-          "status": false
-        },
-        {
-          "value": "職員不友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": true
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 4,
-      "description": "",
-      "like": [],
-      "dislike": [],
-      "replies": [],
-      "advantageTotal": 0,
-      "hoildayYear": 2022,
-      "id": 15
+      "createDate": 1687798130385,
+      "commentId": 13,
+      "id": 6
+    },
+    {
+      "content": "3",
+      "userId": 1,
+      "createDate": 1687798177402,
+      "commentId": 13,
+      "id": 7
+    },
+    {
+      "content": "4",
+      "userId": 1,
+      "createDate": 1687798180806,
+      "commentId": 13,
+      "id": 8
+    },
+    {
+      "content": "1",
+      "userId": 1,
+      "createDate": 1687798315892,
+      "commentId": 14,
+      "id": 9
+    },
+    {
+      "content": "2",
+      "userId": 1,
+      "createDate": 1687798393517,
+      "commentId": 14,
+      "id": 10
+    },
+    {
+      "content": "2",
+      "userId": 1,
+      "createDate": 1687798394970,
+      "commentId": 14,
+      "id": 11
+    },
+    {
+      "content": "2",
+      "userId": 1,
+      "createDate": 1687798467619,
+      "commentId": 13,
+      "id": 12
+    },
+    {
+      "content": "5",
+      "userId": 1,
+      "createDate": 1687798471308,
+      "commentId": 13,
+      "id": 13
     }
   ]
 }

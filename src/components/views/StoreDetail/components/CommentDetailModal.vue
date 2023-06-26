@@ -65,7 +65,7 @@
         }}</span
       >
 
-      <el-dropdown>
+      <el-dropdown trigger="click">
         <span>
           <div style="height: 22px; width: 29px" class="d-flex align-center">
             <font-awesome-icon :icon="['fas', 'ellipsis-vertical']" />
@@ -79,18 +79,80 @@
         </template>
       </el-dropdown>
     </div>
+
+    <el-divider class="my-2" />
+
+    <div class="d-flex mb-3" v-for="reply in replys" :key="reply.id">
+      <img
+        src="@/assets/imgs/StoreDetail/avatarDefault.png"
+        class="me-2 rounded"
+        style="width: 56px; height: 56px"
+      />
+
+      <div style="flex-grow: 1">
+        <h4>{{ reply.userId }}</h4>
+        <p>{{ reply.content }}</p>
+        <p class="text-grey">{{ reply.createDate }}</p>
+      </div>
+
+      <div>
+        <el-dropdown trigger="click">
+          <span>
+            <div style="height: 22px; width: 29px" class="d-flex align-center">
+              <font-awesome-icon :icon="['fas', 'ellipsis-vertical']" />
+            </div>
+          </span>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item @click="deleteReply(reply.id)">刪除</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </div>
+    </div>
+
+    <div class="d-flex mb-3">
+      <img
+        src="@/assets/imgs/StoreDetail/avatarDefault.png"
+        class="me-2 rounded mb-3"
+        style="width: 56px; height: 56px"
+      />
+      <div style="flex-grow: 1">
+        <el-input
+          v-model="reply.content"
+          :rows="3"
+          type="textarea"
+          placeholder="輸入回覆..."
+          class="mb-1"
+        />
+
+        <el-button type="primary" @click="createReply">送出</el-button>
+      </div>
+    </div>
   </el-dialog>
 </template>
 
 <script setup>
 import { storeToRefs } from 'pinia';
+import { watch } from 'vue';
 import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
 
 // commentStore
 const commentDetailStore = useCommentDetailStore();
-const { isDetailOpen, commentDetail } = storeToRefs(commentDetailStore);
+const {
+  isDetailOpen, commentDetail, replys, reply,
+} = storeToRefs(commentDetailStore);
+const { getReplies, createReply, deleteReply } = commentDetailStore;
 
 const handleClose = () => {
   isDetailOpen.value = false;
 };
+
+watch(isDetailOpen, (newValue, oldValue) => {
+  console.log(newValue, oldValue);
+  if (newValue === true) {
+    console.log(true);
+    getReplies(commentDetail.value.id);
+  }
+});
 </script>

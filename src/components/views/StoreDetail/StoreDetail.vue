@@ -219,7 +219,6 @@ const editComment = (pastForm) => {
 const commentDetailStore = useCommentDetailStore();
 const { commentDetail, isDetailOpen } = storeToRefs(commentDetailStore);
 const openCommentDetail = (comment) => {
-  console.log(comment);
   isDetailOpen.value = true;
   commentDetail.value = comment;
 };
