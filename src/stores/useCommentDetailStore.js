@@ -27,6 +27,7 @@ export const useCommentDetailStore = defineStore('commentDetail', {
           message: '新增成功',
           type: 'success',
         });
+        this.reply.content = '';
       } catch {
         ElMessage({
           message: '新增失敗',

@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="isOpen" width="30%" :before-close="handleClose">
+  <el-dialog v-model="isOpen" width="600" :before-close="handleClose">
     <h2 class="text-dark">
       評論撰寫 <span class="text-grey">({{ modalPage }}/2)</span>
     </h2>

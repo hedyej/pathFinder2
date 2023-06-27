@@ -81,7 +81,7 @@ export const useCommentStore = defineStore('comment', {
       this.sorterInfo.nowSorter = sorter;
       await axios
         .get(
-          `/stores/${this.storeId}/comments?_page=${page}&_sort=${type}&_order=${sorter}&_expand=user&_expand=store`,
+          `/stores/${this.storeId}/comments?_page=${page}&_sort=${type}&_order=${sorter}&_expand=user&_expand=store&_embed=replys`,
         )
         .then((res) => {
           this.comments = res.data;

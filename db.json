@@ -140,12 +140,14 @@
       }
     },
     {
-      "storeId": "3",
+      "id": 14,
+      "storeId": "1",
       "userId": 1,
       "anonymous": true,
-      "createDate": 1687251589113,
-      "workHours": 3,
-      "workDays": "二週",
+      "createDate": 1687282442681,
+      "workHours": 0,
+      "hoildayYear": 2023,
+      "workDays": 0,
       "otherworkDays": 0,
       "advantages": [
         {
@@ -163,6 +165,218 @@
         {
           "value": "換宿制度完整",
           "status": false
+        },
+        {
+          "value": "居住環境佳",
+          "status": false
+        },
+        {
+          "value": "免費供餐",
+          "status": false
+        },
+        {
+          "value": "補助餐費 / 零用金",
+          "status": true
+        },
+        {
+          "value": "考取證照",
+          "status": false
+        },
+        {
+          "value": "體驗課程",
+          "status": false
+        }
+      ],
+      "disAdvantages": [
+        {
+          "value": "店家環境差",
+          "status": true
+        },
+        {
+          "value": "交通位置不便",
+          "status": false
+        },
+        {
+          "value": "職員不友善",
+          "status": false
+        },
+        {
+          "value": "換宿制度不完整",
+          "status": false
+        },
+        {
+          "value": "居住環境差",
+          "status": false
+        },
+        {
+          "value": "換宿狀況與描述不符",
+          "status": false
+        },
+        {
+          "value": "工時過長",
+          "status": false
+        },
+        {
+          "value": "性騷擾",
+          "status": false
+        }
+      ],
+      "score": 5,
+      "description": "hahahahah",
+      "like": [],
+      "dislike": [],
+      "replies": [],
+      "advantageTotal": 0,
+      "replys": [
+        {
+          "content": "1",
+          "userId": 1,
+          "createDate": 1687798315892,
+          "commentId": 14,
+          "id": 9
+        },
+        {
+          "content": "2",
+          "userId": 1,
+          "createDate": 1687798393517,
+          "commentId": 14,
+          "id": 10
+        },
+        {
+          "content": "2",
+          "userId": 1,
+          "createDate": 1687798394970,
+          "commentId": 14,
+          "id": 11
+        }
+      ],
+      "user": {
+        "id": 1,
+        "name": "Hedy",
+        "imgUrl": "https://images.unsplash.com/photo-1491616569293-e27f7f4cd41a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80",
+        "email": "hedy@gmail.com"
+      },
+      "store": {
+        "id": 1,
+        "name": "台北行旅01",
+        "imgUrl": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        "address": "116 台北市文山區景中街30巷6號",
+        "tel": "02-2688-4528"
+      }
+    },
+    {
+      "id": 15,
+      "storeId": "2",
+      "userId": 1,
+      "anonymous": true,
+      "createDate": 1687847286060,
+      "workHours": 3,
+      "hoildayYear": 2023,
+      "workDays": "一週",
+      "otherworkDays": 0,
+      "advantages": [
+        {
+          "value": "店家環境佳",
+          "status": false
+        },
+        {
+          "value": "交通位置佳",
+          "status": false
+        },
+        {
+          "value": "職員友善",
+          "status": false
+        },
+        {
+          "value": "換宿制度完整",
+          "status": false
+        },
+        {
+          "value": "居住環境佳",
+          "status": false
+        },
+        {
+          "value": "免費供餐",
+          "status": false
+        },
+        {
+          "value": "補助餐費 / 零用金",
+          "status": false
+        },
+        {
+          "value": "考取證照",
+          "status": false
+        },
+        {
+          "value": "體驗課程",
+          "status": true
+        }
+      ],
+      "disAdvantages": [
+        {
+          "value": "店家環境差",
+          "status": false
+        },
+        {
+          "value": "交通位置不便",
+          "status": false
+        },
+        {
+          "value": "職員不友善",
+          "status": true
+        },
+        {
+          "value": "換宿制度不完整",
+          "status": false
+        },
+        {
+          "value": "居住環境差",
+          "status": false
+        },
+        {
+          "value": "換宿狀況與描述不符",
+          "status": false
+        },
+        {
+          "value": "工時過長",
+          "status": false
+        },
+        {
+          "value": "性騷擾",
+          "status": true
+        }
+      ],
+      "score": 5,
+      "description": "",
+      "like": [],
+      "dislike": [],
+      "replies": [],
+      "advantageTotal": 0
+    },
+    {
+      "storeId": "3",
+      "userId": 1,
+      "anonymous": true,
+      "createDate": 1687854274407,
+      "workHours": 0,
+      "workDays": "一週",
+      "otherworkDays": 0,
+      "advantages": [
+        {
+          "value": "店家環境佳",
+          "status": false
+        },
+        {
+          "value": "交通位置佳",
+          "status": false
+        },
+        {
+          "value": "職員友善",
+          "status": false
+        },
+        {
+          "value": "換宿制度完整",
+          "status": true
         },
         {
           "value": "居住環境佳",
@@ -208,7 +422,7 @@
         },
         {
           "value": "換宿狀況與描述不符",
-          "status": true
+          "status": false
         },
         {
           "value": "工時過長",
@@ -216,17 +430,17 @@
         },
         {
           "value": "性騷擾",
-          "status": false
+          "status": true
         }
       ],
-      "score": 4,
-      "description": "不太開心 不會再去第二次",
+      "score": 5,
+      "description": "!!",
       "like": [],
       "dislike": [],
       "replies": [],
       "advantageTotal": 0,
-      "hoildayYear": 2021,
-      "id": 13,
+      "id": 16,
+      "replys": [],
       "user": {
         "id": 1,
         "name": "Hedy",
@@ -239,17 +453,16 @@
         "imgUrl": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
         "address": "116 台北市文山區景中街30巷6號",
         "tel": "02-2688-4528"
-      }
+      },
+      "hoildayYear": 2023
     },
     {
-      "id": 14,
-      "storeId": "1",
+      "storeId": "2",
       "userId": 1,
       "anonymous": true,
-      "createDate": 1687282442681,
-      "workHours": 0,
-      "hoildayYear": 2023,
-      "workDays": 0,
+      "createDate": 1687858274442,
+      "workHours": 1,
+      "workDays": "一週",
       "otherworkDays": 0,
       "advantages": [
         {
@@ -262,7 +475,7 @@
         },
         {
           "value": "職員友善",
-          "status": false
+          "status": true
         },
         {
           "value": "換宿制度完整",
@@ -277,7 +490,7 @@
           "status": false
         },
         {
-          "value": "補助餐費 / 零用金",
+          "value": "補助餐費 /零用金",
           "status": false
         },
         {
@@ -300,7 +513,7 @@
         },
         {
           "value": "職員不友善",
-          "status": false
+          "status": true
         },
         {
           "value": "換宿制度不完整",
@@ -308,7 +521,7 @@
         },
         {
           "value": "居住環境差",
-          "status": false
+          "status": true
         },
         {
           "value": "換宿狀況與描述不符",
@@ -328,38 +541,12 @@
       "like": [],
       "dislike": [],
       "replies": [],
-      "advantageTotal": 0
+      "advantageTotal": 0,
+      "hoildayYear": 2023,
+      "id": 17
     }
   ],
   "replys": [
-    {
-      "content": "1",
-      "userId": 1,
-      "createDate": 1687798049443,
-      "commentId": 13,
-      "id": 5
-    },
-    {
-      "content": "2",
-      "userId": 1,
-      "createDate": 1687798130385,
-      "commentId": 13,
-      "id": 6
-    },
-    {
-      "content": "3",
-      "userId": 1,
-      "createDate": 1687798177402,
-      "commentId": 13,
-      "id": 7
-    },
-    {
-      "content": "4",
-      "userId": 1,
-      "createDate": 1687798180806,
-      "commentId": 13,
-      "id": 8
-    },
     {
       "content": "1",
       "userId": 1,
@@ -382,18 +569,32 @@
       "id": 11
     },
     {
-      "content": "2",
+      "content": "test111",
       "userId": 1,
-      "createDate": 1687798467619,
-      "commentId": 13,
-      "id": 12
+      "createDate": 1687851054201,
+      "commentId": 15,
+      "id": 14
     },
     {
-      "content": "5",
+      "content": "test111",
       "userId": 1,
-      "createDate": 1687798471308,
-      "commentId": 13,
-      "id": 13
+      "createDate": 1687851063041,
+      "commentId": 15,
+      "id": 15
+    },
+    {
+      "content": "tes",
+      "userId": 1,
+      "createDate": 1687857499426,
+      "commentId": 14,
+      "id": 16
+    },
+    {
+      "content": "haha",
+      "userId": 1,
+      "createDate": 1687857555364,
+      "commentId": 14,
+      "id": 17
     }
   ]
 }

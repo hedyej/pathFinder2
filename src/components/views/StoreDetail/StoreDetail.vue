@@ -76,7 +76,7 @@
             v-for="comment in comments"
             :key="comment.id"
             class="mb-2 cursor-pointer"
-            @click="openCommentDetail(comment)"
+            @click="commentEventHandler(comment, $event)"
           >
             <div class="d-flex mb-2" style="justify-content: space-between">
               <div class="d-flex">
@@ -126,37 +126,7 @@
               </span>
             </span>
 
-            <div class="text-right text-grey">
-              <span class="me-3">
-                <font-awesome-icon :icon="['fas', 'thumbs-up']" class="me-1" />{{
-                  comment.like.length > 0 ? comment.like.length : ' '
-                }}</span
-              >
-              <span class="me-3">
-                <font-awesome-icon :icon="['fas', 'thumbs-down']" class="me-1" />{{
-                  comment.dislike.length > 0 ? comment.dislike.length : ' '
-                }}</span
-              >
-              <span class="me-3">
-                <font-awesome-icon :icon="['fas', 'comment-dots']" class="me-1" />{{
-                  comment.replies.length > 0 ? comment.dislike.length : ' '
-                }}</span
-              >
-
-              <el-dropdown>
-                <span>
-                  <div style="height: 22px; width: 29px" class="d-flex align-center">
-                    <font-awesome-icon :icon="['fas', 'ellipsis-vertical']" />
-                  </div>
-                </span>
-                <template #dropdown>
-                  <el-dropdown-menu>
-                    <el-dropdown-item @click="editComment(comment)">編輯</el-dropdown-item>
-                    <el-dropdown-item @click="deleteComment(comment.id)">刪除</el-dropdown-item>
-                  </el-dropdown-menu>
-                </template>
-              </el-dropdown>
-            </div>
+            <ActionBar :comment="comment"></ActionBar>
           </el-card>
 
           <el-pagination
@@ -185,13 +155,14 @@ import WrapContainer from '../../global/WrapContainer.vue';
 import FilterSelection from './components/FilterSelection.vue';
 import CommentModal from './components/CommentModal.vue';
 import CommentDetailModal from './components/CommentDetailModal.vue';
+import ActionBar from './components/ActionBar.vue';
 
 // commentStore
 const commentStore = useCommentStore();
 const {
   comments, storeId, sorterInfo, averageStoreInfo, form, type, isOpen,
 } = storeToRefs(commentStore);
-const { getStoreInfo, pageSorter, deleteComment } = commentStore;
+const { getStoreInfo, pageSorter } = commentStore;
 
 // store info
 const store = ref({});
@@ -202,6 +173,12 @@ const getStore = () => {
 };
 const scoreValue = computed(() => averageStoreInfo.value.averageScore);
 
+// dropdown不知道為什麼不能這樣寫？
+// <el-dropdown @click="handleDropdownClick">
+// const handleDropdownClick = (e) => {
+//   e.stopPropagation();
+// };
+
 // Comment Action
 const createComment = () => {
   isOpen.value = true;
@@ -209,18 +186,17 @@ const createComment = () => {
   form.value.storeId = storeId;
 };
 
-const editComment = (pastForm) => {
-  isOpen.value = true;
-  type.value = 'edit';
-  form.value = JSON.parse(JSON.stringify(pastForm));
-};
-
 // detail modal
 const commentDetailStore = useCommentDetailStore();
 const { commentDetail, isDetailOpen } = storeToRefs(commentDetailStore);
-const openCommentDetail = (comment) => {
-  isDetailOpen.value = true;
-  commentDetail.value = comment;
+const commentEventHandler = (comment, event) => {
+  const dropdownClicked = event.target.closest('.dropdown');
+  if (dropdownClicked) {
+    event.stopPropagation();
+  } else {
+    isDetailOpen.value = true;
+    commentDetail.value = comment;
+  }
 };
 
 // route

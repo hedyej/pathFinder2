@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="isDetailOpen" width="30%" :before-close="handleClose">
+  <el-dialog v-model="isDetailOpen" width="600" :before-close="handleClose">
     <div class="d-flex mb-2" style="justify-content: space-between">
       <div class="d-flex">
         <img
@@ -7,10 +7,10 @@
           class="me-2 rounded"
           style="width: 56px; height: 56px"
         />
-        <div>
-          <h4>{{ commentDetail.user.name }}</h4>
+        <div class="text-grey">
+          <h4 class="text-dark">{{ commentDetail.user.name }}</h4>
 
-          <p class="text-grey">{{ commentDetail.createDate }}</p>
+          <p>{{ commentDetail.createDate }}</p>
         </div>
       </div>
       <div class="card-light-tag" style="align-self: flex-start">
@@ -48,48 +48,17 @@
       </span>
     </span>
 
-    <div class="text-right text-grey">
-      <span class="me-3">
-        <font-awesome-icon :icon="['fas', 'thumbs-up']" class="me-1" />{{
-          commentDetail.like.length > 0 ? commentDetail.like.length : ' '
-        }}</span
-      >
-      <span class="me-3">
-        <font-awesome-icon :icon="['fas', 'thumbs-down']" class="me-1" />{{
-          commentDetail.dislike.length > 0 ? commentDetail.dislike.length : ' '
-        }}</span
-      >
-      <span class="me-3">
-        <font-awesome-icon :icon="['fas', 'comment-dots']" class="me-1" />{{
-          commentDetail.replies.length > 0 ? commentDetail.dislike.length : ' '
-        }}</span
-      >
-
-      <el-dropdown trigger="click">
-        <span>
-          <div style="height: 22px; width: 29px" class="d-flex align-center">
-            <font-awesome-icon :icon="['fas', 'ellipsis-vertical']" />
-          </div>
-        </span>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item @click="editComment(comment)">編輯</el-dropdown-item>
-            <el-dropdown-item @click="deleteComment(commentDetail.id)">刪除</el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-    </div>
-
+    <ActionBar :comment="commentDetail"></ActionBar>
     <el-divider class="my-2" />
 
-    <div class="d-flex mb-3" v-for="reply in replys" :key="reply.id">
+    <div class="d-flex mb-3 text-grey" v-for="reply in replys" :key="reply.id">
       <img
         src="@/assets/imgs/StoreDetail/avatarDefault.png"
         class="me-2 rounded"
         style="width: 56px; height: 56px"
       />
 
-      <div style="flex-grow: 1">
+      <div style="flex-grow: 1" class="text-dark">
         <h4>{{ reply.userId }}</h4>
         <p>{{ reply.content }}</p>
         <p class="text-grey">{{ reply.createDate }}</p>
@@ -136,6 +105,7 @@
 import { storeToRefs } from 'pinia';
 import { watch } from 'vue';
 import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
+import ActionBar from './ActionBar.vue';
 
 // commentStore
 const commentDetailStore = useCommentDetailStore();
