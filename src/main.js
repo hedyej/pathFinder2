@@ -28,5 +28,6 @@ app.component('font-awesome-icon', FontAwesomeIcon);
 app.use(createPinia());
 app.use(ElementPlus);
 app.use(router);
+app.use(require('vue-moment'));
 
 app.mount('#app');

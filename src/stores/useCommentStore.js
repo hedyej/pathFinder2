@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { defineStore } from 'pinia';
 import { ElMessage, ElMessageBox } from 'element-plus';
+import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
 
 export const useCommentStore = defineStore('comment', {
   state: () => ({
@@ -55,7 +56,6 @@ export const useCommentStore = defineStore('comment', {
       description: '',
       like: [],
       dislike: [],
-      replies: [],
       advantageTotal: 0,
     },
   }),
@@ -125,7 +125,6 @@ export const useCommentStore = defineStore('comment', {
         description: '',
         like: [],
         dislike: [],
-        replies: [],
         advantageTotal: 0,
       };
       this.isOpen = false;
@@ -170,6 +169,9 @@ export const useCommentStore = defineStore('comment', {
         this.sorterInfo.nowSorter,
       );
       await this.getStoreInfo(this.storeId);
+
+      const commentDetailStore = useCommentDetailStore();
+      await commentDetailStore.getComment();
 
       await this.closeModal();
     },

@@ -9,7 +9,6 @@
         />
         <div class="text-grey">
           <h4 class="text-dark">{{ commentDetail.user.name }}</h4>
-
           <p>{{ commentDetail.createDate }}</p>
         </div>
       </div>
@@ -51,7 +50,7 @@
     <ActionBar :comment="commentDetail"></ActionBar>
     <el-divider class="my-2" />
 
-    <div class="d-flex mb-3 text-grey" v-for="reply in replys" :key="reply.id">
+    <div class="d-flex mb-3 text-grey" v-for="reply in commentDetail.replys" :key="reply.id">
       <img
         src="@/assets/imgs/StoreDetail/avatarDefault.png"
         class="me-2 rounded"
@@ -102,27 +101,68 @@
 </template>
 
 <script setup>
+import axios from 'axios';
+import { onMounted, reactive, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { ElMessage } from 'element-plus';
 import { storeToRefs } from 'pinia';
-import { watch } from 'vue';
 import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
 import ActionBar from './ActionBar.vue';
 
-// commentStore
+// CommentDetailStore
 const commentDetailStore = useCommentDetailStore();
-const {
-  isDetailOpen, commentDetail, replys, reply,
-} = storeToRefs(commentDetailStore);
-const { getReplies, createReply, deleteReply } = commentDetailStore;
+const { commentId, commentDetail, isDetailOpen } = storeToRefs(commentDetailStore);
+const { getComment } = commentDetailStore;
+
+const reply = reactive({});
+
+// create reply
+const createReply = async () => {
+  reply.userId = 1;
+  reply.createDate = Date.now();
+  reply.commentId = commentId;
+  try {
+    await axios.post('/replys', reply);
+    await getComment();
+    ElMessage({ message: '新增成功', type: 'success' });
+    reply.content = '';
+  } catch {
+    ElMessage({ message: '新增失敗', type: 'error' });
+  }
+};
+
+// delete reply
+const deleteReply = async (replyId) => {
+  try {
+    await axios.delete(`/replys/${replyId}`);
+    await getComment();
+    ElMessage({ message: '刪除成功', type: 'success' });
+  } catch {
+    ElMessage({ message: '刪除失敗', type: 'error' });
+  }
+};
+
+// close modal
+const route = useRoute();
+const router = useRouter();
 
 const handleClose = () => {
   isDetailOpen.value = false;
+  const { storeId } = route.query;
+  router.push(`/storeDetail/${storeId}`);
 };
 
-watch(isDetailOpen, (newValue, oldValue) => {
-  console.log(newValue, oldValue);
-  if (newValue === true) {
-    console.log(true);
-    getReplies(commentDetail.value.id);
-  }
+// init/change comment
+watch(
+  () => route.query.commentId,
+  () => {
+    commentId.value = route.query.commentId;
+    getComment();
+  },
+);
+
+onMounted(async () => {
+  commentId.value = route.query.commentId;
+  await getComment();
 });
 </script>

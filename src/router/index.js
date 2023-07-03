@@ -9,13 +9,13 @@ const router = createRouter({
       component: () => import('../components/views/HomeView/HomeView.vue'),
     },
     {
-      path: '/searchStore/:keyWord?',
+      path: '/searchStore',
       name: 'searchStore',
       component: () => import('../components/views/SearchStore/SearchStore.vue'),
     },
 
     {
-      path: '/storeDetail/:id',
+      path: '/storeDetail/:id?',
       name: 'storeDetail',
       component: () => import('../components/views/StoreDetail/StoreDetail.vue'),
     },

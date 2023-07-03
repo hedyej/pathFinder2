@@ -76,7 +76,7 @@
             v-for="comment in comments"
             :key="comment.id"
             class="mb-2 cursor-pointer"
-            @click="commentEventHandler(comment, $event)"
+            @click="commentEventHandler(comment.store.id, comment.id, $event)"
           >
             <div class="d-flex mb-2" style="justify-content: space-between">
               <div class="d-flex">
@@ -145,7 +145,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
 import { storeToRefs } from 'pinia';
 
@@ -163,6 +163,10 @@ const {
   comments, storeId, sorterInfo, averageStoreInfo, form, type, isOpen,
 } = storeToRefs(commentStore);
 const { getStoreInfo, pageSorter } = commentStore;
+
+// commentDetailStore
+const commentDetailStore = useCommentDetailStore();
+const { isDetailOpen } = storeToRefs(commentDetailStore);
 
 // store info
 const store = ref({});
@@ -187,21 +191,25 @@ const createComment = () => {
 };
 
 // detail modal
-const commentDetailStore = useCommentDetailStore();
-const { commentDetail, isDetailOpen } = storeToRefs(commentDetailStore);
-const commentEventHandler = (comment, event) => {
+const router = useRouter();
+const commentEventHandler = (cardStoreId, cardCommentId, event) => {
   const dropdownClicked = event.target.closest('.dropdown');
   if (dropdownClicked) {
     event.stopPropagation();
   } else {
+    router.push(`/storeDetail?storeId=${cardStoreId}&commentId=${cardCommentId}`);
     isDetailOpen.value = true;
-    commentDetail.value = comment;
   }
 };
 
 // route
 const route = useRoute();
-storeId.value = route.params.id;
+if (route.params.id) {
+  storeId.value = route.params.id;
+} else if (route.query.storeId && route.query.commentId) {
+  storeId.value = route.query.storeId;
+  isDetailOpen.value = true;
+}
 
 const handleCurrentChange = async (page) => {
   await pageSorter(sorterInfo.value.nowType, page, sorterInfo.value.nowSorter);

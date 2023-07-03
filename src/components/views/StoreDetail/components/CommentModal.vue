@@ -167,13 +167,6 @@ const changeDisadvantage = (newDisadvantage) => {
     }
   });
 };
-
-// submitComment
-// const submit = async () => {
-//   await submitComment(form.value, form.value.id);
-//   closeModal(storeId.value);
-// };
-
 const handleClose = (done) => {
   ElMessageBox.confirm('資料將不會保留，確定離開嗎？').then(() => {
     done();

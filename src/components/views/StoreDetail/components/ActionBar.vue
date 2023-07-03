@@ -2,15 +2,15 @@
   <div class="text-right text-grey">
     <span class="me-3">
       <font-awesome-icon :icon="['fas', 'thumbs-up']" />
-      {{ comment.comment.like.length > 0 ? comment.comment.like.length : ' ' }}
+      <!-- {{ comment.comment.like.length > 0 ? comment.comment.like.length : ' ' }} -->
     </span>
     <span class="me-3">
       <font-awesome-icon :icon="['fas', 'thumbs-down']" />
-      {{ comment.comment.dislike.length > 0 ? comment.comment.dislike.length : ' ' }}
+      <!-- {{ comment.comment.dislike.length > 0 ? comment.comment.dislike.length : ' ' }} -->
     </span>
     <span class="me-3">
       <font-awesome-icon :icon="['fas', 'comment-dots']" />
-      {{ comment.comment.replys.length > 0 ? comment.comment.replys.length : ' ' }}
+      <!-- {{ comment.comment.replys.length > 0 ? comment.comment.replys.length : ' ' }} -->
     </span>
 
     <el-dropdown class="dropdown">
@@ -41,8 +41,8 @@ const { deleteComment } = commentStore;
 const comment = defineProps({ comment: Object });
 
 const editComment = (pastForm) => {
-  isOpen.value = true;
   type.value = 'edit';
+  isOpen.value = true;
   form.value = JSON.parse(JSON.stringify(pastForm));
 };
 </script>
