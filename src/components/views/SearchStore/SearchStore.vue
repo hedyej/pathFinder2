@@ -48,21 +48,25 @@
 
                   <div>
                     <h4 class="mb-1">{{ store.name }}</h4>
-                    <p class="text-grey mb-1"><span></span>{{ store.address }}</p>
-                    <p class="text-grey mb-1"><span></span>{{ store.tel }}</p>
+                    <p class="text-grey mb-1">{{ store.address }}</p>
+                    <p class="text-grey mb-1">{{ store.tel }}</p>
                   </div>
                 </div>
-              </el-col>
-
-              <el-col :span="4" offset="1" class="text-accent comment-star"
-                ><h1 class="mb-1">4.5</h1>
-                <p>4.5 stars ic</p>
               </el-col>
             </el-row>
           </el-card>
         </router-link>
       </div>
-      <div v-else style="text-align: center">無搜尋結果</div>
+      <div v-else>
+        <div v-if="isSearch" class="text-center">查無相關結果</div>
+      </div>
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :total="totalStores.length"
+        @current-change="handleCurrentChange"
+        :hide-on-single-page="totalStores.length === 10 || totalStores.length < 10"
+      />
     </WrapContainer>
   </div>
 </template>
@@ -71,49 +75,49 @@
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import axios from 'axios';
-import { storeToRefs } from 'pinia';
-import { useStoreStore } from '@/stores/useStoreStore';
 import WrapContainer from '../../global/WrapContainer.vue';
-
-// common func & data
-const storeList = ref([]);
-const storeStore = useStoreStore();
-const { getStores } = storeStore;
-const { stores } = storeToRefs(storeStore);
 
 // search
 const keyword = ref('');
 const isSearch = ref(false);
-const searchWord = (word) => {
-  axios
-    .get(`stores?q=${word}`)
-    .then((res) => {
-      storeList.value = res.data;
-      isSearch.value = true;
-    })
-    .catch(() => {
-      stores.value = [];
-    });
+const storeList = ref([]);
+const totalStores = ref(0);
+const searchWord = async (word, page) => {
+  await axios.get(`stores?q=${word}`).then((res) => {
+    totalStores.value = res.data;
+  });
+  await axios.get(`stores?q=${word}&_page=${page}`).then((res) => {
+    storeList.value = res.data;
+    console.log('?');
+  });
+  isSearch.value = true;
 };
 
-// init
+// pagination
+const handleCurrentChange = (page) => {
+  if (isSearch.value === true) {
+    searchWord(keyword.value, page);
+  }
+};
+
+// onmounted
 onMounted(async () => {
   const route = useRoute();
   if (route.query.keyword) {
     keyword.value = route.query.keyword;
-    searchWord(keyword.value);
+    searchWord(keyword.value, 1);
+    isSearch.value = true;
   } else {
-    await getStores();
-    storeList.value = stores.value;
+    storeList.value = [];
   }
 });
 
 // reset
-const reset = async () => {
+const reset = () => {
   keyword.value = '';
   isSearch.value = false;
-  await getStores();
-  storeList.value = stores.value;
+  storeList.value = [];
+  totalStores.value = 0;
 };
 </script>
 

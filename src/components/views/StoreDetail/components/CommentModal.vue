@@ -19,26 +19,8 @@
           </el-select>
         </el-form-item>
 
-        <el-form-item label="換宿天數">
-          <el-select
-            v-model="form.workDays"
-            placeholder="選擇天數"
-            class="me-2"
-            style="width: 240px"
-          >
-            <el-option
-              v-for="item in workDays"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            />
-          </el-select>
-
-          <el-input-number
-            v-if="form.workDays === '其他'"
-            v-model="form.otherworkDays"
-            style="width: 240px"
-          />
+        <el-form-item label="換宿周數">
+          <el-input-number v-model="form.workDays" style="width: 240px" />
         </el-form-item>
 
         <el-form-item label=" 換宿日工時">
@@ -115,40 +97,6 @@ const lastYears = [];
 for (let i = 0; i < 50; i += 1) {
   lastYears.push(nowYear - i);
 }
-const workDays = [
-  {
-    value: '一週',
-    label: '一週',
-  },
-  {
-    value: '二週',
-    label: '二週',
-  },
-  {
-    value: '三週',
-    label: '三週',
-  },
-  {
-    value: '一個月',
-    label: '一個月',
-  },
-  {
-    value: '三個月',
-    label: '三個月',
-  },
-  {
-    value: '半年',
-    label: '半年',
-  },
-  {
-    value: '一年',
-    label: '一年',
-  },
-  {
-    value: '其他',
-    label: '其他',
-  },
-];
 
 // advantage tag
 const changeAdvantage = (newAdvantage) => {

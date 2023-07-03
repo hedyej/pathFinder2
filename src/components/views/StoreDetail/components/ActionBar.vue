@@ -34,12 +34,15 @@ import { storeToRefs } from 'pinia';
 import { defineProps } from 'vue';
 import { useCommentStore } from '@/stores/useCommentStore';
 
+// commentStore
 const commentStore = useCommentStore();
 const { form, type, isOpen } = storeToRefs(commentStore);
 const { deleteComment } = commentStore;
 
+// props
 const comment = defineProps({ comment: Object });
 
+// edit
 const editComment = (pastForm) => {
   type.value = 'edit';
   isOpen.value = true;

@@ -5,6 +5,7 @@ import '@/assets/styles/custiomized/all.scss';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import { createPinia } from 'pinia';
+
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core';
 
@@ -28,6 +29,5 @@ app.component('font-awesome-icon', FontAwesomeIcon);
 app.use(createPinia());
 app.use(ElementPlus);
 app.use(router);
-app.use(require('vue-moment'));
 
 app.mount('#app');

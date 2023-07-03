@@ -14,7 +14,9 @@
 
             <h5 class="mb-1" v-for="(comment, index) in scoreComments" :key="comment.store.id">
               <span class="me-2 text-accent">{{ index + 1 }}</span>
-              <span class="text-left" style="width: 200px">{{ comment.store.name }}</span>
+              <router-link :to="`/storeDetail/${comment.store.id}`" class="router-link text-dark">
+                <span class="text-left" style="width: 200px">{{ comment.store.name }}</span>
+              </router-link>
             </h5>
 
             <img src="@/assets/imgs/home/comment.png" /> </el-card
@@ -28,7 +30,9 @@
 
             <h5 class="mb-1" v-for="(comment, index) in hourComments" :key="comment.store.id">
               <span class="me-2 text-accent">{{ index + 1 }}</span>
-              <span class="text-left" style="width: 200px">{{ comment.store.name }} </span>
+              <router-link :to="`/storeDetail/${comment.store.id}`" class="router-link text-dark">
+                <span class="text-left" style="width: 200px">{{ comment.store.name }} </span>
+              </router-link>
             </h5>
 
             <img src="@/assets/imgs/home/lessHour.png" /> </el-card
@@ -42,7 +46,9 @@
 
             <h5 class="mb-1" v-for="(comment, index) in advantageComments" :key="comment.store.id">
               <span class="me-2 text-accent">{{ index + 1 }}</span>
-              <span class="text-left" style="width: 200px">{{ comment.store.name }}</span>
+              <router-link :to="`/storeDetail/${comment.store.id}`" class="router-link text-dark">
+                <span class="text-left" style="width: 200px">{{ comment.store.name }}</span>
+              </router-link>
             </h5>
 
             <img src="@/assets/imgs/home/benefit.png" /> </el-card

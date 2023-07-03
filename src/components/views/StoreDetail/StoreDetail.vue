@@ -50,10 +50,12 @@
               <p class="mb-1">
                 <font-awesome-icon :icon="['fas', 'clock']" class="me-1" />平均工時：
                 {{ averageStoreInfo.averageHours }}
+                <span>小時</span>
               </p>
               <p class="mb-1">
-                <font-awesome-icon :icon="['fas', 'calendar-days']" class="me-1" />平均換宿日：
+                <font-awesome-icon :icon="['fas', 'calendar-days']" class="me-1" />平均換宿：
                 {{ averageStoreInfo.averageDays }}
+                <span>周</span>
               </p>
             </div>
             <el-button
@@ -80,15 +82,11 @@
           >
             <div class="d-flex mb-2" style="justify-content: space-between">
               <div class="d-flex">
-                <img
-                  src="@/assets/imgs/StoreDetail/avatarDefault.png"
-                  class="me-2 rounded"
-                  style="width: 56px; height: 56px"
-                />
+                <img :src="comment.user.imgUrl" class="me-2 profileImg" />
                 <div>
                   <h4>{{ comment.user.name }}</h4>
 
-                  <p class="text-grey">{{ comment.createDate }}</p>
+                  <p class="text-grey">{{ moment(comment.createDate).format('YYYY-MM-DD') }}</p>
                 </div>
               </div>
               <div class="card-light-tag" style="align-self: flex-start">
@@ -99,18 +97,20 @@
             </div>
             <div>
               <p class="text-grey">
-                <span class="mb-1 me-2">
+                <span class="mb-1 me-1">
                   <font-awesome-icon :icon="['fas', 'clock']" class="me-1" />日工時：
                   {{ comment.workHours }}
+                  <span>小時</span>
                 </span>
-                <span class="me-2">·</span>
+                <span class="me-1">·</span>
                 <span class="mb-1">
-                  <font-awesome-icon :icon="['fas', 'calendar-days']" class="me-1" />換宿日數：
+                  <font-awesome-icon :icon="['fas', 'calendar-days']" class="me-1" />換宿：
                   {{ comment.workDays }}
+                  <span>周</span>
                 </span>
               </p>
             </div>
-            <p class="mb-2">
+            <p class="mb-2 multiline-ellipsis">
               {{ comment.description }}
             </p>
 
@@ -134,7 +134,7 @@
             layout="prev, pager, next"
             :total="comments.length"
             @current-change="handleCurrentChange"
-            :hide-on-single-page="comments.length === 1"
+            :hide-on-single-page="comments.length === 10 || comments.length < 10"
             :current-page="sorterInfo.nowPage"
           />
         </el-col>
@@ -149,6 +149,7 @@ import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
 import { storeToRefs } from 'pinia';
 
+import moment from 'moment';
 import { useCommentStore } from '@/stores/useCommentStore';
 import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
 import WrapContainer from '../../global/WrapContainer.vue';
@@ -177,20 +178,14 @@ const getStore = () => {
 };
 const scoreValue = computed(() => averageStoreInfo.value.averageScore);
 
-// dropdown不知道為什麼不能這樣寫？
-// <el-dropdown @click="handleDropdownClick">
-// const handleDropdownClick = (e) => {
-//   e.stopPropagation();
-// };
-
-// Comment Action
+// comment action
 const createComment = () => {
   isOpen.value = true;
   type.value = 'create';
   form.value.storeId = storeId;
 };
 
-// detail modal
+// click to open detail modal
 const router = useRouter();
 const commentEventHandler = (cardStoreId, cardCommentId, event) => {
   const dropdownClicked = event.target.closest('.dropdown');
@@ -202,7 +197,7 @@ const commentEventHandler = (cardStoreId, cardCommentId, event) => {
   }
 };
 
-// route
+// route to open detail modal
 const route = useRoute();
 if (route.params.id) {
   storeId.value = route.params.id;
@@ -211,6 +206,7 @@ if (route.params.id) {
   isDetailOpen.value = true;
 }
 
+// change page
 const handleCurrentChange = async (page) => {
   await pageSorter(sorterInfo.value.nowType, page, sorterInfo.value.nowSorter);
 };

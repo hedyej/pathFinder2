@@ -7,19 +7,22 @@
 
       <el-row :gutter="20">
         <el-col class="mb-2" :span="12" v-for="comment in lastComments" :key="comment.id">
-          <el-card>
+          <el-card
+            @click="commentEventHandler(comment.store.id, comment.id)"
+            class="cursor-pointer"
+          >
             <el-row :gutter="4" class="mb-2">
               <el-col :span="4">
-                <img
-                  :src="comment.store.imgUrl"
-                  style="width: 64px; height: 64px"
-                  class="rounded"
-                />
+                <img :src="comment.store.imgUrl" class="profileImg" />
               </el-col>
 
               <el-col :span="14">
                 <h4 class="mb-1">{{ comment.store.name }}</h4>
-                <p>{{ comment.user.name }} • 2021-12-02</p>
+                <p class="me-1 text-grey">
+                  {{ comment.user.name }}
+                  <span>·</span>
+                  {{ moment(comment.createDate).format('YYYY-MM-DD') }}
+                </p>
               </el-col>
 
               <el-col :span="6" class="text-right">
@@ -30,7 +33,7 @@
                 </div>
               </el-col>
             </el-row>
-            <p>
+            <p class="multiline-ellipsis">
               {{ comment.description }}
             </p>
           </el-card>
@@ -43,14 +46,31 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import axios from 'axios';
+import moment from 'moment';
+import { useRouter } from 'vue-router';
+import { storeToRefs } from 'pinia';
 import WrapContainer from '@/components/global/WrapContainer.vue';
+import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
 
+// last comments
 const lastComments = ref([]);
 const getComments = () => {
-  axios.get('http://localhost:3000/comments?_expand=store&_expand=user').then((res) => {
+  axios.get('/comments?_expand=store&_expand=user').then((res) => {
     lastComments.value = res.data.splice(-4);
   });
 };
+
+// commentDetailStore
+const commentDetailStore = useCommentDetailStore();
+const { isDetailOpen } = storeToRefs(commentDetailStore);
+
+// route to comment detail
+const router = useRouter();
+const commentEventHandler = (cardStoreId, cardCommentId) => {
+  router.push(`/storeDetail?storeId=${cardStoreId}&commentId=${cardCommentId}`);
+  isDetailOpen.value = true;
+};
+
 onMounted(() => {
   getComments();
 });

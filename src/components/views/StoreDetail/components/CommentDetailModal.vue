@@ -2,14 +2,10 @@
   <el-dialog v-model="isDetailOpen" width="600" :before-close="handleClose">
     <div class="d-flex mb-2" style="justify-content: space-between">
       <div class="d-flex">
-        <img
-          src="@/assets/imgs/StoreDetail/avatarDefault.png"
-          class="me-2 rounded"
-          style="width: 56px; height: 56px"
-        />
+        <img src="@/assets/imgs/StoreDetail/avatarDefault.png" class="me-2 profileImg" />
         <div class="text-grey">
-          <h4 class="text-dark">{{ commentDetail.user.name }}</h4>
-          <p>{{ commentDetail.createDate }}</p>
+          <h4 class="text-dark">名稱</h4>
+          <p>{{ moment(commentDetail.createDate).format('YYYY-MM-DD') }}</p>
         </div>
       </div>
       <div class="card-light-tag" style="align-self: flex-start">
@@ -20,18 +16,20 @@
     </div>
     <div>
       <p class="text-grey">
-        <span class="mb-1 me-2">
+        <span class="mb-1 me-1">
           <font-awesome-icon :icon="['fas', 'clock']" class="me-1" />日工時：
           {{ commentDetail.workHours }}
+          <span>小時</span>
         </span>
-        <span class="me-2">·</span>
+        <span class="me-1">·</span>
         <span class="mb-1">
-          <font-awesome-icon :icon="['fas', 'calendar-days']" class="me-1" />換宿日數：
+          <font-awesome-icon :icon="['fas', 'calendar-days']" class="me-1" />換宿：
           {{ commentDetail.workDays }}
+          <span>周</span>
         </span>
       </p>
     </div>
-    <p class="mb-2">
+    <p class="mb-2 text-dark">
       {{ commentDetail.description }}
     </p>
 
@@ -51,11 +49,7 @@
     <el-divider class="my-2" />
 
     <div class="d-flex mb-3 text-grey" v-for="reply in commentDetail.replys" :key="reply.id">
-      <img
-        src="@/assets/imgs/StoreDetail/avatarDefault.png"
-        class="me-2 rounded"
-        style="width: 56px; height: 56px"
-      />
+      <img src="@/assets/imgs/StoreDetail/avatarDefault.png" class="me-2 profileImg" />
 
       <div style="flex-grow: 1" class="text-dark">
         <h4>{{ reply.userId }}</h4>
@@ -80,11 +74,7 @@
     </div>
 
     <div class="d-flex mb-3">
-      <img
-        src="@/assets/imgs/StoreDetail/avatarDefault.png"
-        class="me-2 rounded mb-3"
-        style="width: 56px; height: 56px"
-      />
+      <img src="@/assets/imgs/StoreDetail/avatarDefault.png" class="me-2 profileImg mb-3" />
       <div style="flex-grow: 1">
         <el-input
           v-model="reply.content"
@@ -102,25 +92,34 @@
 
 <script setup>
 import axios from 'axios';
-import { onMounted, reactive, watch } from 'vue';
+import {
+  onMounted, reactive, watch, ref,
+} from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus';
 import { storeToRefs } from 'pinia';
+import moment from 'moment';
 import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
 import ActionBar from './ActionBar.vue';
 
-// CommentDetailStore
+// commentDetailStore
 const commentDetailStore = useCommentDetailStore();
-const { commentId, commentDetail, isDetailOpen } = storeToRefs(commentDetailStore);
-const { getComment } = commentDetailStore;
+const { isDetailOpen } = storeToRefs(commentDetailStore);
 
-const reply = reactive({});
+// getComment
+const commentId = ref();
+const commentDetail = ref([]);
+const getComment = async () => {
+  const { data } = await axios.get(`/comments/${commentId.value}?_expand=user&_embed=reply`);
+  commentDetail.value = data;
+};
 
 // create reply
+const reply = reactive({});
 const createReply = async () => {
   reply.userId = 1;
   reply.createDate = Date.now();
-  reply.commentId = commentId;
+  reply.commentId = commentId.value;
   try {
     await axios.post('/replys', reply);
     await getComment();
@@ -155,14 +154,18 @@ const handleClose = () => {
 // init/change comment
 watch(
   () => route.query.commentId,
-  () => {
-    commentId.value = route.query.commentId;
-    getComment();
+  async () => {
+    if (route.query.commentId) {
+      commentId.value = route.query.commentId;
+      await getComment();
+    }
   },
 );
 
 onMounted(async () => {
-  commentId.value = route.query.commentId;
-  await getComment();
+  if (route.query.commentId) {
+    commentId.value = route.query.commentId;
+    await getComment();
+  }
 });
 </script>

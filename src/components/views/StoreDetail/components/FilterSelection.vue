@@ -12,6 +12,8 @@ import { useCommentStore } from '@/stores/useCommentStore';
 const commentStore = useCommentStore();
 const { pageSorter } = commentStore;
 const selectValue = ref('');
+
+// filter
 const filterComment = () => {
   if (selectValue.value === 'scoreOrderAsc') {
     pageSorter('score', 1, 'asc');
@@ -43,6 +45,7 @@ const options = [
   },
 ];
 
+// onMounted
 onMounted(() => {
   selectValue.value = 'DateOrderAsc';
 });
