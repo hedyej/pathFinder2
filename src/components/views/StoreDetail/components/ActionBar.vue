@@ -2,15 +2,25 @@
   <div class="text-right text-grey">
     <span class="me-3">
       <font-awesome-icon :icon="['fas', 'thumbs-up']" />
-      <!-- {{ comment.comment.like.length > 0 ? comment.comment.like.length : ' ' }} -->
+      {{
+        comment.comment.like && comment.comment.like.length > 0 ? comment.comment.like.length : ' '
+      }}
     </span>
     <span class="me-3">
       <font-awesome-icon :icon="['fas', 'thumbs-down']" />
-      <!-- {{ comment.comment.dislike.length > 0 ? comment.comment.dislike.length : ' ' }} -->
+      {{
+        comment.comment.like && comment.comment.dislike.length > 0
+          ? comment.comment.dislike.length
+          : ' '
+      }}
     </span>
     <span class="me-3">
       <font-awesome-icon :icon="['fas', 'comment-dots']" />
-      <!-- {{ comment.comment.replys.length > 0 ? comment.comment.replys.length : ' ' }} -->
+      {{
+        comment.comment.like && comment.comment.replys.length > 0
+          ? comment.comment.replys.length
+          : ' '
+      }}
     </span>
 
     <el-dropdown class="dropdown">

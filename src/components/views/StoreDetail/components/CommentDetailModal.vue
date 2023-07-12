@@ -49,12 +49,11 @@
     <el-divider class="my-2" />
 
     <div class="d-flex mb-3 text-grey" v-for="reply in commentDetail.replys" :key="reply.id">
-      <img src="@/assets/imgs/StoreDetail/avatarDefault.png" class="me-2 profileImg" />
-
+      <img :src="reply.imgUrl" class="me-2 profileImg" />
       <div style="flex-grow: 1" class="text-dark">
-        <h4>{{ reply.userId }}</h4>
+        <h4>{{ reply.name }}</h4>
         <p>{{ reply.content }}</p>
-        <p class="text-grey">{{ reply.createDate }}</p>
+        <p class="text-grey">{{ moment(reply.createDate).format('YYYY-MM-DD') }}</p>
       </div>
 
       <div>
@@ -106,20 +105,41 @@ import ActionBar from './ActionBar.vue';
 const commentDetailStore = useCommentDetailStore();
 const { isDetailOpen } = storeToRefs(commentDetailStore);
 
+// get users
+const users = ref();
+const getUsers = async () => {
+  const { data } = await axios.get('/users');
+  users.value = data;
+};
+
 // getComment
 const commentId = ref();
 const commentDetail = ref([]);
+
+const getNewReplys = () => {
+  commentDetail.value.replys.forEach((replyItem, index) => {
+    users.value.forEach((user) => {
+      if (replyItem.userId === user.id) {
+        commentDetail.value.replys[index].name = user.name;
+        commentDetail.value.replys[index].imgUrl = user.imgUrl;
+      }
+    });
+  });
+};
+
 const getComment = async () => {
-  const { data } = await axios.get(`/comments/${commentId.value}?_expand=user&_embed=reply`);
+  const { data } = await axios.get(`/comments/${commentId.value}?_expand=user&_embed=replys`);
   commentDetail.value = data;
+  await getNewReplys();
 };
 
 // create reply
 const reply = reactive({});
+reply.userId = 0;
 const createReply = async () => {
   reply.userId = 1;
   reply.createDate = Date.now();
-  reply.commentId = commentId.value;
+  reply.commentId = Number(commentId.value);
   try {
     await axios.post('/replys', reply);
     await getComment();
@@ -167,5 +187,7 @@ onMounted(async () => {
     commentId.value = route.query.commentId;
     await getComment();
   }
+  await getUsers();
+  await getNewReplys();
 });
 </script>

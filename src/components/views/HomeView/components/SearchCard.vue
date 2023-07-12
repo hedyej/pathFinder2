@@ -6,7 +6,7 @@
 
         <h2 class="mb-3 text-grey">台灣打工換宿經驗分享平台</h2>
 
-        <el-form :inline="true" size="large" style="margin-bottom: -24px">
+        <el-form :inline="true" size="large" style="margin-bottom: -24px" @submit.prevent>
           <el-form-item style="width: 100%; max-width: 400px">
             <el-input
               v-model="keyword"

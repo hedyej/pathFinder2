@@ -12,9 +12,47 @@ export const useCommentStore = defineStore('comment', {
       nowType: 'desc',
     },
     averageStoreInfo: {},
+    defaultForm: {
+      id: 0,
+      storeId: 0,
+      userId: 1,
+      anonymous: true,
+      createDate: 0,
+      workHours: 0,
+      hoildayYear: 2023,
+      workDays: 0,
+      otherworkDays: 0,
+      advantages: [
+        { value: '店家環境佳', status: false },
+        { value: '交通位置佳', status: false },
+        { value: '職員友善', status: false },
+        { value: '換宿制度完整', status: false },
+        { value: '居住環境佳', status: false },
+        { value: '免費供餐', status: false },
+        { value: '補助餐費 / 零用金', status: false },
+        { value: '考取證照', status: false },
+        { value: '體驗課程', status: false },
+      ],
+      disAdvantages: [
+        { value: '店家環境差', status: false },
+        { value: '交通位置不便', status: false },
+        { value: '職員不友善', status: false },
+        { value: '換宿制度不完整', status: false },
+        { value: '居住環境差', status: false },
+        { value: '換宿狀況與描述不符', status: false },
+        { value: '工時過長', status: false },
+        { value: '性騷擾', status: false },
+      ],
+      score: 0,
+      description: '',
+      like: [],
+      dislike: [],
+      advantageTotal: 0,
+    },
 
     // comment
     comments: {},
+    allComments: {},
 
     // modal
     isOpen: false,
@@ -61,6 +99,10 @@ export const useCommentStore = defineStore('comment', {
   }),
 
   actions: {
+    async getAllComments(id) {
+      const { data } = await axios.get(`/stores/${id}?_embed=comments`);
+      this.allComments = data.comments;
+    },
     getAverageInfo(key) {
       let total = 0;
       this.comments.forEach((comment) => {
@@ -92,12 +134,14 @@ export const useCommentStore = defineStore('comment', {
     closeModal() {
       this.modalPage = 1;
       this.form = {
-        storeId: 1,
+        id: 0,
+        storeId: 0,
         userId: 1,
         anonymous: true,
         createDate: 0,
         workHours: 0,
-        workDays: '',
+        hoildayYear: 2023,
+        workDays: 0,
         otherworkDays: 0,
         advantages: [
           { value: '店家環境佳', status: false },
@@ -106,7 +150,7 @@ export const useCommentStore = defineStore('comment', {
           { value: '換宿制度完整', status: false },
           { value: '居住環境佳', status: false },
           { value: '免費供餐', status: false },
-          { value: '補助餐費 /零用金', status: false },
+          { value: '補助餐費 / 零用金', status: false },
           { value: '考取證照', status: false },
           { value: '體驗課程', status: false },
         ],
@@ -120,7 +164,6 @@ export const useCommentStore = defineStore('comment', {
           { value: '工時過長', status: false },
           { value: '性騷擾', status: false },
         ],
-
         score: 0,
         description: '',
         like: [],

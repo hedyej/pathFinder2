@@ -70,7 +70,7 @@
 
         <el-col :xs="24" :md="16">
           <div class="d-flex align-center" style="justify-content: space-between">
-            <p class="text-grey bold" style="margin: 0">{{ comments.length }} 則評論</p>
+            <p class="text-grey bold" style="margin: 0">{{ allComments.length }} 則評論</p>
             <FilterSelection></FilterSelection>
           </div>
 
@@ -132,7 +132,7 @@
           <el-pagination
             background
             layout="prev, pager, next"
-            :total="comments.length"
+            :total="allComments.length"
             @current-change="handleCurrentChange"
             :hide-on-single-page="comments.length === 10 || comments.length < 10"
             :current-page="sorterInfo.nowPage"
@@ -161,9 +161,9 @@ import ActionBar from './components/ActionBar.vue';
 // commentStore
 const commentStore = useCommentStore();
 const {
-  comments, storeId, sorterInfo, averageStoreInfo, form, type, isOpen,
+  comments, allComments, storeId, sorterInfo, averageStoreInfo, form, type, isOpen,
 } = storeToRefs(commentStore);
-const { getStoreInfo, pageSorter } = commentStore;
+const { getStoreInfo, pageSorter, getAllComments } = commentStore;
 
 // commentDetailStore
 const commentDetailStore = useCommentDetailStore();
@@ -214,6 +214,7 @@ const handleCurrentChange = async (page) => {
 // onMounted
 onMounted(async () => {
   await getStore();
+  await getAllComments(storeId.value);
   await pageSorter('createDate', 1, 'desc');
   await getStoreInfo();
 });
