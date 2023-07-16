@@ -4,13 +4,67 @@
       <router-link :to="{ name: 'home' }">
         <img src="@/assets/imgs/logo.png" style="width: 200px" />
       </router-link>
-      <el-button type="primary" round>登入</el-button>
+      <template v-if="!user.id" >
+        <GoogleLogin :callback="callback"  />
+      </template>
+      <el-button v-else @click="logOut">登出</el-button>
     </WrapContainer>
   </div>
 </template>
 
 <script setup>
+import { decodeCredential, googleLogout } from 'vue3-google-login';
+import axios from 'axios';
 import WrapContainer from '@/components/global/WrapContainer.vue';
+import { ref, onMounted } from 'vue';
+import { useUserStore } from '@/stores/useUserStore';
+import { storeToRefs } from 'pinia';
+
+// userStore
+const userStore = useUserStore();
+const { user } = storeToRefs(userStore);
+
+const users = ref([]);
+const getUsers = async () => { users.value = await axios.get('/users'); };
+const postUser = async () => {
+  await axios.post('/users', user.value);
+};
+const putUser = async () => {
+  await axios.put(`/users/${user.value.id}`, user.value);
+};
+const upDateUser = () => {
+  const isSameUser = users.value.data.filter((item) => item.id === user.value.id).length;
+  if (isSameUser) {
+    putUser(user);
+  } else {
+    postUser(user);
+  }
+};
+
+const callback = async (response) => {
+  const data = await decodeCredential(response.credential);
+  user.value = {
+    id: data.sub,
+    name: data.name,
+    imgUrl: data.picture,
+    email: data.email,
+  };
+  await upDateUser();
+};
+
+const logOut = () => {
+  googleLogout();
+  user.value = {
+    id: 0,
+    name: '匿名',
+    imgUrl: 'https://images.unsplash.com/photo-1560790671-b76ca4de55ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=734&q=80',
+    email: 'hedy@gmail.com',
+  };
+};
+
+onMounted(async () => {
+  await getUsers();
+});
 </script>
 
 <style scoped>

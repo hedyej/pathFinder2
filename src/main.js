@@ -32,7 +32,7 @@ app.use(ElementPlus);
 app.use(router);
 
 app.use(vue3GoogleLogin, {
-  clientId: '625274834135 - ahhev6b8a6lq8gugn576fvosai27s6i5.apps.googleusercontent.com',
+  clientId: '625274834135-ahhev6b8a6lq8gugn576fvosai27s6i5.apps.googleusercontent.com',
 });
 
 app.mount('#app');

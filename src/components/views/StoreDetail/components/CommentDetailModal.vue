@@ -73,8 +73,9 @@
     </div>
 
     <div class="d-flex mb-3">
-      <img src="@/assets/imgs/StoreDetail/avatarDefault.png" class="me-2 profileImg mb-3" />
+      <img :src="user.imgUrl" class="me-2 profileImg mb-3" />
       <div style="flex-grow: 1">
+        <h4 class="text-dark">{{ user.name }}</h4>
         <el-input
           v-model="reply.content"
           :rows="3"
@@ -82,7 +83,9 @@
           placeholder="輸入回覆..."
           class="mb-1"
         />
-
+        <div>
+          <el-checkbox v-modal="isAnonymous" v-if="isLogin">匿名回覆</el-checkbox>
+        </div>
         <el-button type="primary" @click="createReply">送出</el-button>
       </div>
     </div>
@@ -92,14 +95,23 @@
 <script setup>
 import axios from 'axios';
 import {
-  onMounted, reactive, watch, ref,
+  onMounted, reactive, watch, ref, computed,
 } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus';
 import { storeToRefs } from 'pinia';
 import moment from 'moment';
 import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
+import { useUserStore } from '@/stores/useUserStore';
 import ActionBar from './ActionBar.vue';
+
+// userStore
+const userStore = useUserStore();
+const { user } = storeToRefs(userStore);
+
+// isLogin / Anonymous
+const isLogin = computed(() => user.value.id !== 0);
+const isAnonymous = ref(false);
 
 // commentDetailStore
 const commentDetailStore = useCommentDetailStore();
@@ -110,6 +122,7 @@ const users = ref();
 const getUsers = async () => {
   const { data } = await axios.get('/users');
   users.value = data;
+  console.log(data, users.value);
 };
 
 // getComment
@@ -118,10 +131,10 @@ const commentDetail = ref([]);
 
 const getNewReplys = () => {
   commentDetail.value.replys.forEach((replyItem, index) => {
-    users.value.forEach((user) => {
-      if (replyItem.userId === user.id) {
-        commentDetail.value.replys[index].name = user.name;
-        commentDetail.value.replys[index].imgUrl = user.imgUrl;
+    users.value.forEach((item) => {
+      if (replyItem.userId === item.id) {
+        commentDetail.value.replys[index].name = item.name;
+        commentDetail.value.replys[index].imgUrl = item.imgUrl;
       }
     });
   });
@@ -130,14 +143,19 @@ const getNewReplys = () => {
 const getComment = async () => {
   const { data } = await axios.get(`/comments/${commentId.value}?_expand=user&_embed=replys`);
   commentDetail.value = data;
+  await getUsers();
   await getNewReplys();
 };
 
 // create reply
 const reply = reactive({});
-reply.userId = 0;
 const createReply = async () => {
-  reply.userId = 1;
+  console.log(isAnonymous.value);
+  if (isAnonymous.value) {
+    reply.userId = 0;
+  } else {
+    reply.userId = user.value.id;
+  }
   reply.createDate = Date.now();
   reply.commentId = Number(commentId.value);
   try {
@@ -187,7 +205,5 @@ onMounted(async () => {
     commentId.value = route.query.commentId;
     await getComment();
   }
-  await getUsers();
-  await getNewReplys();
 });
 </script>
