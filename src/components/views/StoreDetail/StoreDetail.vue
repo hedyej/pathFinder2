@@ -12,7 +12,7 @@
           <el-card>
             <div class="d-flex align-center mb-2">
               <div class="me-2">
-                <div v-if="store.imgUrl" class="rounded block">
+                <div class="rounded block">
                   <el-image
                     style="width: 100px; height: 100px"
                     :src="store.imgUrl"
@@ -20,7 +20,6 @@
                     class="rounded"
                   />
                 </div>
-                <img v-else src="@/assets/imgs/ProductDetail/storeDefaultImg.png" class="rounded" />
               </div>
 
               <div>
@@ -182,7 +181,7 @@ const scoreValue = computed(() => averageStoreInfo.value.averageScore);
 const createComment = () => {
   isOpen.value = true;
   type.value = 'create';
-  form.value.storeId = storeId;
+  form.value.storeId = storeId.value;
 };
 
 // click to open detail modal
@@ -200,9 +199,9 @@ const commentEventHandler = (cardStoreId, cardCommentId, event) => {
 // route to open detail modal
 const route = useRoute();
 if (route.params.id) {
-  storeId.value = route.params.id;
+  storeId.value = Number(route.params.id);
 } else if (route.query.storeId && route.query.commentId) {
-  storeId.value = route.query.storeId;
+  storeId.value = Number(route.query.storeId);
   isDetailOpen.value = true;
 }
 

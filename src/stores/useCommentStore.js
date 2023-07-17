@@ -15,7 +15,7 @@ export const useCommentStore = defineStore('comment', {
     defaultForm: {
       id: 0,
       storeId: 0,
-      userId: 1,
+      userId: 0,
       anonymous: true,
       createDate: 0,
       workHours: 0,
@@ -62,7 +62,7 @@ export const useCommentStore = defineStore('comment', {
     form: {
       id: 0,
       storeId: 0,
-      userId: 1,
+      userId: 0,
       anonymous: true,
       createDate: 0,
       workHours: 0,
@@ -136,7 +136,7 @@ export const useCommentStore = defineStore('comment', {
       this.form = {
         id: 0,
         storeId: 0,
-        userId: 1,
+        userId: 0,
         anonymous: true,
         createDate: 0,
         workHours: 0,

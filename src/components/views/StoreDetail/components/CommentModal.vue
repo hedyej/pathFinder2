@@ -1,5 +1,7 @@
 <template>
-  <el-dialog v-model="isOpen" width="600" :before-close="handleClose">
+  <el-dialog v-model="isOpen" width="600" :before-close="handleClose"
+  lock-scroll="false" >
+  <div style="max-height: 80vh; overflow-y: auto;">
     <h2 class="text-dark">
       評論撰寫 <span class="text-grey">({{ modalPage }}/2)</span>
     </h2>
@@ -64,6 +66,8 @@
         /></el-form-item>
       </el-form>
     </div>
+  </div>
+
     <template #footer>
       <div v-if="modalPage === 1">
         <el-button type="primary" @click="toNextPage"> 下一頁 </el-button>
@@ -81,6 +85,11 @@ import { watch, ref, reactive } from 'vue';
 import { ElMessageBox } from 'element-plus';
 import { storeToRefs } from 'pinia';
 import { useCommentStore } from '@/stores/useCommentStore';
+import { useUserStore } from '@/stores/useUserStore';
+
+// userStore
+const userStore = useUserStore();
+const { user } = storeToRefs(userStore);
 
 // commentStore
 const commentStore = useCommentStore();
@@ -89,8 +98,25 @@ const { submitComment, closeModal } = commentStore;
 
 // anonymous
 const anonymous = ref('匿名');
-watch(anonymous, () => {
-  form.anonymous = anonymous.value === '匿名';
+watch(anonymous, async () => {
+  if (anonymous.value === '匿名') {
+    form.value.userId = 0;
+  } else if (anonymous.value === '本人') {
+    if (user.value.id === 0) {
+      ElMessageBox.confirm(
+        '尚未登入',
+        '請先登入帳號',
+        {
+          confirmButtonText: 'OK',
+          cancelButtonText: '取消',
+          type: 'warning',
+        },
+      );
+      anonymous.value = '匿名';
+    } else {
+      form.value.userId = user.value.id;
+    }
+  }
 });
 
 // year selection
@@ -147,11 +173,11 @@ const rule1 = reactive({
       message: '請輸入數字',
       trigger: 'blur',
     },
-    {
-      min: 1,
-      message: '必須大於0',
-      trigger: 'blur',
-    },
+    // {
+    //   min: 1,
+    //   message: '必須大於0',
+    //   trigger: 'blur',
+    // },
   ],
   workHours: [
     {
@@ -164,11 +190,11 @@ const rule1 = reactive({
       message: '請輸入數字',
       trigger: 'blur',
     },
-    {
-      min: 1,
-      message: '必須大於0',
-      trigger: 'blur',
-    },
+    // {
+    //   min: 1,
+    //   message: '必須大於0',
+    //   trigger: 'blur',
+    // },
   ],
 });
 

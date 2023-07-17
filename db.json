@@ -147,19 +147,19 @@
   ],
   "comments": [
     {
-      "id": 18,
-      "storeId": 2,
-      "userId": 1,
+      "id": 1,
+      "storeId": 1,
+      "userId": 0,
       "anonymous": true,
-      "createDate": 1688290030358,
-      "workHours": 6,
+      "createDate": 1689486268925,
+      "workHours": 0,
       "hoildayYear": 2023,
-      "workDays": 6,
+      "workDays": 0,
       "otherworkDays": 0,
       "advantages": [
         {
           "value": "店家環境佳",
-          "status": true
+          "status": false
         },
         {
           "value": "交通位置佳",
@@ -201,99 +201,6 @@
         },
         {
           "value": "交通位置不便",
-          "status": true
-        },
-        {
-          "value": "職員不友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": true
-        },
-        {
-          "value": "工時過長",
-          "status": true
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 5,
-      "description": "這段時間的打工換宿體驗真的讓我受益匪淺。我學到了很多新的技能和知識，同時也擴展了自己的人際圈。工作環境非常友善和融洽，同事們都非常願意互相幫助和合作。這種團隊合作的氛圍讓我感到非常舒適和開心。我還發現了自己的潛力和能力，因為在這個過程中我被給予了更多的責任和挑戰。雖然有時候工作可能會有壓力，但這些挑戰使我更加成長和進步。我非常感謝這個機會，這段打工換宿經歷對我來說是一個寶貴的寶藏，我將永遠珍惜",
-      "like": [],
-      "dislike": [],
-      "advantageTotal": 0,
-      "replys": [],
-      "user": {
-        "id": 1,
-        "name": "Hedy",
-        "imgUrl": "https://images.unsplash.com/photo-1560790671-b76ca4de55ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=734&q=80",
-        "email": "hedy@gmail.com"
-      }
-    },
-    {
-      "storeId": 2,
-      "userId": 1,
-      "anonymous": true,
-      "createDate": 1688290083365,
-      "workHours": 7,
-      "workDays": 5,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": true
-        },
-        {
-          "value": "交通位置佳",
-          "status": false
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": false
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": true
-        },
-        {
-          "value": "補助餐費 /零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
           "status": false
         },
         {
@@ -321,28 +228,26 @@
           "status": false
         }
       ],
-      "score": 4,
-      "description": "與不同背景的人一起工作是一個很棒的學習機會。我與來自不同國家和文化的志願者共同工作，學到了如何有效溝通和解決問題。這擴大了我的視野，讓我更加開放和包容。我學到了如何欣賞和尊重不同觀點，這在團隊合作和人際關係中非常重要。",
+      "score": 0,
+      "description": "1",
       "like": [],
       "dislike": [],
-      "advantageTotal": 0,
-      "hoildayYear": 2022,
-      "id": 19
+      "advantageTotal": 0
     },
     {
-      "id": 20,
-      "storeId": 2,
-      "userId": 1,
+      "id": 2,
+      "storeId": 1,
+      "userId": 0,
       "anonymous": true,
-      "createDate": 1688290030358,
-      "workHours": 6,
+      "createDate": 1689486529209,
+      "workHours": 0,
       "hoildayYear": 2023,
-      "workDays": 6,
+      "workDays": 0,
       "otherworkDays": 0,
       "advantages": [
         {
           "value": "店家環境佳",
-          "status": true
+          "status": false
         },
         {
           "value": "交通位置佳",
@@ -384,7 +289,7 @@
         },
         {
           "value": "交通位置不便",
-          "status": true
+          "status": false
         },
         {
           "value": "職員不友善",
@@ -400,11 +305,99 @@
         },
         {
           "value": "換宿狀況與描述不符",
-          "status": true
+          "status": false
         },
         {
           "value": "工時過長",
-          "status": true
+          "status": false
+        },
+        {
+          "value": "性騷擾",
+          "status": false
+        }
+      ],
+      "score": 0,
+      "description": "3",
+      "like": [],
+      "dislike": [],
+      "advantageTotal": 0
+    },
+    {
+      "id": 3,
+      "storeId": 2,
+      "userId": 0,
+      "anonymous": true,
+      "createDate": 1689488912993,
+      "workHours": 0,
+      "hoildayYear": 2023,
+      "workDays": 0,
+      "otherworkDays": 0,
+      "advantages": [
+        {
+          "value": "店家環境佳",
+          "status": false
+        },
+        {
+          "value": "交通位置佳",
+          "status": false
+        },
+        {
+          "value": "職員友善",
+          "status": false
+        },
+        {
+          "value": "換宿制度完整",
+          "status": false
+        },
+        {
+          "value": "居住環境佳",
+          "status": false
+        },
+        {
+          "value": "免費供餐",
+          "status": false
+        },
+        {
+          "value": "補助餐費 / 零用金",
+          "status": false
+        },
+        {
+          "value": "考取證照",
+          "status": false
+        },
+        {
+          "value": "體驗課程",
+          "status": false
+        }
+      ],
+      "disAdvantages": [
+        {
+          "value": "店家環境差",
+          "status": false
+        },
+        {
+          "value": "交通位置不便",
+          "status": false
+        },
+        {
+          "value": "職員不友善",
+          "status": false
+        },
+        {
+          "value": "換宿制度不完整",
+          "status": false
+        },
+        {
+          "value": "居住環境差",
+          "status": false
+        },
+        {
+          "value": "換宿狀況與描述不符",
+          "status": false
+        },
+        {
+          "value": "工時過長",
+          "status": false
         },
         {
           "value": "性騷擾",
@@ -412,30 +405,25 @@
         }
       ],
       "score": 5,
-      "description": "這段時間的打工換宿體驗真的讓我受益匪淺。我學到了很多新的技能和知識，同時也擴展了自己的人際圈。工作環境非常友善和融洽，同事們都非常願意互相幫助和合作。這種團隊合作的氛圍讓我感到非常舒適和開心。我還發現了自己的潛力和能力，因為在這個過程中我被給予了更多的責任和挑戰。雖然有時候工作可能會有壓力，但這些挑戰使我更加成長和進步。我非常感謝這個機會，這段打工換宿經歷對我來說是一個寶貴的寶藏，我將永遠珍惜",
+      "description": "????????",
       "like": [],
       "dislike": [],
-      "advantageTotal": 0,
-      "replys": [],
-      "user": {
-        "id": 1,
-        "name": "Hedy",
-        "imgUrl": "https://images.unsplash.com/photo-1560790671-b76ca4de55ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=734&q=80",
-        "email": "hedy@gmail.com"
-      }
+      "advantageTotal": 0
     },
     {
-      "storeId": 2,
-      "userId": 1,
+      "id": 5,
+      "storeId": "2",
+      "userId": 0,
       "anonymous": true,
-      "createDate": 1688290083365,
-      "workHours": 7,
-      "workDays": 5,
+      "createDate": 1689489236528,
+      "workHours": 0,
+      "hoildayYear": 2023,
+      "workDays": 0,
       "otherworkDays": 0,
       "advantages": [
         {
           "value": "店家環境佳",
-          "status": true
+          "status": false
         },
         {
           "value": "交通位置佳",
@@ -455,10 +443,10 @@
         },
         {
           "value": "免費供餐",
-          "status": true
+          "status": false
         },
         {
-          "value": "補助餐費 /零用金",
+          "value": "補助餐費 / 零用金",
           "status": false
         },
         {
@@ -504,26 +492,26 @@
           "status": false
         }
       ],
-      "score": 4,
-      "description": "與不同背景的人一起工作是一個很棒的學習機會。我與來自不同國家和文化的志願者共同工作，學到了如何有效溝通和解決問題。這擴大了我的視野，讓我更加開放和包容。我學到了如何欣賞和尊重不同觀點，這在團隊合作和人際關係中非常重要。",
+      "score": 0,
+      "description": "!!!!",
       "like": [],
       "dislike": [],
-      "advantageTotal": 0,
-      "hoildayYear": 2022,
-      "id": 21
+      "advantageTotal": 0
     },
     {
-      "storeId": 2,
-      "userId": 1,
+      "id": 6,
+      "storeId": "2",
+      "userId": 0,
       "anonymous": true,
-      "createDate": 1688290083365,
-      "workHours": 7,
-      "workDays": 5,
+      "createDate": 1689489869078,
+      "workHours": 0,
+      "hoildayYear": 2023,
+      "workDays": 0,
       "otherworkDays": 0,
       "advantages": [
         {
           "value": "店家環境佳",
-          "status": true
+          "status": false
         },
         {
           "value": "交通位置佳",
@@ -543,10 +531,10 @@
         },
         {
           "value": "免費供餐",
-          "status": true
+          "status": false
         },
         {
-          "value": "補助餐費 /零用金",
+          "value": "補助餐費 / 零用金",
           "status": false
         },
         {
@@ -592,26 +580,26 @@
           "status": false
         }
       ],
-      "score": 4,
-      "description": "與不同背景的人一起工作是一個很棒的學習機會。我與來自不同國家和文化的志願者共同工作，學到了如何有效溝通和解決問題。這擴大了我的視野，讓我更加開放和包容。我學到了如何欣賞和尊重不同觀點，這在團隊合作和人際關係中非常重要。",
+      "score": 0,
+      "description": "4",
       "like": [],
       "dislike": [],
-      "advantageTotal": 0,
-      "hoildayYear": 2022,
-      "id": 22
+      "advantageTotal": 0
     },
     {
-      "storeId": 2,
-      "userId": 1,
+      "id": 7,
+      "storeId": "2",
+      "userId": 0,
       "anonymous": true,
-      "createDate": 1688290083365,
-      "workHours": 7,
-      "workDays": 5,
+      "createDate": 1689490082984,
+      "workHours": 0,
+      "hoildayYear": 2023,
+      "workDays": 0,
       "otherworkDays": 0,
       "advantages": [
         {
           "value": "店家環境佳",
-          "status": true
+          "status": false
         },
         {
           "value": "交通位置佳",
@@ -631,10 +619,10 @@
         },
         {
           "value": "免費供餐",
-          "status": true
+          "status": false
         },
         {
-          "value": "補助餐費 /零用金",
+          "value": "補助餐費 / 零用金",
           "status": false
         },
         {
@@ -680,901 +668,21 @@
           "status": false
         }
       ],
-      "score": 4,
-      "description": "與不同背景的人一起工作是一個很棒的學習機會。我與來自不同國家和文化的志願者共同工作，學到了如何有效溝通和解決問題。這擴大了我的視野，讓我更加開放和包容。我學到了如何欣賞和尊重不同觀點，這在團隊合作和人際關係中非常重要。",
+      "score": 0,
+      "description": "5",
       "like": [],
       "dislike": [],
-      "advantageTotal": 0,
-      "hoildayYear": 2022,
-      "id": 23
+      "advantageTotal": 0
     },
     {
-      "storeId": 2,
-      "userId": 1,
-      "anonymous": true,
-      "createDate": 1688290083365,
-      "workHours": 7,
-      "workDays": 5,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": true
-        },
-        {
-          "value": "交通位置佳",
-          "status": false
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": false
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": true
-        },
-        {
-          "value": "補助餐費 /零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
-          "status": false
-        },
-        {
-          "value": "職員不友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 4,
-      "description": "與不同背景的人一起工作是一個很棒的學習機會。我與來自不同國家和文化的志願者共同工作，學到了如何有效溝通和解決問題。這擴大了我的視野，讓我更加開放和包容。我學到了如何欣賞和尊重不同觀點，這在團隊合作和人際關係中非常重要。",
-      "like": [],
-      "dislike": [],
-      "advantageTotal": 0,
-      "hoildayYear": 2022,
-      "id": 24
-    },
-    {
-      "storeId": 2,
-      "userId": 1,
-      "anonymous": true,
-      "createDate": 1688290083365,
-      "workHours": 7,
-      "workDays": 5,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": true
-        },
-        {
-          "value": "交通位置佳",
-          "status": false
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": false
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": true
-        },
-        {
-          "value": "補助餐費 /零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
-          "status": false
-        },
-        {
-          "value": "職員不友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 4,
-      "description": "與不同背景的人一起工作是一個很棒的學習機會。我與來自不同國家和文化的志願者共同工作，學到了如何有效溝通和解決問題。這擴大了我的視野，讓我更加開放和包容。我學到了如何欣賞和尊重不同觀點，這在團隊合作和人際關係中非常重要。",
-      "like": [],
-      "dislike": [],
-      "advantageTotal": 0,
-      "hoildayYear": 2022,
-      "id": 25
-    },
-    {
-      "storeId": 2,
-      "userId": 1,
-      "anonymous": true,
-      "createDate": 1688290083365,
-      "workHours": 7,
-      "workDays": 5,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": true
-        },
-        {
-          "value": "交通位置佳",
-          "status": false
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": false
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": true
-        },
-        {
-          "value": "補助餐費 /零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
-          "status": false
-        },
-        {
-          "value": "職員不友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 4,
-      "description": "與不同背景的人一起工作是一個很棒的學習機會。我與來自不同國家和文化的志願者共同工作，學到了如何有效溝通和解決問題。這擴大了我的視野，讓我更加開放和包容。我學到了如何欣賞和尊重不同觀點，這在團隊合作和人際關係中非常重要。",
-      "like": [],
-      "dislike": [],
-      "advantageTotal": 0,
-      "hoildayYear": 2022,
-      "id": 26
-    },
-    {
-      "storeId": 2,
-      "userId": 1,
-      "anonymous": true,
-      "createDate": 1688290083365,
-      "workHours": 7,
-      "workDays": 5,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": true
-        },
-        {
-          "value": "交通位置佳",
-          "status": false
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": false
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": true
-        },
-        {
-          "value": "補助餐費 /零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
-          "status": false
-        },
-        {
-          "value": "職員不友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 4,
-      "description": "與不同背景的人一起工作是一個很棒的學習機會。我與來自不同國家和文化的志願者共同工作，學到了如何有效溝通和解決問題。這擴大了我的視野，讓我更加開放和包容。我學到了如何欣賞和尊重不同觀點，這在團隊合作和人際關係中非常重要。",
-      "like": [],
-      "dislike": [],
-      "advantageTotal": 0,
-      "hoildayYear": 2022,
-      "id": 27
-    },
-    {
-      "storeId": 2,
-      "userId": 1,
-      "anonymous": true,
-      "createDate": 1688290083365,
-      "workHours": 7,
-      "workDays": 5,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": true
-        },
-        {
-          "value": "交通位置佳",
-          "status": false
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": false
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": true
-        },
-        {
-          "value": "補助餐費 /零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
-          "status": false
-        },
-        {
-          "value": "職員不友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 4,
-      "description": "與不同背景的人一起工作是一個很棒的學習機會。我與來自不同國家和文化的志願者共同工作，學到了如何有效溝通和解決問題。這擴大了我的視野，讓我更加開放和包容。我學到了如何欣賞和尊重不同觀點，這在團隊合作和人際關係中非常重要。",
-      "like": [],
-      "dislike": [],
-      "advantageTotal": 0,
-      "hoildayYear": 2022,
-      "id": 28
-    },
-    {
-      "storeId": 2,
-      "userId": 1,
-      "anonymous": true,
-      "createDate": 1688290083365,
-      "workHours": 7,
-      "workDays": 5,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": true
-        },
-        {
-          "value": "交通位置佳",
-          "status": false
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": false
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": true
-        },
-        {
-          "value": "補助餐費 /零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
-          "status": false
-        },
-        {
-          "value": "職員不友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 4,
-      "description": "與不同背景的人一起工作是一個很棒的學習機會。我與來自不同國家和文化的志願者共同工作，學到了如何有效溝通和解決問題。這擴大了我的視野，讓我更加開放和包容。我學到了如何欣賞和尊重不同觀點，這在團隊合作和人際關係中非常重要。",
-      "like": [],
-      "dislike": [],
-      "advantageTotal": 0,
-      "hoildayYear": 2022,
-      "id": 29
-    },
-    {
-      "storeId": 2,
-      "userId": 1,
-      "anonymous": true,
-      "createDate": 1688290083365,
-      "workHours": 7,
-      "workDays": 5,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": true
-        },
-        {
-          "value": "交通位置佳",
-          "status": false
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": false
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": true
-        },
-        {
-          "value": "補助餐費 /零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
-          "status": false
-        },
-        {
-          "value": "職員不友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 4,
-      "description": "與不同背景的人一起工作是一個很棒的學習機會。我與來自不同國家和文化的志願者共同工作，學到了如何有效溝通和解決問題。這擴大了我的視野，讓我更加開放和包容。我學到了如何欣賞和尊重不同觀點，這在團隊合作和人際關係中非常重要。",
-      "like": [],
-      "dislike": [],
-      "advantageTotal": 0,
-      "hoildayYear": 2022,
-      "id": 30
-    },
-    {
-      "storeId": 2,
-      "userId": 1,
-      "anonymous": true,
-      "createDate": 1688290083365,
-      "workHours": 7,
-      "workDays": 5,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": true
-        },
-        {
-          "value": "交通位置佳",
-          "status": false
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": false
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": true
-        },
-        {
-          "value": "補助餐費 /零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
-          "status": false
-        },
-        {
-          "value": "職員不友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 4,
-      "description": "與不同背景的人一起工作是一個很棒的學習機會。我與來自不同國家和文化的志願者共同工作，學到了如何有效溝通和解決問題。這擴大了我的視野，讓我更加開放和包容。我學到了如何欣賞和尊重不同觀點，這在團隊合作和人際關係中非常重要。",
-      "like": [],
-      "dislike": [],
-      "advantageTotal": 0,
-      "hoildayYear": 2022,
-      "id": 31
-    },
-    {
-      "storeId": 2,
-      "userId": 1,
-      "anonymous": true,
-      "createDate": 1688290083365,
-      "workHours": 7,
-      "workDays": 5,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": true
-        },
-        {
-          "value": "交通位置佳",
-          "status": false
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": false
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": true
-        },
-        {
-          "value": "補助餐費 /零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
-          "status": false
-        },
-        {
-          "value": "職員不友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 4,
-      "description": "與不同背景的人一起工作是一個很棒的學習機會。我與來自不同國家和文化的志願者共同工作，學到了如何有效溝通和解決問題。這擴大了我的視野，讓我更加開放和包容。我學到了如何欣賞和尊重不同觀點，這在團隊合作和人際關係中非常重要。",
-      "like": [],
-      "dislike": [],
-      "advantageTotal": 0,
-      "hoildayYear": 2022,
-      "id": 32
-    },
-    {
-      "storeId": "3",
-      "userId": 1,
-      "anonymous": true,
-      "createDate": 1688290148064,
-      "workHours": 5,
-      "workDays": 5,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": true
-        },
-        {
-          "value": "交通位置佳",
-          "status": true
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": true
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": false
-        },
-        {
-          "value": "補助餐費 /零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
-          "status": false
-        },
-        {
-          "value": "職員不友善",
-          "status": true
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 2,
-      "description": "打工換宿讓我體驗到了農業和生態環境的美妙之處。我參與了種植、收穫和處理農作物的工作，這種與大自然接觸的感覺令人愉悅且充滿意義。我學到了土壤管理、植物生長和農業可持續性等方面的知識。這讓我更加關注環境議題，並激發了對生態保護的興趣。",
-      "like": [],
-      "dislike": [],
-      "advantageTotal": 0,
-      "hoildayYear": 2019,
-      "id": 20
-    },
-    {
+      "id": 8,
       "storeId": "1",
-      "userId": 1,
+      "userId": "117561142045312108883",
       "anonymous": true,
-      "createDate": 1688290170091,
-      "workHours": 7,
-      "workDays": 3,
+      "createDate": 1689524199969,
+      "workHours": 0,
+      "hoildayYear": 2023,
+      "workDays": 0,
       "otherworkDays": 0,
       "advantages": [
         {
@@ -1587,7 +695,7 @@
         },
         {
           "value": "職員友善",
-          "status": false
+          "status": true
         },
         {
           "value": "換宿制度完整",
@@ -1602,8 +710,8 @@
           "status": false
         },
         {
-          "value": "補助餐費 /零用金",
-          "status": false
+          "value": "補助餐費 / 零用金",
+          "status": true
         },
         {
           "value": "考取證照",
@@ -1617,7 +725,7 @@
       "disAdvantages": [
         {
           "value": "店家環境差",
-          "status": true
+          "status": false
         },
         {
           "value": "交通位置不便",
@@ -1637,7 +745,7 @@
         },
         {
           "value": "換宿狀況與描述不符",
-          "status": false
+          "status": true
         },
         {
           "value": "工時過長",
@@ -1649,18 +757,16 @@
         }
       ],
       "score": 5,
-      "description": "很累誒...一堆東西><在這個換宿工作中，我學到了許多手藝和工藝技巧。從木工到烹飪，我有機會學習並提升自己的技能。在工作期間，我參與了製作手工藝品、烹飪美食和藝術創作等活動。這些技能不僅豐富了我的個人生活，還為我未來的職業發展提供了更多選擇。我深深體會到，透過學習手藝和工藝，我可以表達自己的創造力並帶來滿足感。",
+      "description": "QQ",
       "like": [],
       "dislike": [],
       "advantageTotal": 0,
-      "hoildayYear": 2023,
-      "id": 21,
       "replys": [],
       "user": {
-        "id": 1,
-        "name": "Hedy",
-        "imgUrl": "https://images.unsplash.com/photo-1560790671-b76ca4de55ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=734&q=80",
-        "email": "hedy@gmail.com"
+        "id": "117561142045312108883",
+        "name": "Hedy Du",
+        "imgUrl": "https://lh3.googleusercontent.com/a/AAcHTtcIQTAznyPzFIsi6NhOKCy87WTciE-I-ck609LMewtjTsY=s96-c",
+        "email": "duej12345@gmail.com"
       },
       "store": {
         "id": 1,
@@ -1668,467 +774,156 @@
         "imgUrl": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
         "address": "116 台北市文山區景中街30巷6號",
         "tel": "02-2688-4528"
-      },
-      "reply": []
-    },
-    {
-      "id": 22,
-      "storeId": "3",
-      "userId": 1,
-      "anonymous": true,
-      "createDate": 1688355901276,
-      "workHours": 1,
-      "hoildayYear": 2023,
-      "workDays": 4,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": false
-        },
-        {
-          "value": "交通位置佳",
-          "status": false
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": false
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": false
-        },
-        {
-          "value": "補助餐費 / 零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
-          "status": false
-        },
-        {
-          "value": "職員不友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 0,
-      "description": "",
-      "like": [],
-      "dislike": [],
-      "advantageTotal": 0
-    },
-    {
-      "id": 23,
-      "storeId": "1",
-      "userId": 1,
-      "anonymous": true,
-      "createDate": 1688748560271,
-      "workHours": 4,
-      "hoildayYear": 2023,
-      "workDays": 4,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": false
-        },
-        {
-          "value": "交通位置佳",
-          "status": false
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": true
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": false
-        },
-        {
-          "value": "補助餐費 / 零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": true
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
-          "status": false
-        },
-        {
-          "value": "職員不友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 1,
-      "description": "累",
-      "like": [],
-      "dislike": [],
-      "advantageTotal": 0
-    },
-    {
-      "storeId": "1",
-      "userId": 1,
-      "anonymous": true,
-      "createDate": 1688796078911,
-      "hoildayYear": 2023,
-      "workHours": 0,
-      "workDays": 0,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": false
-        },
-        {
-          "value": "交通位置佳",
-          "status": false
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": false
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": false
-        },
-        {
-          "value": "補助餐費 /零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
-          "status": false
-        },
-        {
-          "value": "職員不友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 0,
-      "description": "   ",
-      "like": [],
-      "dislike": [],
-      "advantageTotal": 0,
-      "id": 24
-    },
-    {
-      "storeId": "1",
-      "userId": 1,
-      "anonymous": true,
-      "createDate": 1688796103250,
-      "hoildayYear": 2023,
-      "workHours": 0,
-      "workDays": 0,
-      "otherworkDays": 0,
-      "advantages": [
-        {
-          "value": "店家環境佳",
-          "status": false
-        },
-        {
-          "value": "交通位置佳",
-          "status": false
-        },
-        {
-          "value": "職員友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度完整",
-          "status": false
-        },
-        {
-          "value": "居住環境佳",
-          "status": false
-        },
-        {
-          "value": "免費供餐",
-          "status": false
-        },
-        {
-          "value": "補助餐費 /零用金",
-          "status": false
-        },
-        {
-          "value": "考取證照",
-          "status": false
-        },
-        {
-          "value": "體驗課程",
-          "status": false
-        }
-      ],
-      "disAdvantages": [
-        {
-          "value": "店家環境差",
-          "status": false
-        },
-        {
-          "value": "交通位置不便",
-          "status": false
-        },
-        {
-          "value": "職員不友善",
-          "status": false
-        },
-        {
-          "value": "換宿制度不完整",
-          "status": false
-        },
-        {
-          "value": "居住環境差",
-          "status": false
-        },
-        {
-          "value": "換宿狀況與描述不符",
-          "status": false
-        },
-        {
-          "value": "工時過長",
-          "status": false
-        },
-        {
-          "value": "性騷擾",
-          "status": false
-        }
-      ],
-      "score": 0,
-      "description": ",",
-      "like": [],
-      "dislike": [],
-      "advantageTotal": 0,
-      "id": 25
+      }
     }
   ],
   "replys": [
     {
-      "content": "111",
-      "userId": 1,
-      "createDate": 1688314134035,
-      "commentId": 18,
+      "content": "22",
+      "userId": 0,
+      "createDate": 1689490291973,
+      "commentId": 5,
       "id": 1
-    },
-    {
-      "content": "1112",
-      "userId": 1,
-      "createDate": 1688314150018,
-      "commentId": 18,
-      "id": 2
-    },
-    {
-      "content": "testtttt",
-      "userId": 1,
-      "createDate": 1688317097579,
-      "commentId": 18,
-      "id": 3
-    },
-    {
-      "content": "111",
-      "userId": 1,
-      "createDate": 1688710758407,
-      "commentId": 19,
-      "id": 4
-    },
-    {
-      "content": "testtt!",
-      "userId": 1,
-      "createDate": 1688713411283,
-      "commentId": 21,
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "content": "><!",
-      "createDate": 1688715304195,
-      "commentId": 21,
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "content": "11",
-      "createDate": 1688718023643,
-      "commentId": 21,
-      "id": 7
-    },
-    {
-      "content": "4",
-      "userId": 0,
-      "createDate": 1689411803404,
-      "commentId": 23,
-      "id": 12
-    },
-    {
-      "content": "5",
-      "userId": 0,
-      "createDate": 1689411838711,
-      "commentId": 23,
-      "id": 13
-    },
-    {
-      "content": "11",
-      "userId": "117561142045312108883",
-      "createDate": 1689415291036,
-      "commentId": 25,
-      "id": 15
-    },
-    {
-      "content": "2",
-      "userId": 0,
-      "createDate": 1689416894076,
-      "commentId": 25,
-      "id": 16
-    },
-    {
-      "content": "3",
-      "userId": "117561142045312108883",
-      "createDate": 1689416909579,
-      "commentId": 25,
-      "id": 17
-    },
-    {
-      "content": "111",
-      "userId": "117561142045312108883",
-      "createDate": 1689417542029,
-      "commentId": 23,
-      "id": 18
-    },
-    {
-      "content": "???",
-      "userId": "117561142045312108883",
-      "createDate": 1689417556526,
-      "commentId": 23,
-      "id": 19
     },
     {
       "content": "1",
       "userId": 0,
-      "createDate": 1689417793918,
-      "commentId": 23,
+      "createDate": 1689490294108,
+      "commentId": 5,
+      "id": 2
+    },
+    {
+      "content": ";",
+      "userId": 0,
+      "createDate": 1689491279467,
+      "commentId": 5,
+      "id": 5
+    },
+    {
+      "content": "",
+      "userId": "117561142045312108883",
+      "createDate": 1689491286535,
+      "commentId": 5,
+      "id": 6
+    },
+    {
+      "content": "!!",
+      "userId": 0,
+      "createDate": 1689524220997,
+      "commentId": 8,
+      "id": 7
+    },
+    {
+      "content": "1",
+      "userId": 0,
+      "createDate": 1689524222705,
+      "commentId": 8,
+      "id": 8
+    },
+    {
+      "content": "222",
+      "userId": "117561142045312108883",
+      "createDate": 1689524229141,
+      "commentId": 8,
+      "id": 10
+    },
+    {
+      "content": "1",
+      "userId": 0,
+      "createDate": 1689524275739,
+      "commentId": 8,
+      "id": 11
+    },
+    {
+      "content": "2",
+      "userId": 0,
+      "createDate": 1689524278080,
+      "commentId": 8,
+      "id": 12
+    },
+    {
+      "content": "1",
+      "userId": 0,
+      "createDate": 1689524739395,
+      "commentId": 8,
+      "id": 13
+    },
+    {
+      "content": "1",
+      "userId": 0,
+      "createDate": 1689524966966,
+      "commentId": 8,
+      "id": 14
+    },
+    {
+      "content": "1",
+      "userId": 0,
+      "createDate": 1689525007250,
+      "commentId": 8,
+      "id": 15
+    },
+    {
+      "content": "9",
+      "userId": 0,
+      "createDate": 1689525021943,
+      "commentId": 8,
+      "id": 16
+    },
+    {
+      "content": "1",
+      "userId": "117561142045312108883",
+      "createDate": 1689525055167,
+      "commentId": 8,
+      "id": 17
+    },
+    {
+      "content": "11",
+      "userId": "117561142045312108883",
+      "createDate": 1689525074435,
+      "commentId": 8,
+      "id": 18
+    },
+    {
+      "content": "1",
+      "userId": 0,
+      "createDate": 1689525181282,
+      "commentId": 8,
+      "id": 19
+    },
+    {
+      "content": "1",
+      "userId": "117561142045312108883",
+      "createDate": 1689525950303,
+      "commentId": 1,
       "id": 20
+    },
+    {
+      "content": "2",
+      "userId": "117561142045312108883",
+      "createDate": 1689525951600,
+      "commentId": 1,
+      "id": 21
+    },
+    {
+      "content": "3",
+      "userId": "117561142045312108883",
+      "createDate": 1689525952739,
+      "commentId": 1,
+      "id": 22
+    },
+    {
+      "content": "4",
+      "userId": "117561142045312108883",
+      "createDate": 1689525954105,
+      "commentId": 1,
+      "id": 23
+    },
+    {
+      "content": "5",
+      "userId": "117561142045312108883",
+      "createDate": 1689525956384,
+      "commentId": 1,
+      "id": 24
     }
   ]
 }

@@ -31,7 +31,7 @@
             <el-row gutter="16" class="align-center">
               <el-col :span="18" :offset="1">
                 <div class="d-flex align-center">
-                  <div v-if="store.imgUrl" class="rounded block me-3">
+                  <div class="rounded block me-3">
                     <el-image
                       style="width: 100px; height: 100px"
                       :src="store.imgUrl"
@@ -39,12 +39,6 @@
                       class="rounded"
                     />
                   </div>
-                  <img
-                    v-else
-                    src="@/assets/imgs/storeDefaultImg.png"
-                    style="border-radius: 16px"
-                    class="me-3"
-                  />
 
                   <div>
                     <h4 class="mb-1">{{ store.name }}</h4>

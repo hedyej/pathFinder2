@@ -23,13 +23,13 @@
       }}
     </span>
 
-    <el-dropdown class="dropdown">
+    <el-dropdown class="dropdown" v-if="comment.comment.userId === user.id && user.id!==0">
       <span>
         <div style="height: 22px; width: 29px" class="d-flex align-center">
           <font-awesome-icon :icon="['fas', 'ellipsis-vertical']" />
         </div>
       </span>
-      <template #dropdown>
+      <template #dropdown >
         <el-dropdown-menu>
           <el-dropdown-item @click="editComment(comment.comment)">編輯</el-dropdown-item>
           <el-dropdown-item @click="deleteComment(comment.comment.id)">刪除</el-dropdown-item>
@@ -43,6 +43,11 @@
 import { storeToRefs } from 'pinia';
 import { defineProps } from 'vue';
 import { useCommentStore } from '@/stores/useCommentStore';
+import { useUserStore } from '@/stores/useUserStore';
+
+// userStore
+const userStore = useUserStore();
+const { user } = storeToRefs(userStore);
 
 // commentStore
 const commentStore = useCommentStore();
