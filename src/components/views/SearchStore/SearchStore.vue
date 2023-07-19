@@ -4,7 +4,7 @@
       <el-card class="search-card mb-3">
         <h1 class="mb-3">搜尋</h1>
 
-        <el-form :inline="true" size="large" style="margin-bottom: -24px">
+        <el-form :inline="true" size="large" style="margin-bottom: -24px; ">
           <el-form-item style="width: 100%; max-width: 400px">
             <el-input
               v-model="keyword"
@@ -29,7 +29,8 @@
         >
           <el-card class="mb-3">
             <el-row gutter="16" class="align-center">
-              <el-col :span="18" :offset="1">
+              <el-col :xs="0" :md="1"></el-col>
+              <el-col :xs="24" :md="18">
                 <div class="d-flex align-center">
                   <div class="rounded block me-3">
                     <el-image
@@ -68,7 +69,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-import axios from 'axios';
+import { getResultNum, getResultStore } from '@/apis/store';
 import WrapContainer from '../../global/WrapContainer.vue';
 
 // search
@@ -77,13 +78,10 @@ const isSearch = ref(false);
 const storeList = ref([]);
 const totalStores = ref(0);
 const searchWord = async (word, page) => {
-  await axios.get(`stores?q=${word}`).then((res) => {
-    totalStores.value = res.data;
-  });
-  await axios.get(`stores?q=${word}&_page=${page}`).then((res) => {
-    storeList.value = res.data;
-    console.log('?');
-  });
+  const totalStoreNum = await getResultNum(word);
+  totalStores.value = totalStoreNum.data;
+  const storeData = await getResultStore(word, page);
+  storeList.value = storeData.data;
   isSearch.value = true;
 };
 
@@ -118,9 +116,12 @@ const reset = () => {
 <style scoped>
 .search-card {
   text-align: center;
-  background-image: url('../../../assets/imgs/SearchStore/searchBg.png');
+  background-image: url('../../../assets/imgs/SearchStore/search-bg-xs.png');
   background-size: cover;
   width: 100%;
   padding: 20px 0;
+  @media (min-width: 768px) {
+    background-image: url('../../../assets/imgs/SearchStore/searchBg.png');
+  }
 }
 </style>

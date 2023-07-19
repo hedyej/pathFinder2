@@ -72,61 +72,9 @@
             <p class="text-grey bold" style="margin: 0">{{ allComments.length }} 則評論</p>
             <FilterSelection></FilterSelection>
           </div>
-
-          <el-card
-            v-for="comment in comments"
-            :key="comment.id"
-            class="mb-2 cursor-pointer"
-            @click="commentEventHandler(comment.store.id, comment.id, $event)"
-          >
-            <div class="d-flex mb-2" style="justify-content: space-between">
-              <div class="d-flex">
-                <img :src="comment.user.imgUrl" class="me-2 profileImg" />
-                <div>
-                  <h4>{{ comment.user.name }}</h4>
-
-                  <p class="text-grey">{{ moment(comment.createDate).format('YYYY-MM-DD') }}</p>
-                </div>
-              </div>
-              <div class="card-light-tag" style="align-self: flex-start">
-                <h5 style="margin-bottom: 0px">
-                  <font-awesome-icon :icon="['fas', 'star']" class="me-1" />{{ comment.score }} 分
-                </h5>
-              </div>
-            </div>
-            <div>
-              <p class="text-grey">
-                <span class="mb-1 me-1">
-                  <font-awesome-icon :icon="['fas', 'clock']" class="me-1" />日工時：
-                  {{ comment.workHours }}
-                  <span>小時</span>
-                </span>
-                <span class="me-1">·</span>
-                <span class="mb-1">
-                  <font-awesome-icon :icon="['fas', 'calendar-days']" class="me-1" />換宿：
-                  {{ comment.workDays }}
-                  <span>周</span>
-                </span>
-              </p>
-            </div>
-            <p class="mb-2 multiline-ellipsis">
-              {{ comment.description }}
-            </p>
-
-            <span v-for="tag in comment.advantages" :key="tag">
-              <span v-if="tag.status">
-                <el-tag class="me-1" type="info">{{ tag.value }}</el-tag>
-              </span>
-            </span>
-
-            <span v-for="tag in comment.disAdvantages" :key="tag">
-              <span v-if="tag.status">
-                <el-tag class="me-1" type="info">{{ tag.value }}</el-tag>
-              </span>
-            </span>
-
-            <ActionBar :comment="comment"></ActionBar>
-          </el-card>
+          <div  v-for="comment in comments" :key="comment.id">
+            <CommentCard :comment="comment" :isAction="true"></CommentCard>
+          </div>
 
           <el-pagination
             background
@@ -144,18 +92,17 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import axios from 'axios';
 import { storeToRefs } from 'pinia';
 
-import moment from 'moment';
 import { useCommentStore } from '@/stores/useCommentStore';
 import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
+import CommentCard from '@/components/global/CommentCard.vue';
 import WrapContainer from '../../global/WrapContainer.vue';
 import FilterSelection from './components/FilterSelection.vue';
 import CommentModal from './components/CommentModal.vue';
 import CommentDetailModal from './components/CommentDetailModal.vue';
-import ActionBar from './components/ActionBar.vue';
 
 // commentStore
 const commentStore = useCommentStore();
@@ -184,24 +131,12 @@ const createComment = () => {
   form.value.storeId = storeId.value;
 };
 
-// click to open detail modal
-const router = useRouter();
-const commentEventHandler = (cardStoreId, cardCommentId, event) => {
-  const dropdownClicked = event.target.closest('.dropdown');
-  if (dropdownClicked) {
-    event.stopPropagation();
-  } else {
-    router.push(`/storeDetail?storeId=${cardStoreId}&commentId=${cardCommentId}`);
-    isDetailOpen.value = true;
-  }
-};
-
 // route to open detail modal
 const route = useRoute();
 if (route.params.id) {
-  storeId.value = Number(route.params.id);
+  storeId.value = parseInt(route.params.id, 10);
 } else if (route.query.storeId && route.query.commentId) {
-  storeId.value = Number(route.query.storeId);
+  storeId.value = parseInt(route.query.storeId, 10);
   isDetailOpen.value = true;
 }
 

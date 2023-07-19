@@ -1,6 +1,7 @@
 <template>
-  <el-dialog v-model="isOpen" width="600" :before-close="handleClose"
-  lock-scroll="false" >
+  <el-dialog v-model="isOpen"    style="width: 90%; max-width: 600px;
+  overflow: hidden " :before-close="handleClose" >
+
   <div style="max-height: 80vh; overflow-y: auto;">
     <h2 class="text-dark">
       評論撰寫 <span class="text-grey">({{ modalPage }}/2)</span>

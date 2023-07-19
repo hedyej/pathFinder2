@@ -1,6 +1,6 @@
 <template>
-  <el-dialog v-model="isDetailOpen" width="600"
-  :before-close="handleClose" lock-scroll="false" >
+  <el-dialog v-model="isDetailOpen"  style="width: 90%; max-width: 600px"
+  :before-close="handleClose" >
   <div style="max-height: 80vh; overflow-y: auto;">
     <div class="d-flex mb-2" style="justify-content: space-between">
       <div class="d-flex" >
@@ -107,7 +107,7 @@ import moment from 'moment';
 import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
 import { useCommentStore } from '@/stores/useCommentStore';
 import { useUserStore } from '@/stores/useUserStore';
-import ActionBar from './ActionBar.vue';
+import ActionBar from '@/components/global/ActionBar.vue';
 
 // userStore
 const userStore = useUserStore();
@@ -125,13 +125,10 @@ const { getComment } = commentDetailStore;
 // create reply
 const reply = reactive({});
 const createReply = async () => {
-  console.log(isAnonymous.value);
   if (isAnonymous.value) {
     reply.userId = 0;
-    console.log(isAnonymous.value, reply.userId);
   } else {
     reply.userId = user.value.id;
-    console.log(isAnonymous.value, reply.userId);
   }
   reply.createDate = Date.now();
   reply.commentId = Number(commentId.value);
@@ -164,9 +161,13 @@ const handleClose = async () => {
   isDetailOpen.value = false;
   const { storeId } = route.query;
   const commentStore = useCommentStore();
-  const { pageSorter, getStoreInfo } = commentStore;
-  await pageSorter();
-  await getStoreInfo();
+  const { pageSorter } = commentStore;
+  const { sorterInfo } = storeToRefs(commentStore);
+  await pageSorter(
+    sorterInfo.value.nowType,
+    sorterInfo.value.nowPage,
+    sorterInfo.value.nowSorter,
+  );
   router.push(`/storeDetail/${storeId}`);
 };
 

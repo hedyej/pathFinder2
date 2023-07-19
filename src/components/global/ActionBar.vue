@@ -1,23 +1,9 @@
 <template>
   <div class="text-right text-grey">
-    <span class="me-3">
-      <font-awesome-icon :icon="['fas', 'thumbs-up']" />
-      {{
-        comment.comment.like && comment.comment.like.length > 0 ? comment.comment.like.length : ' '
-      }}
-    </span>
-    <span class="me-3">
-      <font-awesome-icon :icon="['fas', 'thumbs-down']" />
-      {{
-        comment.comment.like && comment.comment.dislike.length > 0
-          ? comment.comment.dislike.length
-          : ' '
-      }}
-    </span>
-    <span class="me-3">
+    <span class="me-3" v-if="comment.comment.replys && comment.comment.replys.length">
       <font-awesome-icon :icon="['fas', 'comment-dots']" />
       {{
-        comment.comment.like && comment.comment.replys.length > 0
+        comment.comment.replys && comment.comment.replys.length > 0
           ? comment.comment.replys.length
           : ' '
       }}
@@ -32,7 +18,7 @@
       <template #dropdown >
         <el-dropdown-menu>
           <el-dropdown-item @click="editComment(comment.comment)">編輯</el-dropdown-item>
-          <el-dropdown-item @click="deleteComment(comment.comment.id)">刪除</el-dropdown-item>
+          <el-dropdown-item @click="deleteAction(comment.comment.id)">刪除</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
@@ -42,6 +28,7 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { defineProps } from 'vue';
+import { useRouter } from 'vue-router';
 import { useCommentStore } from '@/stores/useCommentStore';
 import { useUserStore } from '@/stores/useUserStore';
 
@@ -51,7 +38,9 @@ const { user } = storeToRefs(userStore);
 
 // commentStore
 const commentStore = useCommentStore();
-const { form, type, isOpen } = storeToRefs(commentStore);
+const {
+  form, type, isOpen, storeId,
+} = storeToRefs(commentStore);
 const { deleteComment } = commentStore;
 
 // props
@@ -63,4 +52,12 @@ const editComment = (pastForm) => {
   isOpen.value = true;
   form.value = JSON.parse(JSON.stringify(pastForm));
 };
+
+// delete
+const router = useRouter();
+const deleteAction = async (id) => {
+  await deleteComment(id);
+  router.push(`/storeDetail/${storeId.value}`);
+};
+
 </script>

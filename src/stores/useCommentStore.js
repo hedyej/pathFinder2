@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { defineStore } from 'pinia';
+import { defineStore, storeToRefs } from 'pinia';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
 
@@ -57,7 +57,7 @@ export const useCommentStore = defineStore('comment', {
     // modal
     isOpen: false,
     modalPage: 1,
-    storeId: '',
+    storeId: 0,
     type: '',
     form: {
       id: 0,
@@ -175,6 +175,7 @@ export const useCommentStore = defineStore('comment', {
 
     async postComment() {
       this.form.createDate = new Date().getTime();
+      this.form.storeId = parseInt(this.form.storeId, 10);
       try {
         await axios.post(`/stores/${this.form.storeId}/comments`, this.form);
         ElMessage({
@@ -250,6 +251,11 @@ export const useCommentStore = defineStore('comment', {
             this.sorterInfo.nowSorter,
           );
           await this.getStoreInfo();
+
+          const commentDetailStore = useCommentDetailStore();
+          const { isDetailOpen } = storeToRefs(commentDetailStore);
+
+          isDetailOpen.value = false;
         },
       });
     },

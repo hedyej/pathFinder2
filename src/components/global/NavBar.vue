@@ -2,7 +2,8 @@
   <div style="background-color: #fff; height: 80px" class="nav-shadow">
     <WrapContainer class="d-flex align-center" style="justify-content: space-between; height: 80px">
       <router-link :to="{ name: 'home' }">
-        <img src="@/assets/imgs/logo.png" style="width: 200px" />
+        <img src="@/assets/imgs/logo/logo.png" style="width: 200" class="hidden-sm-and-down"/>
+        <img src="@/assets/imgs/logo/logo-xs.png" style="width: 100" class="hidden-md-and-up"/>
       </router-link>
       <template v-if="!user.id" >
         <GoogleLogin :callback="callback" />
@@ -19,6 +20,7 @@ import WrapContainer from '@/components/global/WrapContainer.vue';
 import { ref, onMounted } from 'vue';
 import { useUserStore } from '@/stores/useUserStore';
 import { storeToRefs } from 'pinia';
+import 'element-plus/theme-chalk/display.css';
 
 // userStore
 const userStore = useUserStore();

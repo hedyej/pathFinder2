@@ -1,12 +1,12 @@
 <template>
-  <section style="background: #f0f8f5" class="pt-7">
+  <section style="background: #f0f8f5" class="pt-4 pt-xl-7">
     <WrapContainer>
       <el-row class="align-center">
-        <el-col :span="2"></el-col>
-        <el-col :span="10">
+        <el-col :xs="0" :md="2"></el-col>
+        <el-col :md="10" class="hidden-sm-and-down">
           <img src="@/assets/imgs/home/share-bg.png" />
         </el-col>
-        <el-col :span="10" class="text-center">
+        <el-col :xs="24" :md="10" class="text-center">
           <h1 class="mb-4">搜尋換宿店家</h1>
           <el-button type="primary" size="large" @click="backSearch"
             ><font-awesome-icon
@@ -15,7 +15,11 @@
             />搜尋店家</el-button
           >
         </el-col>
-        <el-col :span="2"></el-col>
+        <el-col :xs="24" class="hidden-md-and-up mt-3 mt-md-0">
+          <img src="@/assets/imgs/home/share-bg.png"
+          style="display: block; margin:auto ; width: 70%" />
+        </el-col>
+        <el-col :xs="0" :md="2"></el-col>
       </el-row>
     </WrapContainer>
   </section>
@@ -23,6 +27,7 @@
 
 <script setup>
 import WrapContainer from '@/components/global/WrapContainer.vue';
+import 'element-plus/theme-chalk/display.css';
 
 const backSearch = () => {
   window.scrollTo({
