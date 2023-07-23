@@ -61,24 +61,23 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import WrapContainer from '@/components/global/WrapContainer.vue';
-import { getDescScoreStore, getAscWorkStore, getDesBenefitStore } from '@/apis/store';
+import { getStoresByComment } from '@/apis/store';
 
 const descScoreList = ref([]);
 const fetchDescScoreList = async () => {
-  const { data } = await getDescScoreStore();
-
+  const { data } = await getStoresByComment({ sort: 'score', _order: 'dec', _expand: 'store' });
   descScoreList.value = data.splice(-3);
 };
 
 const ascWorkList = ref([]);
 const fetchAscWorkList = async () => {
-  const { data } = await getAscWorkStore();
+  const { data } = await getStoresByComment({ sort: 'workHours', _order: 'dec', _expand: 'store' });
   ascWorkList.value = data.splice(-3);
 };
 
 const desBenefitList = ref([]);
 const fetchDesBenefitList = async () => {
-  const { data } = await getDesBenefitStore();
+  const { data } = await getStoresByComment({ sort: 'advantageTotal', _order: 'dec', _expand: 'store' });
   desBenefitList.value = data.splice(-3);
 };
 

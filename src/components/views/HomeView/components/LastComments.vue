@@ -4,7 +4,6 @@
       <h1 class="text-center  mb-4 mb-xl-5">
         <font-awesome-icon :icon="['fas', 'comment-dots']" class="text-primary me-3" />最新評論
       </h1>
-
       <el-row :gutter="20">
         <el-col class="mb-2" :xs="24" :md="12" v-for="comment in lastComments" :key="comment.id">
           <CommentCard :comment="comment" :isAction="false"></CommentCard>

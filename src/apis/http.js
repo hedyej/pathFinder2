@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://test-pathfinder.onrender.com/',
   headers: { 'Content-Type': 'application/json' },
 });
 
@@ -17,12 +17,8 @@ instance.interceptors.response.use(
     if (error.response) {
       switch (error.response.status) {
         case 404:
-
-          // go to 404 page
           break;
         case 500:
-
-          // go to 500 page
           break;
         default:
       }
@@ -35,14 +31,14 @@ instance.interceptors.response.use(
   },
 );
 
-export default function (method, url, config, data = null) {
+export default function (method, url, data = null) {
   switch (method) {
     case 'post':
-      return instance.post(url, data, config);
+      return instance.post(url, data);
     case 'get':
       return instance.get(url, { params: data });
     case 'delete':
-      return instance.delete(url, { params: data });
+      return instance.delete(url);
     case 'put':
       return instance.put(url, data);
     case 'patch':

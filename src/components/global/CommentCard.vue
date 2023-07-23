@@ -8,7 +8,6 @@
             <img :src="comment.comment.user.imgUrl" class="me-2 profileImg" />
             <div>
                 <h4>{{ comment.comment.user.name }}</h4>
-
                 <p class="text-grey">
                     {{ moment(comment.comment.createDate).format('YYYY-MM-DD') }}
                 </p>
@@ -65,7 +64,7 @@ import ActionBar from './ActionBar.vue';
 
 const comment = defineProps({ comment: Object, isAction: Boolean });
 
-// click to open detail modal
+// open detail modal
 const commentDetailStore = useCommentDetailStore();
 const { isDetailOpen } = storeToRefs(commentDetailStore);
 

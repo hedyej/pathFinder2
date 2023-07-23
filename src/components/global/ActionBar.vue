@@ -41,7 +41,7 @@ const commentStore = useCommentStore();
 const {
   form, type, isOpen, storeId,
 } = storeToRefs(commentStore);
-const { deleteComment } = commentStore;
+const { handleDeleteComment } = commentStore;
 
 // props
 const comment = defineProps({ comment: Object });
@@ -56,8 +56,7 @@ const editComment = (pastForm) => {
 // delete
 const router = useRouter();
 const deleteAction = async (id) => {
-  await deleteComment(id);
+  await handleDeleteComment(id);
   router.push(`/storeDetail/${storeId.value}`);
 };
-
 </script>

@@ -26,9 +26,9 @@
                 <h3>{{ store.name }}</h3>
 
                 <div class="d-flex align-center">
-                  <h2 class="me-2 text-accent">{{ averageStoreInfo.averageScore }}</h2>
+                  <h2 class="me-2 text-accent">{{ averageScore }}</h2>
                   <el-rate
-                    v-model="scoreValue"
+                    v-model="averageScore"
                     disabled
                     :colors="['#F48C2B', '#F48C2B', '#F48C2B']"
                     size="large"
@@ -48,12 +48,12 @@
               </p>
               <p class="mb-1">
                 <font-awesome-icon :icon="['fas', 'clock']" class="me-1" />平均工時：
-                {{ averageStoreInfo.averageHours }}
+                {{ averageWorkHours}}
                 <span>小時</span>
               </p>
               <p class="mb-1">
                 <font-awesome-icon :icon="['fas', 'calendar-days']" class="me-1" />平均換宿：
-                {{ averageStoreInfo.averageDays }}
+                {{ averageWorkDays }}
                 <span>周</span>
               </p>
             </div>
@@ -91,14 +91,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-import axios from 'axios';
 import { storeToRefs } from 'pinia';
-
 import { useCommentStore } from '@/stores/useCommentStore';
 import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
 import CommentCard from '@/components/global/CommentCard.vue';
+import { getStore } from '@/apis/store';
 import WrapContainer from '../../global/WrapContainer.vue';
 import FilterSelection from './components/FilterSelection.vue';
 import CommentModal from './components/CommentModal.vue';
@@ -107,9 +106,10 @@ import CommentDetailModal from './components/CommentDetailModal.vue';
 // commentStore
 const commentStore = useCommentStore();
 const {
-  comments, allComments, storeId, sorterInfo, averageStoreInfo, form, type, isOpen,
+  comments, allComments, storeId, sorterInfo, form, type, isOpen,
+  averageWorkDays, averageWorkHours, averageScore,
 } = storeToRefs(commentStore);
-const { getStoreInfo, pageSorter, getAllComments } = commentStore;
+const { pageSorter, fetchAllComments } = commentStore;
 
 // commentDetailStore
 const commentDetailStore = useCommentDetailStore();
@@ -117,12 +117,10 @@ const { isDetailOpen } = storeToRefs(commentDetailStore);
 
 // store info
 const store = ref({});
-const getStore = () => {
-  axios.get(`/stores/${storeId.value}`).then((res) => {
-    store.value = res.data;
-  });
+const fetchStore = async () => {
+  const { data } = await getStore(storeId.value);
+  store.value = data;
 };
-const scoreValue = computed(() => averageStoreInfo.value.averageScore);
 
 // comment action
 const createComment = () => {
@@ -147,9 +145,8 @@ const handleCurrentChange = async (page) => {
 
 // onMounted
 onMounted(async () => {
-  await getStore();
-  await getAllComments(storeId.value);
+  await fetchStore();
+  await fetchAllComments(storeId.value);
   await pageSorter('createDate', 1, 'desc');
-  await getStoreInfo();
 });
 </script>

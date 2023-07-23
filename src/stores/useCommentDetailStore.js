@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
-import axios from 'axios';
+import { getUsers } from '@/apis/user';
+import { getCommentAndReplys } from '@/apis/comment';
 
 export const useCommentDetailStore = defineStore('commentDetail', {
   state: () => ({
@@ -8,16 +9,16 @@ export const useCommentDetailStore = defineStore('commentDetail', {
     isDetailOpen: false,
   }),
   actions: {
-    async getComment() {
+    async fetchComment() {
       // get users
       let users = [];
-      const getUsers = async () => {
-        const { data } = await axios.get('/users');
+      const fetchUsers = async () => {
+        const { data } = await getUsers();
         users = data;
       };
 
-      // get replys
-      const getNewReplys = () => {
+      // get comment and replys
+      const fetchReplys = () => {
         this.commentDetail.replys.forEach((replyItem, index) => {
           users.forEach((item) => {
             if (replyItem.userId === item.id) {
@@ -28,10 +29,10 @@ export const useCommentDetailStore = defineStore('commentDetail', {
         });
       };
 
-      const { data } = await axios.get(`/comments/${this.commentId}?_expand=user&_embed=replys`);
+      const { data } = await getCommentAndReplys(this.commentId);
       this.commentDetail = data;
-      await getUsers();
-      await getNewReplys();
+      await fetchUsers();
+      await fetchReplys();
     },
   },
 });

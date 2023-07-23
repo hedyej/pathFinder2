@@ -69,7 +69,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-import { getResultNum, getResultStore } from '@/apis/store';
+import { getStores } from '@/apis/store';
 import WrapContainer from '../../global/WrapContainer.vue';
 
 // search
@@ -78,9 +78,9 @@ const isSearch = ref(false);
 const storeList = ref([]);
 const totalStores = ref(0);
 const searchWord = async (word, page) => {
-  const totalStoreNum = await getResultNum(word);
+  const totalStoreNum = await getStores({ q: word });
   totalStores.value = totalStoreNum.data;
-  const storeData = await getResultStore(word, page);
+  const storeData = await getStores({ q: word, _page: page });
   storeList.value = storeData.data;
   isSearch.value = true;
 };

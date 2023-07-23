@@ -226,14 +226,14 @@ const toNextPage = () => {
 };
 
 // submit
-const submit = () => {
+const submit = async () => {
   formRef2.value.validate((valid) => {
     if (!valid) return;
-    submitComment();
     if (formRef2.value) {
       formRef2.value.clearValidate();
     }
   });
+  await submitComment();
 };
 
 // close modal

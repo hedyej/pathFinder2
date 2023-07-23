@@ -15,31 +15,24 @@
 
 <script setup>
 import { decodeCredential, googleLogout } from 'vue3-google-login';
-import axios from 'axios';
 import WrapContainer from '@/components/global/WrapContainer.vue';
 import { ref, onMounted } from 'vue';
 import { useUserStore } from '@/stores/useUserStore';
 import { storeToRefs } from 'pinia';
 import 'element-plus/theme-chalk/display.css';
+import { getUsers, createUser, updateUser } from '@/apis/user';
 
-// userStore
+// user login & update
 const userStore = useUserStore();
 const { user } = storeToRefs(userStore);
-
 const users = ref([]);
-const getUsers = async () => { users.value = await axios.get('/users'); };
-const postUser = async () => {
-  await axios.post('/users', user.value);
-};
-const putUser = async () => {
-  await axios.put(`/users/${user.value.id}`, user.value);
-};
-const upDateUser = () => {
+
+const handleupdateUser = () => {
   const isSameUser = users.value.data.filter((item) => item.id === user.value.id).length;
   if (isSameUser) {
-    putUser(user);
+    updateUser(user.value.id, user.value);
   } else {
-    postUser(user);
+    createUser(user.value);
   }
 };
 
@@ -51,7 +44,7 @@ const callback = async (response) => {
     imgUrl: data.picture,
     email: data.email,
   };
-  await upDateUser();
+  await handleupdateUser();
 };
 
 const logOut = () => {
@@ -65,7 +58,7 @@ const logOut = () => {
 };
 
 onMounted(async () => {
-  await getUsers();
+  users.value = await getUsers();
 });
 </script>
 

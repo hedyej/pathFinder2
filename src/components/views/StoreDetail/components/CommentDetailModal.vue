@@ -67,7 +67,7 @@
             </span>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item @click="deleteReply(reply.id)">刪除</el-dropdown-item>
+                <el-dropdown-item @click="handleDeleteReply(reply.id)">刪除</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -88,7 +88,7 @@
           <div>
             <el-checkbox v-model="isAnonymous" v-if="isLogin">匿名回覆</el-checkbox>
           </div>
-          <el-button type="primary" @click="createReply">送出</el-button>
+          <el-button type="primary" @click="handleCreateReply">送出</el-button>
         </div>
       </div>
     </div>
@@ -96,7 +96,6 @@
 </template>
 
 <script setup>
-import axios from 'axios';
 import {
   onMounted, reactive, watch, ref, computed,
 } from 'vue';
@@ -108,6 +107,7 @@ import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
 import { useCommentStore } from '@/stores/useCommentStore';
 import { useUserStore } from '@/stores/useUserStore';
 import ActionBar from '@/components/global/ActionBar.vue';
+import { createReply, deleteReply } from '@/apis/reply';
 
 // userStore
 const userStore = useUserStore();
@@ -120,11 +120,11 @@ const isAnonymous = ref(false);
 // commentDetailStore
 const commentDetailStore = useCommentDetailStore();
 const { isDetailOpen, commentDetail, commentId } = storeToRefs(commentDetailStore);
-const { getComment } = commentDetailStore;
+const { fetchComment } = commentDetailStore;
 
 // create reply
 const reply = reactive({});
-const createReply = async () => {
+const handleCreateReply = async () => {
   if (isAnonymous.value) {
     reply.userId = 0;
   } else {
@@ -133,8 +133,8 @@ const createReply = async () => {
   reply.createDate = Date.now();
   reply.commentId = Number(commentId.value);
   try {
-    await axios.post('/replys', reply);
-    await getComment();
+    await createReply(reply);
+    await fetchComment();
     ElMessage({ message: '新增成功', type: 'success' });
     reply.content = '';
   } catch {
@@ -143,10 +143,10 @@ const createReply = async () => {
 };
 
 // delete reply
-const deleteReply = async (replyId) => {
+const handleDeleteReply = async (replyId) => {
   try {
-    await axios.delete(`/replys/${replyId}`);
-    await getComment();
+    await deleteReply(replyId);
+    await fetchComment();
     ElMessage({ message: '刪除成功', type: 'success' });
   } catch {
     ElMessage({ message: '刪除失敗', type: 'error' });
@@ -177,7 +177,7 @@ watch(
   async () => {
     if (route.query.commentId) {
       commentId.value = route.query.commentId;
-      await getComment();
+      await fetchComment();
     }
   },
 );
@@ -185,7 +185,7 @@ watch(
 onMounted(async () => {
   if (route.query.commentId) {
     commentId.value = route.query.commentId;
-    await getComment();
+    await fetchComment();
   }
 });
 </script>
