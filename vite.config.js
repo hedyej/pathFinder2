@@ -4,12 +4,14 @@ import eslintPlugin from 'vite-plugin-eslint';
 import { fileURLToPath, URL } from 'node:url';
 
 export default defineConfig({
+
   plugins: [
     vue(),
     eslintPlugin({
       include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue'],
     }),
   ],
+  base: '/pathFinder2/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
