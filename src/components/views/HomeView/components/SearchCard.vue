@@ -45,13 +45,13 @@ const searchWord = (word) => {
 <style scoped>
 .search-card {
   text-align: center;
-  background-image: url('@/assets/imgs/home/display-bg-xs.png');
+  background-image: url('@/assets/imgs/Home/display-bg-xs.png');
   background-size: cover;
   background-position: bottom;
   width: 100%;
   padding: 64px 0;
   @media (min-width: 768px) {
-    background-image: url('@/assets/imgs/home/display-bg.png');
+    background-image: url('@/assets/imgs/Home/display-bg.png');
   }
 }
 </style>
