@@ -4,7 +4,7 @@
       <el-row class="align-center">
         <el-col :xs="0" :md="2"></el-col>
         <el-col :md="10" class="hidden-sm-and-down">
-          <img src="@/assets/imgs/home/share-bg.png" />
+          <img src="@/assets/imgs/Home/share-bg.png" />
         </el-col>
         <el-col :xs="24" :md="10" class="text-center">
           <h1 class="mb-4">搜尋換宿店家</h1>
@@ -16,7 +16,7 @@
           >
         </el-col>
         <el-col :xs="24" class="hidden-md-and-up mt-3 mt-md-0">
-          <img src="@/assets/imgs/home/share-bg.png"
+          <img src="@/assets/imgs/Home/share-bg.png"
           style="display: block; margin:auto ; width: 70%" />
         </el-col>
         <el-col :xs="0" :md="2"></el-col>

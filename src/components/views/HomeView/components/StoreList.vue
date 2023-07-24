@@ -19,7 +19,7 @@
               </router-link>
             </h5>
 
-            <img src="@/assets/imgs/home/comment.png" /> </el-card
+            <img src="@/assets/imgs/Home/comment.png" /> </el-card
         ></el-col>
 
         <el-col :xs="24" :sm="8" >
@@ -35,7 +35,7 @@
               </router-link>
             </h5>
 
-            <img src="@/assets/imgs/home/lessHour.png" /> </el-card
+            <img src="@/assets/imgs/Home/lessHour.png" /> </el-card
         ></el-col>
 
         <el-col :xs="24" :sm="8">
@@ -51,7 +51,7 @@
               </router-link>
             </h5>
 
-            <img src="@/assets/imgs/home/benefit.png" /> </el-card
+            <img src="@/assets/imgs/Home/benefit.png" /> </el-card
         ></el-col>
       </el-row>
     </WrapContainer>
