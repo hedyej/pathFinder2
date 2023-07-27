@@ -21,6 +21,7 @@ import { useUserStore } from '@/stores/useUserStore';
 import { storeToRefs } from 'pinia';
 import 'element-plus/theme-chalk/display.css';
 import { getUsers, createUser, updateUser } from '@/apis/user';
+import Cookies from 'js-cookie';
 
 // user login & update
 const userStore = useUserStore();
@@ -44,6 +45,7 @@ const callback = async (response) => {
     imgUrl: data.picture,
     email: data.email,
   };
+  Cookies.set('login', JSON.stringify(user.value), { expires: 3 });
   await handleupdateUser();
 };
 
@@ -55,10 +57,16 @@ const logOut = () => {
     imgUrl: 'https://i.ibb.co/jwKW7LP/default-Avatar.png',
     email: 'hedy@gmail.com',
   };
+  Cookies.remove('login');
 };
 
 onMounted(async () => {
   users.value = await getUsers();
+  if (Cookies.get('login')) {
+    const userInCookie = Cookies.get('login');
+    user.value = JSON.parse(userInCookie);
+    handleupdateUser();
+  }
 });
 </script>
 
