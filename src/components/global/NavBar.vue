@@ -60,14 +60,22 @@ const logOut = () => {
   Cookies.remove('login');
 };
 
-onMounted(async () => {
-  users.value = await getUsers();
+const checkCookieExpiration = () => {
   if (Cookies.get('login')) {
     const userInCookie = Cookies.get('login');
     user.value = JSON.parse(userInCookie);
     handleupdateUser();
+  } else {
+    logOut();
   }
+  // setTimeout(checkCookieExpiration, 1000);
+};
+
+onMounted(async () => {
+  users.value = await getUsers();
+  checkCookieExpiration();
 });
+
 </script>
 
 <style scoped>
