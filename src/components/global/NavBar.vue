@@ -8,7 +8,21 @@
       <template v-if="!user.id" >
         <GoogleLogin :callback="callback" />
       </template>
-      <el-button v-else @click="logOut">登出</el-button>
+      <el-dropdown v-else class="cursor-pointer " trigger="click">
+        <span class="el-dropdown-link">
+          <div class="d-flex " style="align-items: center;">
+          <img :src="user.imgUrl" style="height: 40px; width: 40px;
+          border-radius: 100px;" class="me-1">
+        <h5 style="display:inline-block; margin-bottom:0px;" >{{ user.name }}</h5>
+      </div>
+        </span>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item  @click="logOut">登出</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+
     </WrapContainer>
   </div>
 </template>

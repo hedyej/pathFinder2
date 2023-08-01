@@ -4,7 +4,7 @@
     <CommentModal></CommentModal>
     <WrapContainer>
       <router-link :to="{ name: 'searchStore' }" class="text-primary bold router-link mb-1"
-        ><font-awesome-icon :icon="['fas', 'arrow-left']" class="me-1" />返回</router-link
+        ><font-awesome-icon :icon="['fas', 'arrow-left']" class="me-1" />返回搜尋</router-link
       >
 
       <el-row :gutter="20" class="mt-2">
