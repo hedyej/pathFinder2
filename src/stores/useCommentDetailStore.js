@@ -5,7 +5,7 @@ import { getCommentAndReplys } from '@/apis/comment';
 export const useCommentDetailStore = defineStore('commentDetail', {
   state: () => ({
     commentId: 0,
-    commentDetail: {},
+    commentDetail: { user: {} },
     isDetailOpen: false,
   }),
   actions: {

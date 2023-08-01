@@ -1,12 +1,13 @@
 <template>
   <el-dialog v-model="isDetailOpen"  style="width: 90%; max-width: 600px"
   :before-close="handleClose" >
-  <div style="max-height: 80vh; overflow-y: auto;">
+  <div>
     <div class="d-flex mb-2" style="justify-content: space-between">
       <div class="d-flex" >
-        <img src="@/assets/imgs/StoreDetail/avatarDefault.png" class="me-2 profileImg" />
+        <img v-if="commentDetail.user?.imgUrl"
+        :src="commentDetail.user.imgUrl" class="me-2 profileImg" />
         <div class="text-grey">
-          <h4 class="text-dark">名稱</h4>
+          <h4 class="text-dark" v-if="commentDetail.user.name ">{{commentDetail.user.name }}</h4>
           <p>{{ moment(commentDetail.createDate).format('YYYY-MM-DD') }}</p>
         </div>
       </div>

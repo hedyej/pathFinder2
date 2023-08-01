@@ -4,6 +4,8 @@ import ElementPlus from 'element-plus';
 import '@/assets/styles/custiomized/all.scss';
 import { createPinia } from 'pinia';
 import vue3GoogleLogin from 'vue3-google-login';
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/css/index.css';
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -23,6 +25,7 @@ library.add(fas);
 const app = createApp(App);
 
 app.component('font-awesome-icon', FontAwesomeIcon);
+app.component('VueLoading', Loading);
 app.use(createPinia());
 app.use(ElementPlus);
 app.use(router);

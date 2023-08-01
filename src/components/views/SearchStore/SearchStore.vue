@@ -53,7 +53,13 @@
         </router-link>
       </div>
       <div v-else>
-        <div v-if="isSearch" class="text-center">查無相關結果</div>
+        <div v-if="isSearch" class="text-center">
+          <div class="text-center text-grey py-3">
+            <font-awesome-icon :icon="['fas', 'face-sad-tear']"
+            style="width: 80;height: 80" class="mb-1"/>
+            <h5>查無相關結果</h5>
+          </div>
+        </div>
       </div>
       <el-pagination
         background

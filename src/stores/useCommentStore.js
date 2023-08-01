@@ -160,7 +160,7 @@ export const useCommentStore = defineStore('comment', {
       this.form.createDate = new Date().getTime();
       this.form.storeId = parseInt(this.form.storeId, 10);
       try {
-        createComment(this.form);
+        await createComment(this.form);
         ElMessage({
           message: '新增成功',
           type: 'success',
@@ -178,7 +178,7 @@ export const useCommentStore = defineStore('comment', {
 
     async handleUpdateComment() {
       try {
-        await updateComment(this.form.storeId, this.form);
+        await updateComment(this.form.id, this.form);
         ElMessage({
           message: '編輯成功',
           type: 'success',
@@ -214,7 +214,7 @@ export const useCommentStore = defineStore('comment', {
         confirmButtonText: '刪除',
         callback: async () => {
           try {
-            deleteComment(commentId);
+            await deleteComment(commentId);
             ElMessage({
               message: '刪除成功',
               type: 'success',

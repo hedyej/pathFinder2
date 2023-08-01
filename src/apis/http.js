@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useLoadingStore } from '../stores/useLoadingStore';
 
 const instance = axios.create({
   baseURL: 'https://test-pathfinder.onrender.com/',
@@ -6,14 +7,24 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(
-  (config) => config,
+  (config) => {
+    const loadingStore = useLoadingStore();
+    loadingStore.setIsLoading();
+    return config;
+  },
   (error) => Promise.reject(error)
   ,
 );
 
 instance.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    const loadingStore = useLoadingStore();
+    loadingStore.setIsLoading();
+    return response;
+  },
   (error) => {
+    const loadingStore = useLoadingStore();
+    loadingStore.setIsLoading();
     if (error.response) {
       switch (error.response.status) {
         case 404:

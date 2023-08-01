@@ -2,7 +2,7 @@
   <el-dialog v-model="isOpen"    style="width: 90%; max-width: 600px;
   overflow: hidden " :before-close="handleClose" >
 
-  <div style="max-height: 80vh; overflow-y: auto;">
+  <div>
     <h2 class="text-dark">
       評論撰寫 <span class="text-grey">({{ modalPage }}/2)</span>
     </h2>
@@ -112,8 +112,9 @@ watch(anonymous, async () => {
           cancelButtonText: '取消',
           type: 'warning',
         },
+      ).then(
+        () => { anonymous.value = '匿名'; },
       );
-      anonymous.value = '匿名';
     } else {
       form.value.userId = user.value.id;
     }
@@ -174,11 +175,12 @@ const rule1 = reactive({
       message: '請輸入數字',
       trigger: 'blur',
     },
-    // {
-    //   min: 1,
-    //   message: '必須大於0',
-    //   trigger: 'blur',
-    // },
+    {
+      type: 'number',
+      min: 1,
+      message: '必須大於0',
+      trigger: 'blur',
+    },
   ],
   workHours: [
     {
@@ -191,11 +193,12 @@ const rule1 = reactive({
       message: '請輸入數字',
       trigger: 'blur',
     },
-    // {
-    //   min: 1,
-    //   message: '必須大於0',
-    //   trigger: 'blur',
-    // },
+    {
+      type: 'number',
+      min: 1,
+      message: '必須大於0',
+      trigger: 'blur',
+    },
   ],
 });
 

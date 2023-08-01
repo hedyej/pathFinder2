@@ -1,4 +1,10 @@
 <template>
+  <VueLoading
+    v-model:active="loadingStore.isLoading"
+    :can-cancel="true"
+    :on-cancel="onCancel"
+    :is-full-page="fullPage">
+  </VueLoading>
   <div class="app-style pagewrap">
     <NavBar class="top" />
     <RouterView class="main" />
@@ -9,6 +15,9 @@
 <script setup>
 import NavBar from '@/components/global/NavBar.vue';
 import FooterSection from '@/components/global/FooterSection.vue';
+import { useLoadingStore } from '@/stores/useLoadingStore';
+
+const loadingStore = useLoadingStore();
 </script>
 
 <style scoped>

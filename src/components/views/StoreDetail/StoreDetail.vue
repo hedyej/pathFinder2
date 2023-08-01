@@ -68,12 +68,19 @@
         </el-col>
 
         <el-col :xs="24" :md="16">
-          <div class="d-flex align-center" style="justify-content: space-between">
+          <div class="d-flex align-center" style="justify-content: space-between; ;height: 64px;">
             <p class="text-grey bold" style="margin: 0">{{ allComments.length }} 則評論</p>
-            <FilterSelection></FilterSelection>
+              <FilterSelection v-if="allComments.length"></FilterSelection>
           </div>
-          <div  v-for="comment in comments" :key="comment.id">
-            <CommentCard :comment="comment" :isAction="true"></CommentCard>
+          <template v-if=" allComments.length ">
+            <div  v-for="comment in comments" :key="comment.id">
+              <CommentCard :comment="comment" :isAction="true"></CommentCard>
+            </div>
+          </template>
+          <div v-else class="text-center text-grey py-3">
+            <font-awesome-icon :icon="['fas', 'face-sad-tear']"
+            style="width: 80;height: 80" class="mb-1"/>
+            <h5>尚無評論</h5>
           </div>
 
           <el-pagination
