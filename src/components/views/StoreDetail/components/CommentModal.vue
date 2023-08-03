@@ -41,7 +41,7 @@
             @change="changeAdvantage(advantage)"
             v-for="advantage in form.advantages"
             :key="advantage.value"
-            class="me-1 mb-1"
+            class="me-1 mb-1 check-tag"
             >{{ advantage.value }}</el-check-tag
           >
         </el-form-item>
@@ -51,7 +51,7 @@
             @change="changeDisadvantage(disAdvantage)"
             v-for="disAdvantage in form.disAdvantages"
             :key="disAdvantage.value"
-            class="me-1 mb-1"
+            class="me-1 mb-1 check-tag"
             >{{ disAdvantage.value }}</el-check-tag
           >
         </el-form-item>

@@ -214,3 +214,14 @@ h2{
   max-height: 75vh;
   overflow-y: scroll;
 }
+
+.check-tag{
+  background: rgb(244, 244, 245);
+  color:rgb(144, 147, 153);
+
+  &:hover, &:focus , &:active{
+    background: #F0F8F5 !important;
+    color: #088F6A !important;
+  }
+}
+

@@ -18,6 +18,7 @@ import { onMounted, ref } from 'vue';
 import WrapContainer from '@/components/global/WrapContainer.vue';
 import { getLastComments } from '@/apis/comment';
 import CommentCard from '@/components/global/CommentCard.vue';
+// import { useLoadingStore } from '@/stores/useLoadingStore';
 
 // last comments
 const lastComments = ref([]);
@@ -26,7 +27,10 @@ const getLastCommentList = async () => {
   lastComments.value = data.splice(-4);
 };
 
-onMounted(() => {
-  getLastCommentList();
+// const loadingStore = useLoadingStore();
+onMounted(async () => {
+  // loadingStore.setIsLoading();
+  await getLastCommentList();
+  // loadingStore.setIsLoading();
 });
 </script>

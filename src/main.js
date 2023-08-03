@@ -15,10 +15,6 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import App from './App.vue';
 import router from './router';
 
-router.afterEach(() => {
-  window.scrollTo(0, 0);
-});
-
 /* add icons to the library */
 library.add(fas);
 

@@ -77,7 +77,7 @@
               <CommentCard :comment="comment" :isAction="true"></CommentCard>
             </div>
           </template>
-          <div v-else class="text-center text-grey py-3">
+          <div v-if=" allComments.length===0 " class="text-center text-grey py-3">
             <font-awesome-icon :icon="['fas', 'face-sad-tear']"
             style="width: 80;height: 80" class="mb-1"/>
             <h5>尚無評論</h5>
@@ -105,10 +105,14 @@ import { useCommentStore } from '@/stores/useCommentStore';
 import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
 import CommentCard from '@/components/global/CommentCard.vue';
 import { getStore } from '@/apis/store';
+import { useLoadingStore } from '@/stores/useLoadingStore';
 import WrapContainer from '../../global/WrapContainer.vue';
 import FilterSelection from './components/FilterSelection.vue';
 import CommentModal from './components/CommentModal.vue';
 import CommentDetailModal from './components/CommentDetailModal.vue';
+
+const loadingStore = useLoadingStore();
+loadingStore.setIsLoading();
 
 // commentStore
 const commentStore = useCommentStore();
@@ -155,5 +159,7 @@ onMounted(async () => {
   await fetchStore();
   await fetchAllComments(storeId.value);
   await pageSorter('createDate', 1, 'desc');
+  loadingStore.setIsLoading();
 });
+
 </script>

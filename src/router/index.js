@@ -12,6 +12,7 @@ const router = createRouter({
       path: '/searchStore',
       name: 'searchStore',
       component: () => import('../components/views/SearchStore/SearchStore.vue'),
+      beforeEnter: (to) => to.name === 'searchStore',
     },
 
     {
@@ -19,7 +20,22 @@ const router = createRouter({
       name: 'storeDetail',
       component: () => import('../components/views/StoreDetail/StoreDetail.vue'),
     },
+    {
+      path: '/404',
+      name: '404',
+      component: () => import('../components/views/NotFound.vue'),
+    },
+    {
+      path: '/:pathMatch(.*)',
+      redirect: '/404',
+    },
   ],
+});
+
+router.afterEach((to, from) => {
+  if (from.name !== 'storeDetail') {
+    window.scrollTo(0, 0);
+  }
 });
 
 export default router;

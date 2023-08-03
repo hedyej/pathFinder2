@@ -1,6 +1,6 @@
 <template>
   <el-dialog v-model="isDetailOpen"  style="width: 90%; max-width: 600px"
-  :before-close="handleClose" >
+  :before-close="handleClose" class="el-dialog">
   <div>
     <div class="d-flex mb-2" style="justify-content: space-between">
       <div class="d-flex" >
@@ -190,3 +190,16 @@ onMounted(async () => {
   }
 });
 </script>
+
+<style scoped lang="scss">
+.el-dialog > .el-dialog__header > .el-dialog__headerbtn > .el-icon  {
+
+fill:red !important;
+background-color: blue !important;
+
+}
+
+// .el-form-item__content >>>.el-select{
+//   // background-color: blue !important;
+// }
+</style>

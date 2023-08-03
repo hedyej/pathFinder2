@@ -1,15 +1,12 @@
 <template>
-  <VueLoading
-    v-model:active="loadingStore.isLoading"
-    :can-cancel="true"
-    :on-cancel="onCancel"
-    :is-full-page="fullPage">
-  </VueLoading>
-  <div class="app-style pagewrap">
-    <NavBar class="top" />
-    <RouterView class="main" />
-    <FooterSection />
-  </div>
+
+    <el-main v-loading.fullscreen.lock="loadingStore.isLoading"
+    class="px-0 app-style pagewrap pb-0">
+      <NavBar class="top" />
+      <RouterView class="main" />
+      <FooterSection />
+    </el-main>
+
 </template>
 
 <script setup>

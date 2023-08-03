@@ -62,6 +62,7 @@
 import { ref, onMounted } from 'vue';
 import WrapContainer from '@/components/global/WrapContainer.vue';
 import { getStoresByComment } from '@/apis/store';
+// import { useLoadingStore } from '@/stores/useLoadingStore';
 
 const descScoreList = ref([]);
 const fetchDescScoreList = async () => {
@@ -81,9 +82,12 @@ const fetchDesBenefitList = async () => {
   desBenefitList.value = data.splice(-3);
 };
 
-onMounted(() => {
-  fetchDescScoreList();
-  fetchAscWorkList();
-  fetchDesBenefitList();
+// const loadingStore = useLoadingStore();
+onMounted(async () => {
+  // loadingStore.setIsLoading();
+  await fetchDescScoreList();
+  await fetchAscWorkList();
+  await fetchDesBenefitList();
+  // loadingStore.setIsLoading();
 });
 </script>

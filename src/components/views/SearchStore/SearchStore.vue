@@ -19,9 +19,11 @@
           </el-form-item>
         </el-form>
       </el-card>
-
-      <div v-if="storeList.length > 0">
-        <router-link
+      <el-main v-loading="isSearchLoading" element-loading-background="rgba(255, 0, 0, 0)"
+      class="px-0" v-if="isSearchLoading" style="height: 200px;"></el-main>
+      <template v-else>
+        <div v-if="storeList.length > 0">
+          <router-link
           :to="`/storeDetail/${store.id}`"
           v-for="store in storeList"
           :key="store.id"
@@ -68,6 +70,8 @@
         @current-change="handleCurrentChange"
         :hide-on-single-page="totalStores.length === 10 || totalStores.length < 10"
       />
+      </template>
+
     </WrapContainer>
   </div>
 </template>
@@ -81,12 +85,15 @@ import WrapContainer from '../../global/WrapContainer.vue';
 // search
 const keyword = ref('');
 const isSearch = ref(false);
+const isSearchLoading = ref(false);
 const storeList = ref([]);
 const totalStores = ref(0);
 const searchWord = async (word, page) => {
+  isSearchLoading.value = true;
   const totalStoreNum = await getStores({ q: word });
   totalStores.value = totalStoreNum.data;
   const storeData = await getStores({ q: word, _page: page });
+  isSearchLoading.value = false;
   storeList.value = storeData.data;
   isSearch.value = true;
 };
