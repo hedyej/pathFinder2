@@ -190,6 +190,7 @@ p {
   width: 56px;
   height: 56px;
   object-fit: cover;
+  object-position: 50% 50%;
   border-radius: 4px;
 }
 
@@ -211,7 +212,7 @@ h2{
 }
 
 .el-dialog {
-  max-height: 75vh;
+  max-height: 95vh;
   overflow-y: scroll;
 }
 

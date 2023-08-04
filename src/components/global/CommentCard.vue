@@ -5,13 +5,21 @@
         >
         <div class="d-flex mb-2" style="justify-content: space-between">
             <div class="d-flex">
-            <img :src="comment.comment.user.imgUrl" class="me-2 profileImg" />
-            <div>
-                <h4>{{ comment.comment.user.name }}</h4>
-                <p class="text-grey">
-                    {{ moment(comment.comment.createDate).format('YYYY-MM-DD') }}
-                </p>
-            </div>
+                <div  v-if="type==='userComment'" class="d-flex">
+                    <img :src="comment.comment.user.imgUrl" class="me-2 profileImg" />
+                    <div>
+                        <h4>{{ comment.comment.user.name }}</h4>
+                        <p class="text-grey">
+                            {{ moment(comment.comment.createDate).format('YYYY-MM-DD') }}
+                        </p>
+                    </div>
+                </div>
+                <div  v-else>
+                    <h4>{{ comment.comment.store.name }}</h4>
+                    <p class="text-grey">
+                        {{ moment(comment.comment.createDate).format('YYYY-MM-DD') }}
+                    </p>
+                </div>
             </div>
             <div class="card-light-tag" style="align-self: flex-start">
             <h5 style="margin-bottom: 0px">
@@ -41,13 +49,13 @@
 
         <span v-for="tag in comment.comment.advantages" :key="tag">
             <span v-if="tag.status">
-            <el-tag class="me-1" type="info">{{ tag.value }}</el-tag>
+            <el-tag class="me-1" type="info" disable-transitions>{{ tag.value }}</el-tag>
             </span>
         </span>
 
         <span v-for="tag in comment.comment.disAdvantages" :key="tag">
             <span v-if="tag.status">
-            <el-tag class="me-1" type="info">{{ tag.value }}</el-tag>
+            <el-tag class="me-1" type="info" disable-transitions>{{ tag.value }}</el-tag>
             </span>
         </span>
         <ActionBar :comment="comment.comment" v-if="isAction"></ActionBar>
@@ -62,7 +70,11 @@ import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
 import { storeToRefs } from 'pinia';
 import ActionBar from './ActionBar.vue';
 
-const comment = defineProps({ comment: Object, isAction: Boolean });
+const comment = defineProps({
+  comment: Object,
+  isAction: Boolean,
+  type: { default: 'userComment' },
+});
 
 // open detail modal
 const commentDetailStore = useCommentDetailStore();

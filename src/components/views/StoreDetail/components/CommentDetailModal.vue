@@ -1,6 +1,12 @@
 <template>
   <el-dialog v-model="isDetailOpen"  style="width: 90%; max-width: 600px"
-  :before-close="handleClose" class="el-dialog">
+  :before-close="handleClose" class="el-dialog" :show-close="false "
+  v-if="isDetailOpen" v-model:visible="isDetailOpen" lock-scroll align-center>
+  <template #header="{ close }" >
+      <div class="text-grey cursor-pointer" style="text-align: end;">
+        <font-awesome-icon :icon="['fas', 'xmark']" @click="close"/>
+      </div>
+    </template>
   <div>
     <div class="d-flex mb-2" style="justify-content: space-between">
       <div class="d-flex" >
@@ -38,13 +44,13 @@
 
       <span v-for="tag in commentDetail.advantages" :key="tag">
         <span v-if="tag.status">
-          <el-tag class="me-1" type="info">{{ tag.value }}</el-tag>
+          <el-tag class="me-1" type="info" disable-transitions>{{ tag.value }}</el-tag>
         </span>
       </span>
 
       <span v-for="tag in commentDetail.disAdvantages" :key="tag">
         <span v-if="tag.status">
-          <el-tag class="me-1" type="info">{{ tag.value }}</el-tag>
+          <el-tag class="me-1" type="info" disable-transitions>{{ tag.value }}</el-tag>
         </span>
       </span>
 
@@ -52,7 +58,9 @@
       <el-divider class="my-2" />
 
       <div class="d-flex mb-3 text-grey" v-for="reply in commentDetail.replys" :key="reply.id">
-        <img :src="reply.imgUrl" class="me-2 profileImg" />
+        <div style="width: 56px;height: 56px;" class="me-2">
+          <img :src="reply.imgUrl" class="profileImg" />
+        </div>
         <div style="flex-grow: 1" class="text-dark">
           <h4>{{ reply.name }}</h4>
           <p>{{ reply.content }}</p>
@@ -192,14 +200,7 @@ onMounted(async () => {
 </script>
 
 <style scoped lang="scss">
-.el-dialog > .el-dialog__header > .el-dialog__headerbtn > .el-icon  {
-
-fill:red !important;
-background-color: blue !important;
-
-}
-
-// .el-form-item__content >>>.el-select{
-//   // background-color: blue !important;
+// .el-dialog >>> .el-dialog__header >>> .el-dialog__headerbtn >>> .el-icon  {
+// background-color: blue !important;
 // }
 </style>

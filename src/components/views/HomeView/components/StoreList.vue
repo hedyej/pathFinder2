@@ -4,8 +4,9 @@
       <h1 class="text-center mb-4 mb-xl-5">
         <font-awesome-icon :icon="['fas', 'store']" class="text-primary me-3" />精選換宿店家
       </h1>
-
-      <el-row :gutter="20">
+      <el-main v-loading="isLoading" element-loading-background="rgba(255, 0, 0, 0)"
+      class="px-0" v-if="isLoading" style="height: 200px;"></el-main>
+      <el-row :gutter="20" v-else>
         <el-col :xs="24" :sm="8">
           <el-card class="me-3 text-center mb-3 mb-md-0" style="width: 100%">
             <div class="card-tag mb-4">
@@ -62,7 +63,8 @@
 import { ref, onMounted } from 'vue';
 import WrapContainer from '@/components/global/WrapContainer.vue';
 import { getStoresByComment } from '@/apis/store';
-// import { useLoadingStore } from '@/stores/useLoadingStore';
+
+const isLoading = ref(true);
 
 const descScoreList = ref([]);
 const fetchDescScoreList = async () => {
@@ -82,12 +84,10 @@ const fetchDesBenefitList = async () => {
   desBenefitList.value = data.splice(-3);
 };
 
-// const loadingStore = useLoadingStore();
 onMounted(async () => {
-  // loadingStore.setIsLoading();
   await fetchDescScoreList();
   await fetchAscWorkList();
   await fetchDesBenefitList();
-  // loadingStore.setIsLoading();
+  isLoading.value = false;
 });
 </script>

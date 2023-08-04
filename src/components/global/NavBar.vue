@@ -82,7 +82,7 @@ const checkCookieExpiration = () => {
   } else {
     logOut();
   }
-  // setTimeout(checkCookieExpiration, 1000);
+  setTimeout(checkCookieExpiration, 1000);
 };
 
 onMounted(async () => {

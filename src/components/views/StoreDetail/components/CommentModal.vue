@@ -1,7 +1,11 @@
 <template>
-  <el-dialog v-model="isOpen"    style="width: 90%; max-width: 600px;
-  overflow: hidden " :before-close="handleClose" >
-
+  <el-dialog v-model="isOpen"    style="width: 90%; max-width: 600px;"
+   :before-close="handleClose" :show-close="false" lock-scroll align-center>
+    <template #header="{ close }" >
+      <div class="text-grey cursor-pointer" style="text-align: end;">
+        <font-awesome-icon :icon="['fas', 'xmark']" @click="close"/>
+      </div>
+    </template>
   <div>
     <h2 class="text-dark">
       評論撰寫 <span class="text-grey">({{ modalPage }}/2)</span>
@@ -111,6 +115,7 @@ watch(anonymous, async () => {
           confirmButtonText: 'OK',
           cancelButtonText: '取消',
           type: 'warning',
+          showClose: false,
         },
       ).then(
         () => { anonymous.value = '匿名'; },
@@ -241,7 +246,7 @@ const submit = async () => {
 
 // close modal
 const handleClose = (done) => {
-  ElMessageBox.confirm('資料將不會保留，確定離開嗎？').then(() => {
+  ElMessageBox.confirm('資料將不會保留，確定離開嗎？', { showClose: false }).then(() => {
     done();
     if (formRef1.value) {
       formRef1.value.clearValidate();
