@@ -12,8 +12,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   (config) => config,
-  (error) => Promise.reject(error)
-  ,
+  (error) => Promise.reject(error),
 );
 
 instance.interceptors.response.use(
@@ -35,12 +34,7 @@ instance.interceptors.response.use(
           break;
 
         default:
-          ElMessage({
-            showClose: true,
-            message: '程式發生問題',
-            type: 'error',
-          });
-          errorMessageDisplayed = true;
+          console.log('程式發生問題;');
       }
     }
     if (!window.navigator.onLine && !errorMessageDisplayed) {

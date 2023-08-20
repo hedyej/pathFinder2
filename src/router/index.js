@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
+import { useLoadingStore } from '@/stores/useLoadingStore';
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -32,10 +33,17 @@ const router = createRouter({
   ],
 });
 
+router.beforeEach(() => {
+  const loadingStore = useLoadingStore();
+  loadingStore.setIsLoading();
+});
+
 router.afterEach((to, from) => {
   if (from.name !== 'storeDetail') {
     window.scrollTo(0, 0);
   }
+  const loadingStore = useLoadingStore();
+  loadingStore.setIsLoading();
 });
 
 export default router;

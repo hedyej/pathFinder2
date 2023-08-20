@@ -33,7 +33,3 @@ npm run build
 ```sh
 npm run lint
 ```
-# PathFinder-Web
-# pathFinder2
-# pathFinder2
-# pathFinder2
