@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap');
+
 $theme-color: (
   primary: #088f6a,
   accent: #f48c2b,
@@ -194,20 +196,19 @@ p {
   border-radius: 4px;
 }
 
-
-.hideScroll{
+.hideScroll {
   overflow: hidden;
 }
 
-h1{
+h1 {
   @media (max-width: 768px) {
-      font-size:32px
+    font-size: 32px;
   }
 }
 
-h2{
+h2 {
   @media (max-width: 768px) {
-      font-size:24px
+    font-size: 24px;
   }
 }
 
@@ -216,13 +217,14 @@ h2{
   overflow-y: scroll;
 }
 
-.check-tag{
+.check-tag {
   background: rgb(244, 244, 245);
-  color:rgb(144, 147, 153);
+  color: rgb(144, 147, 153);
 
-  &:hover, &:focus , &:active{
-    background: #F0F8F5 !important;
-    color: #088F6A !important;
+  &:hover,
+  &:focus,
+  &:active {
+    background: #f0f8f5 !important;
+    color: #088f6a !important;
   }
 }
-

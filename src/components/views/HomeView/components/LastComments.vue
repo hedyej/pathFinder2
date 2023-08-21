@@ -1,15 +1,24 @@
 <template>
   <section class="py-4 pb-xl-7">
     <WrapContainer>
-      <h1 class="text-center  mb-4 mb-xl-5">
+      <h1 class="text-center mb-3 mb-xl-5">
         <font-awesome-icon :icon="['fas', 'comment-dots']" class="text-primary me-3" />最新評論
       </h1>
-      <el-main v-loading="isLoading" element-loading-background="rgba(255, 0, 0, 0)"
-      class="px-0" v-if="isLoading" style="height: 200px;"></el-main>
+      <el-main
+        v-loading="isLoading"
+        element-loading-background="rgba(255, 0, 0, 0)"
+        class="px-0"
+        v-if="isLoading"
+        style="height: 200px"
+      ></el-main>
       <el-row :gutter="20" v-else>
         <el-col class="mb-2" :xs="24" :md="12" v-for="comment in lastComments" :key="comment.id">
-          <CommentCard :comment="comment" :isAction="false"
-          type="storeComment" style="height:100%;"></CommentCard>
+          <CommentCard
+            :comment="comment"
+            :isAction="false"
+            type="storeComment"
+            style="height: 100%"
+          ></CommentCard>
         </el-col>
       </el-row>
     </WrapContainer>

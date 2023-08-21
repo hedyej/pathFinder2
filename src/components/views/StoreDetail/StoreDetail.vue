@@ -48,7 +48,7 @@
               </p>
               <p class="mb-1">
                 <font-awesome-icon :icon="['fas', 'clock']" class="me-1" />平均工時：
-                {{ averageWorkHours}}
+                {{ averageWorkHours }}
                 <span>小時</span>
               </p>
               <p class="mb-1">
@@ -68,18 +68,21 @@
         </el-col>
 
         <el-col :xs="24" :md="16">
-          <div class="d-flex align-center" style="justify-content: space-between; ;height: 64px;">
+          <div class="d-flex align-center" style="justify-content: space-between; height: 64px">
             <p class="text-grey bold" style="margin: 0">{{ allComments.length }} 則評論</p>
-              <FilterSelection v-if="allComments.length"></FilterSelection>
+            <FilterSelection v-if="allComments.length"></FilterSelection>
           </div>
-          <template v-if=" allComments.length ">
-            <div  v-for="comment in comments" :key="comment.id">
+          <template v-if="allComments.length">
+            <div v-for="comment in comments" :key="comment.id">
               <CommentCard :comment="comment" :isAction="true"></CommentCard>
             </div>
           </template>
-          <div v-if=" allComments.length===0 " class="text-center text-grey py-3">
-            <font-awesome-icon :icon="['fas', 'face-sad-tear']"
-            style="width: 80;height: 80" class="mb-1"/>
+          <div v-if="allComments.length === 0" class="text-center text-grey py-3">
+            <font-awesome-icon
+              :icon="['fas', 'face-sad-tear']"
+              style="width: 80; height: 80"
+              class="mb-1"
+            />
             <h5>尚無評論</h5>
           </div>
 
@@ -117,8 +120,16 @@ loadingStore.setIsLoading();
 // commentStore
 const commentStore = useCommentStore();
 const {
-  comments, allComments, storeId, sorterInfo, form, type, isOpen,
-  averageWorkDays, averageWorkHours, averageScore,
+  comments,
+  allComments,
+  storeId,
+  sorterInfo,
+  form,
+  type,
+  isOpen,
+  averageWorkDays,
+  averageWorkHours,
+  averageScore,
 } = storeToRefs(commentStore);
 const { pageSorter, fetchAllComments } = commentStore;
 
@@ -152,6 +163,7 @@ if (route.params.id) {
 // change page
 const handleCurrentChange = async (page) => {
   await pageSorter(sorterInfo.value.nowType, page, sorterInfo.value.nowSorter);
+  window.scrollTo(0, 0);
 };
 
 // onMounted
@@ -161,5 +173,4 @@ onMounted(async () => {
   await pageSorter('createDate', 1, 'desc');
   loadingStore.setIsLoading();
 });
-
 </script>

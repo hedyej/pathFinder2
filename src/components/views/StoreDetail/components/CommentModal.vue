@@ -1,78 +1,95 @@
 <template>
-  <el-dialog v-model="isOpen"    style="width: 90%; max-width: 600px;"
-   :before-close="handleClose" :show-close="false" lock-scroll align-center>
-    <template #header="{ close }" >
-      <div class="text-grey cursor-pointer" style="text-align: end;">
-        <font-awesome-icon :icon="['fas', 'xmark']" @click="close"/>
+  <el-dialog
+    v-model="isOpen"
+    style="width: 90%; max-width: 600px"
+    :before-close="handleClose"
+    :show-close="false"
+    lock-scroll
+    align-center
+  >
+    <template #header="{ close }">
+      <div class="text-grey cursor-pointer p" style="text-align: end">
+        <font-awesome-icon :icon="['fas', 'xmark']" @click="close" style="font-size: 20px" />
       </div>
     </template>
-  <div>
-    <h2 class="text-dark">
-      評論撰寫 <span class="text-grey">({{ modalPage }}/2)</span>
-    </h2>
-    <div v-if="modalPage === 1">
-      <h5 class="mb-4">填寫基本資訊</h5>
-      <el-form label-position="top" label-width="100px" :model="form" ref="formRef1" :rules="rule1">
-        <el-form-item label="評論身份" prop="anonymous">
-          <el-radio-group v-model="anonymous">
-            <el-radio-button label="匿名" />
-            <el-radio-button label="本人" />
-          </el-radio-group>
-        </el-form-item>
+    <div style="margin-top: -20px">
+      <h2 class="text-dark">
+        評論撰寫 <span class="text-grey">({{ modalPage }}/2)</span>
+      </h2>
+      <div v-if="modalPage === 1">
+        <h5 class="mb-4">填寫基本資訊</h5>
+        <el-form
+          label-position="top"
+          label-width="100px"
+          :model="form"
+          ref="formRef1"
+          :rules="rule1"
+        >
+          <el-form-item label="評論身份" prop="anonymous">
+            <el-radio-group v-model="anonymous">
+              <el-radio-button label="匿名" />
+              <el-radio-button label="本人" />
+            </el-radio-group>
+          </el-form-item>
 
-        <el-form-item label="換宿年份" prop="hoildayYear">
-          <el-select v-model="form.hoildayYear" placeholder="選擇年份" style="width: 240px">
-            <el-option v-for="year in lastYears" :key="year" :label="year" :value="year" />
-          </el-select>
-        </el-form-item>
+          <el-form-item label="換宿年份" prop="hoildayYear">
+            <el-select v-model="form.hoildayYear" placeholder="選擇年份" style="width: 240px">
+              <el-option v-for="year in lastYears" :key="year" :label="year" :value="year" />
+            </el-select>
+          </el-form-item>
 
-        <el-form-item label="換宿周數" prop="workDays">
-          <el-input-number v-model.number="form.workDays" style="width: 240px" :min="0" />
-        </el-form-item>
+          <el-form-item label="換宿周數" prop="workDays">
+            <el-input-number v-model.number="form.workDays" style="width: 240px" :min="0" />
+          </el-form-item>
 
-        <el-form-item label=" 換宿日工時" prop="workHours">
-          <el-input-number v-model.number="form.workHours" style="width: 240px" :min="0" />
-        </el-form-item>
-      </el-form>
+          <el-form-item label=" 換宿日工時" prop="workHours">
+            <el-input-number v-model.number="form.workHours" style="width: 240px" :min="0" />
+          </el-form-item>
+        </el-form>
+      </div>
+
+      <div v-else>
+        <h5 class="mb-4">心得分享</h5>
+        <el-form
+          label-position="top"
+          label-width="100px"
+          :model="form"
+          ref="formRef2"
+          :rules="rule2"
+        >
+          <el-form-item label="優點福利">
+            <el-check-tag
+              :checked="advantage.status"
+              @change="changeAdvantage(advantage)"
+              v-for="advantage in form.advantages"
+              :key="advantage.value"
+              class="me-1 mb-1 check-tag"
+              >{{ advantage.value }}</el-check-tag
+            >
+          </el-form-item>
+          <el-form-item label="有待改善">
+            <el-check-tag
+              :checked="disAdvantage.status"
+              @change="changeDisadvantage(disAdvantage)"
+              v-for="disAdvantage in form.disAdvantages"
+              :key="disAdvantage.value"
+              class="me-1 mb-1 check-tag"
+              >{{ disAdvantage.value }}</el-check-tag
+            >
+          </el-form-item>
+          <el-form-item label="整體評分" prop="score">
+            <el-rate v-model="form.score" size="large"
+          /></el-form-item>
+          <el-form-item label="換宿內容分享" prop="description">
+            <el-input
+              v-model="form.description"
+              :rows="5"
+              type="textarea"
+              placeholder="分享你的換宿生活，有關店家環境、工作狀況和換宿生活等"
+          /></el-form-item>
+        </el-form>
+      </div>
     </div>
-
-    <div v-else>
-      <h5 class="mb-4">心得分享</h5>
-      <el-form label-position="top" label-width="100px" :model="form" ref="formRef2" :rules="rule2">
-        <el-form-item label="優點福利">
-          <el-check-tag
-            :checked="advantage.status"
-            @change="changeAdvantage(advantage)"
-            v-for="advantage in form.advantages"
-            :key="advantage.value"
-            class="me-1 mb-1 check-tag"
-            >{{ advantage.value }}</el-check-tag
-          >
-        </el-form-item>
-        <el-form-item label="有待改善">
-          <el-check-tag
-            :checked="disAdvantage.status"
-            @change="changeDisadvantage(disAdvantage)"
-            v-for="disAdvantage in form.disAdvantages"
-            :key="disAdvantage.value"
-            class="me-1 mb-1 check-tag"
-            >{{ disAdvantage.value }}</el-check-tag
-          >
-        </el-form-item>
-        <el-form-item label="整體評分" prop="score">
-          <el-rate v-model="form.score" size="large"
-        /></el-form-item>
-        <el-form-item label="換宿內容分享" prop="description">
-          <el-input
-            v-model="form.description"
-            :rows="5"
-            type="textarea"
-            placeholder="分享你的換宿生活，有關店家環境、工作狀況和換宿生活等"
-        /></el-form-item>
-      </el-form>
-    </div>
-  </div>
-
     <template #footer>
       <div v-if="modalPage === 1">
         <el-button type="primary" @click="toNextPage"> 下一頁 </el-button>
@@ -108,18 +125,14 @@ watch(anonymous, async () => {
     form.value.userId = 0;
   } else if (anonymous.value === '本人') {
     if (user.value.id === 0) {
-      ElMessageBox.confirm(
-        '尚未登入',
-        '請先登入帳號',
-        {
-          confirmButtonText: 'OK',
-          cancelButtonText: '取消',
-          type: 'warning',
-          showClose: false,
-        },
-      ).then(
-        () => { anonymous.value = '匿名'; },
-      );
+      ElMessageBox.confirm('尚未登入', '請先登入帳號', {
+        confirmButtonText: 'OK',
+        cancelButtonText: '取消',
+        type: 'warning',
+        showClose: false,
+      }).then(() => {
+        anonymous.value = '匿名';
+      });
     } else {
       form.value.userId = user.value.id;
     }

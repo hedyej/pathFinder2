@@ -3,8 +3,7 @@
     <WrapContainer>
       <el-card class="search-card mb-3">
         <h1 class="mb-3">搜尋</h1>
-
-        <el-form :inline="true" size="large" style="margin-bottom: -24px; ">
+        <el-form :inline="true" size="large" style="margin-bottom: -24px">
           <el-form-item style="width: 100%; max-width: 400px">
             <el-input
               v-model="keyword"
@@ -14,64 +13,78 @@
             />
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="searchWord(keyword)" tabindex="0">搜尋</el-button>
+            <el-button
+              type="primary"
+              @click="searchWord(keyword)"
+              tabindex="0"
+              class="btn-moved"
+              :disabled="!keyword"
+              >搜尋</el-button
+            >
             <el-button type="secondary" @click="reset" v-if="isSearch">重置</el-button>
           </el-form-item>
         </el-form>
       </el-card>
-      <el-main v-loading="isSearchLoading" element-loading-background="rgba(255, 0, 0, 0)"
-      class="px-0" v-if="isSearchLoading" style="height: 200px;"></el-main>
+      <el-main
+        v-loading="isSearchLoading"
+        element-loading-background="rgba(255, 0, 0, 0)"
+        class="px-0"
+        v-if="isSearchLoading"
+        style="height: 200px"
+      ></el-main>
       <template v-else>
         <div v-if="storeList.length > 0">
           <router-link
-          :to="`/storeDetail/${store.id}`"
-          v-for="store in storeList"
-          :key="store.id"
-          class="router-link"
-        >
-          <el-card class="mb-3">
-            <el-row gutter="16" class="align-center">
-              <el-col :xs="0" :md="1"></el-col>
-              <el-col :xs="24" :md="18">
-                <div class="d-flex align-center">
-                  <div class="rounded block me-3">
-                    <el-image
-                      style="width: 100px; height: 100px"
-                      :src="store.imgUrl"
-                      fit="cover"
-                      class="rounded"
-                    />
-                  </div>
+            :to="`/storeDetail/${store.id}`"
+            v-for="store in storeList"
+            :key="store.id"
+            class="router-link"
+          >
+            <el-card class="mb-3">
+              <el-row gutter="16" class="align-center">
+                <el-col :xs="0" :md="1"></el-col>
+                <el-col :xs="24" :md="18">
+                  <div class="d-flex align-center">
+                    <div class="rounded block me-3">
+                      <el-image
+                        style="width: 100px; height: 100px"
+                        :src="store.imgUrl"
+                        fit="cover"
+                        class="rounded"
+                      />
+                    </div>
 
-                  <div>
-                    <h4 class="mb-1">{{ store.name }}</h4>
-                    <p class="text-grey mb-1">{{ store.address }}</p>
-                    <p class="text-grey mb-1">{{ store.tel }}</p>
+                    <div>
+                      <h4 class="mb-1">{{ store.name }}</h4>
+                      <p class="text-grey mb-1">{{ store.address }}</p>
+                      <p class="text-grey mb-1">{{ store.tel }}</p>
+                    </div>
                   </div>
-                </div>
-              </el-col>
-            </el-row>
-          </el-card>
-        </router-link>
-      </div>
-      <div v-else>
-        <div v-if="isSearch" class="text-center">
-          <div class="text-center text-grey py-3">
-            <font-awesome-icon :icon="['fas', 'face-sad-tear']"
-            style="width: 80;height: 80" class="mb-1"/>
-            <h5>查無相關結果</h5>
+                </el-col>
+              </el-row>
+            </el-card>
+          </router-link>
+        </div>
+        <div v-else>
+          <div v-if="isSearch" class="text-center">
+            <div class="text-center text-grey py-3">
+              <font-awesome-icon
+                :icon="['fas', 'face-sad-tear']"
+                style="width: 80; height: 80"
+                class="mb-1"
+              />
+              <h5>查無相關結果</h5>
+            </div>
           </div>
         </div>
-      </div>
-      <el-pagination
-        background
-        layout="prev, pager, next"
-        :total="totalStores.length"
-        @current-change="handleCurrentChange"
-        :hide-on-single-page="totalStores.length === 10 || totalStores.length < 10"
-      />
+        <el-pagination
+          background
+          layout="prev, pager, next"
+          :total="totalStores.length"
+          @current-change="handleCurrentChange"
+          :hide-on-single-page="totalStores.length === 10 || totalStores.length < 10"
+        />
       </template>
-
     </WrapContainer>
   </div>
 </template>
@@ -135,6 +148,12 @@ const reset = () => {
   padding: 20px 0;
   @media (min-width: 768px) {
     background-image: url('../../../assets/imgs/SearchStore/searchBg.png');
+  }
+}
+
+.btn-moved {
+  @media (max-width: 600px) {
+    margin-left: 24px;
   }
 }
 </style>

@@ -1,12 +1,9 @@
 <template>
-
-    <el-main v-loading.fullscreen.lock="loadingStore.isLoading"
-    class="px-0 app-style pagewrap pb-0">
-      <NavBar class="top" />
-      <RouterView class="main" />
-      <FooterSection />
-    </el-main>
-
+  <el-main v-loading.fullscreen.lock="loadingStore.isLoading" class="px-0 app-style pagewrap pb-0">
+    <NavBar class="top" />
+    <RouterView class="main" />
+    <FooterSection />
+  </el-main>
 </template>
 
 <script setup>
@@ -26,7 +23,7 @@ const loadingStore = useLoadingStore();
 
 .main {
   flex-grow: 1;
-  margin-top: 100px;
+  margin-top: 80px;
   margin-bottom: 20px;
 }
 
@@ -34,6 +31,6 @@ const loadingStore = useLoadingStore();
   position: fixed;
   top: 0px;
   width: 100%;
-  z-index: 1500;
+  z-index: 2000;
 }
 </style>

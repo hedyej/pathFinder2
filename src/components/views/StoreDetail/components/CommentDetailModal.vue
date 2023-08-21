@@ -1,27 +1,38 @@
 <template>
-  <el-dialog v-model="isDetailOpen"  style="width: 90%; max-width: 600px"
-  :before-close="handleClose" class="el-dialog" :show-close="false "
-  v-if="isDetailOpen" v-model:visible="isDetailOpen" lock-scroll align-center>
-  <template #header="{ close }" >
-      <div class="text-grey cursor-pointer" style="text-align: end;">
-        <font-awesome-icon :icon="['fas', 'xmark']" @click="close"/>
+  <el-dialog
+    v-model="isDetailOpen"
+    style="width: 90%; max-width: 600px"
+    :before-close="handleClose"
+    class="el-dialog"
+    :show-close="false"
+    v-if="isDetailOpen"
+    v-model:visible="isDetailOpen"
+    lock-scroll
+    align-center
+  >
+    <template #header="{ close }">
+      <div class="text-grey cursor-pointer" style="text-align: end">
+        <font-awesome-icon :icon="['fas', 'xmark']" @click="close" style="font-size: 20px" />
       </div>
     </template>
-  <div>
-    <div class="d-flex mb-2" style="justify-content: space-between">
-      <div class="d-flex" >
-        <img v-if="commentDetail.user?.imgUrl"
-        :src="commentDetail.user.imgUrl" class="me-2 profileImg" />
-        <div class="text-grey">
-          <h4 class="text-dark" v-if="commentDetail.user.name ">{{commentDetail.user.name }}</h4>
-          <p>{{ moment(commentDetail.createDate).format('YYYY-MM-DD') }}</p>
+    <div>
+      <div class="d-flex mb-2" style="justify-content: space-between; margin-top: -20px">
+        <div class="d-flex">
+          <img
+            v-if="commentDetail.user?.imgUrl"
+            :src="commentDetail.user.imgUrl"
+            class="me-2 profileImg"
+          />
+          <div class="text-grey">
+            <h4 class="text-dark" v-if="commentDetail.user.name">{{ commentDetail.user.name }}</h4>
+            <p>{{ moment(commentDetail.createDate).format('YYYY-MM-DD') }}</p>
+          </div>
         </div>
-      </div>
-      <div class="card-light-tag" style="align-self: flex-start">
-        <h5 style="margin-bottom: 0px">
-          <font-awesome-icon :icon="['fas', 'star']" class="me-1" />{{ commentDetail.score }} 分
-        </h5>
-      </div>
+        <div class="card-light-tag" style="align-self: flex-start">
+          <h5 style="margin-bottom: 0px">
+            <font-awesome-icon :icon="['fas', 'star']" class="me-1" />{{ commentDetail.score }} 分
+          </h5>
+        </div>
       </div>
       <div>
         <p class="text-grey">
@@ -44,7 +55,9 @@
 
       <span v-for="tag in commentDetail.advantages" :key="tag">
         <span v-if="tag.status">
-          <el-tag class="me-1" type="info" disable-transitions>{{ tag.value }}</el-tag>
+          <el-tag class="me-1" type="info" disable-transitions style="margin-bottom: 4px">{{
+            tag.value
+          }}</el-tag>
         </span>
       </span>
 
@@ -58,7 +71,7 @@
       <el-divider class="my-2" />
 
       <div class="d-flex mb-3 text-grey" v-for="reply in commentDetail.replys" :key="reply.id">
-        <div style="width: 56px;height: 56px;" class="me-2">
+        <div style="width: 56px; height: 56px" class="me-2">
           <img :src="reply.imgUrl" class="profileImg" />
         </div>
         <div style="flex-grow: 1" class="text-dark">
@@ -68,7 +81,7 @@
         </div>
 
         <div>
-          <el-dropdown trigger="click" v-if="reply.userId===user.id && user.id!==0">
+          <el-dropdown trigger="click" v-if="reply.userId === user.id && user.id !== 0">
             <span>
               <div style="height: 22px; width: 29px" class="d-flex align-center">
                 <font-awesome-icon :icon="['fas', 'ellipsis-vertical']" />
@@ -172,11 +185,7 @@ const handleClose = async () => {
   const commentStore = useCommentStore();
   const { pageSorter } = commentStore;
   const { sorterInfo } = storeToRefs(commentStore);
-  await pageSorter(
-    sorterInfo.value.nowType,
-    sorterInfo.value.nowPage,
-    sorterInfo.value.nowSorter,
-  );
+  await pageSorter(sorterInfo.value.nowType, sorterInfo.value.nowPage, sorterInfo.value.nowSorter);
   router.push(`/storeDetail/${storeId}`);
 };
 

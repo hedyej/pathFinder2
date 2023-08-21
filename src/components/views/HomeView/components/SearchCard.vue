@@ -1,11 +1,17 @@
 <template>
-  <main style="background: #fff; padding-top: 120px" class="pb-4 pb-xl-7">
+  <main style="background: #fff; padding-top: 80px" class="pb-4 pb-xl-7">
     <WrapContainer>
       <el-card class="search-card mb-3 text-center">
-        <img src="@/assets/imgs/Home/display-text-xs.png"
-        style="margin-top: -20px" class="hidden-md-and-up"/>
-        <img src="@/assets/imgs/Home/display-text.png"
-        class="hidden-sm-and-down" style="margin-top: -20px"/>
+        <img
+          src="@/assets/imgs/Home/display-text-xs.png"
+          style="margin-top: -20px"
+          class="hidden-md-and-up"
+        />
+        <img
+          src="@/assets/imgs/Home/display-text.png"
+          class="hidden-sm-and-down"
+          style="margin-top: -20px"
+        />
 
         <h2 class="mb-3 text-grey">台灣打工換宿經驗分享平台</h2>
 
@@ -19,7 +25,14 @@
             />
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" tabindex="0" @click="searchWord(keyword)">搜尋</el-button>
+            <el-button
+              type="primary"
+              tabindex="0"
+              @click="searchWord(keyword)"
+              class="btn-moved"
+              :disabled="!keyword"
+              >搜尋</el-button
+            >
           </el-form-item>
         </el-form>
       </el-card>
@@ -52,6 +65,12 @@ const searchWord = (word) => {
   padding: 64px 0;
   @media (min-width: 768px) {
     background-image: url('@/assets/imgs/Home/display-bg.png');
+  }
+}
+
+.btn-moved {
+  @media (max-width: 600px) {
+    margin-left: 24px;
   }
 }
 </style>
