@@ -1,5 +1,5 @@
 <template>
-  <section class="py-4 pb-xl-7">
+  <section class="py-4 py-xl-7">
     <WrapContainer>
       <h1 class="text-center mb-3 mb-xl-5">
         <font-awesome-icon :icon="['fas', 'comment-dots']" class="text-primary me-3" />最新評論
