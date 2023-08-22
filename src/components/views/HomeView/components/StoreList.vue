@@ -9,7 +9,7 @@
         element-loading-background="rgba(255, 0, 0, 0)"
         class="px-0"
         v-if="isLoading"
-        style="height: 200px"
+        style="height: 200px; z-index: 500"
       ></el-main>
       <el-row :gutter="20" v-else>
         <el-col :xs="24" :sm="8">

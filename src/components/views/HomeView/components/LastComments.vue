@@ -9,7 +9,7 @@
         element-loading-background="rgba(255, 0, 0, 0)"
         class="px-0"
         v-if="isLoading"
-        style="height: 200px"
+        style="height: 200px; z-index: 500"
       ></el-main>
       <el-row :gutter="20" v-else>
         <el-col class="mb-2" :xs="24" :md="12" v-for="comment in lastComments" :key="comment.id">

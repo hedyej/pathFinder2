@@ -153,7 +153,7 @@ const reset = () => {
 
 .btn-moved {
   @media (max-width: 600px) {
-    margin-left: 24px;
+    margin-left: 16px;
   }
 }
 </style>
