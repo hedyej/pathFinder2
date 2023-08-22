@@ -7,7 +7,6 @@
     :show-close="false"
     v-if="isDetailOpen"
     v-model:visible="isDetailOpen"
-    lock-scroll
     align-center
   >
     <template #header="{ close }">

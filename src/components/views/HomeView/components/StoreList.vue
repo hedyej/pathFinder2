@@ -1,5 +1,5 @@
 <template>
-  <section style="background: #f0f8f5" class="py-4 py-xl-7">
+  <section style="background: #f0f8f5" class="py-4 py-xl-5">
     <WrapContainer>
       <h1 class="text-center mb-3 mb-xl-5">
         <font-awesome-icon :icon="['fas', 'store']" class="text-primary me-3" />精選換宿店家
@@ -19,9 +19,9 @@
             </div>
 
             <h5 class="mb-1" v-for="(item, index) in descScoreList" :key="item.store.id">
-              <span class="me-2 text-accent">{{ index + 1 }}</span>
               <router-link :to="`/storeDetail/${item.store.id}`" class="router-link text-dark">
-                <span class="text-left" style="width: 200px">{{ item.store.name }}</span>
+                <span class="storeListNum">{{ index + 1 }}</span>
+                <span class="storeListName">{{ item.store.name }}</span>
               </router-link>
             </h5>
 
@@ -35,9 +35,9 @@
             </div>
 
             <h5 class="mb-1" v-for="(item, index) in ascWorkList" :key="item.store.id">
-              <span class="me-2 text-accent">{{ index + 1 }}</span>
               <router-link :to="`/storeDetail/${item.store.id}`" class="router-link text-dark">
-                <span class="text-left" style="width: 200px">{{ item.store.name }} </span>
+                <span class="storeListNum">{{ index + 1 }}</span>
+                <span class="storeListName">{{ item.store.name }} </span>
               </router-link>
             </h5>
 
@@ -51,9 +51,9 @@
             </div>
 
             <h5 class="mb-1" v-for="(item, index) in desBenefitList" :key="item.store.id">
-              <span class="me-2 text-accent">{{ index + 1 }}</span>
               <router-link :to="`/storeDetail/${item.store.id}`" class="router-link text-dark">
-                <span class="text-left" style="width: 200px">{{ item.store.name }}</span>
+                <span class="storeListNum">{{ index + 1 }}</span>
+                <span class="storeListName">{{ item.store.name }}</span>
               </router-link>
             </h5>
 
@@ -100,3 +100,18 @@ onMounted(async () => {
   isLoading.value = false;
 });
 </script>
+
+<style scoped>
+.storeListNum {
+  display: inline-block;
+  width: 24px;
+  text-align: left;
+  color: #f48c2b;
+}
+
+.storeListName {
+  display: inline-block;
+  width: 100px;
+  text-align: left;
+}
+</style>

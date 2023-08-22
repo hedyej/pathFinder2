@@ -1,5 +1,5 @@
 <template>
-  <section style="background: #f0f8f5" class="pt-4 pt-xl-7">
+  <section style="background: #f0f8f5" class="pt-4 pt-xl-5">
     <WrapContainer>
       <el-row class="align-center">
         <el-col :xs="0" :md="2"></el-col>

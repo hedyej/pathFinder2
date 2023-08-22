@@ -4,8 +4,8 @@
     style="width: 90%; max-width: 600px"
     :before-close="handleClose"
     :show-close="false"
-    lock-scroll
     align-center
+    class="el-dialog"
   >
     <template #header="{ close }">
       <div class="text-grey cursor-pointer p" style="text-align: end">
