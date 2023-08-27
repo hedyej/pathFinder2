@@ -2,8 +2,11 @@ import { defineStore, storeToRefs } from 'pinia';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import { useCommentDetailStore } from '@/stores/useCommentDetailStore';
 import {
-  getAllComments, createComment, updateComment,
-  deleteComment, getNowComments,
+  getAllComments,
+  createComment,
+  updateComment,
+  deleteComment,
+  getNowComments,
 } from '@/apis/comment';
 
 export const useCommentStore = defineStore('comment', {
@@ -28,7 +31,7 @@ export const useCommentStore = defineStore('comment', {
       id: 0,
       storeId: 0,
       userId: 0,
-      anonymous: true,
+      anonymous: '匿名',
       createDate: 0,
       workHours: 0,
       hoildayYear: 2023,
@@ -120,7 +123,7 @@ export const useCommentStore = defineStore('comment', {
         id: 0,
         storeId: 0,
         userId: 0,
-        anonymous: true,
+        anonymous: '匿名',
         createDate: 0,
         workHours: 0,
         hoildayYear: 2023,
@@ -196,7 +199,9 @@ export const useCommentStore = defineStore('comment', {
         this.sorterInfo.nowSorter,
       );
       const commentDetailStore = useCommentDetailStore();
-      await commentDetailStore.fetchComment();
+      if (commentDetailStore.isDetailOpen) {
+        await commentDetailStore.fetchComment();
+      }
       await this.fetchAllComments();
       await this.closeModal();
     },
@@ -236,7 +241,6 @@ export const useCommentStore = defineStore('comment', {
 
           const commentDetailStore = useCommentDetailStore();
           const { isDetailOpen } = storeToRefs(commentDetailStore);
-
           isDetailOpen.value = false;
         },
       });

@@ -47,7 +47,7 @@ const users = ref([]);
 const handleupdateUser = async () => {
   const isSameUser = users.value.data.filter((item) => item.id === user.value.id).length;
   if (isSameUser) {
-    updateUser(user.value.id, user.value);
+    await updateUser(user.value.id, user.value);
   } else {
     await createUser(user.value);
     users.value = await getUsers();
@@ -77,20 +77,20 @@ const logOut = () => {
   Cookies.remove('login');
 };
 
-const checkCookieExpiration = () => {
+const checkCookieExpiration = async () => {
   if (Cookies.get('login')) {
     const userInCookie = Cookies.get('login');
     user.value = JSON.parse(userInCookie);
-    handleupdateUser();
+    await handleupdateUser();
   } else {
-    logOut();
+    await logOut();
   }
   setTimeout(checkCookieExpiration, 1000);
 };
 
 onMounted(async () => {
   users.value = await getUsers();
-  checkCookieExpiration();
+  await checkCookieExpiration();
 });
 </script>
 

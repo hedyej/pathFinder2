@@ -1,8 +1,6 @@
 import axios from 'axios';
-import { useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus';
 
-const router = useRouter();
 let errorMessageDisplayed = false;
 
 const instance = axios.create({
@@ -18,25 +16,6 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response && !errorMessageDisplayed) {
-      switch (error.response.status) {
-        case 404:
-          router.push({ name: '404' });
-          break;
-
-        case 500:
-          ElMessage({
-            showClose: true,
-            message: '程式發生問題',
-            type: 'error',
-          });
-          errorMessageDisplayed = true;
-          break;
-
-        default:
-          console.log('程式發生問題;');
-      }
-    }
     if (!window.navigator.onLine && !errorMessageDisplayed) {
       ElMessage({
         showClose: true,

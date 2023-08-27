@@ -26,7 +26,7 @@
           :rules="rule1"
         >
           <el-form-item label="評論身份" prop="anonymous">
-            <el-radio-group v-model="anonymous">
+            <el-radio-group v-model="form.anonymous">
               <el-radio-button label="匿名" />
               <el-radio-button label="本人" />
             </el-radio-group>
@@ -119,11 +119,10 @@ const { modalPage, form, isOpen } = storeToRefs(commentStore);
 const { submitComment, closeModal } = commentStore;
 
 // anonymous
-const anonymous = ref('匿名');
-watch(anonymous, async () => {
-  if (anonymous.value === '匿名') {
+watch(form.value, async () => {
+  if (form.value.anonymous === '匿名') {
     form.value.userId = 0;
-  } else if (anonymous.value === '本人') {
+  } else if (form.value.anonymous === '本人') {
     if (user.value.id === 0) {
       ElMessageBox.confirm('尚未登入', '請先登入帳號', {
         confirmButtonText: 'OK',
@@ -131,7 +130,7 @@ watch(anonymous, async () => {
         type: 'warning',
         showClose: false,
       }).then(() => {
-        anonymous.value = '匿名';
+        form.value.anonymous = '匿名';
       });
     } else {
       form.value.userId = user.value.id;

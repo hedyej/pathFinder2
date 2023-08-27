@@ -9,13 +9,13 @@
       }}
     </span>
 
-    <el-dropdown class="dropdown" v-if="comment.comment.userId === user.id && user.id!==0">
+    <el-dropdown class="dropdown" v-if="comment.comment.userId === user.id && user.id !== 0">
       <span>
         <div style="height: 22px; width: 29px" class="d-flex align-center">
           <font-awesome-icon :icon="['fas', 'ellipsis-vertical']" />
         </div>
       </span>
-      <template #dropdown >
+      <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item @click="editComment(comment.comment)">編輯</el-dropdown-item>
           <el-dropdown-item @click="deleteAction(comment.comment.id)">刪除</el-dropdown-item>
@@ -28,7 +28,7 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { defineProps } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { useCommentStore } from '@/stores/useCommentStore';
 import { useUserStore } from '@/stores/useUserStore';
 
@@ -55,8 +55,9 @@ const editComment = (pastForm) => {
 
 // delete
 const router = useRouter();
+const route = useRoute();
 const deleteAction = async (id) => {
   await handleDeleteComment(id);
-  router.push(`/storeDetail/${storeId.value}`);
+  if (Object.keys(route.query).length) router.push(`/storeDetail/${storeId.value}`);
 };
 </script>

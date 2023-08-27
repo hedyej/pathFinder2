@@ -206,9 +206,3 @@ onMounted(async () => {
   }
 });
 </script>
-
-<style scoped lang="scss">
-// .el-dialog >>> .el-dialog__header >>> .el-dialog__headerbtn >>> .el-icon  {
-// background-color: blue !important;
-// }
-</style>
